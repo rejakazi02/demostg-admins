@@ -19,11 +19,7 @@ const childrenRoutes: Routes = [
 
 
   },
-  {
-    path: 'theme',
-    loadChildren: () =>
-      import('./views/theme/theme.module').then((m) => m.ThemeModule)
-  },
+
   {
     path: 'base',
     loadChildren: () =>
@@ -70,6 +66,37 @@ const childrenRoutes: Routes = [
       import('./containers/default-layout/profile/profile.module').then((m) => m.ProfileModule)
   },
 ]
+const adminChildrenRoutes: Routes = [
+
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
+
+
+  },
+  {
+    path: 'student',
+    loadChildren: () =>
+      import('./views/student/student.module').then((m) => m.StudentModule)
+
+
+  },
+  
+ 
+ 
+  
+ 
+ 
+ 
+  
+  
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./containers/default-layout/profile/profile.module').then((m) => m.ProfileModule)
+  },
+]
 
 
 
@@ -86,23 +113,15 @@ const routes: Routes = [
       import('./auth/auth.module').then((m) => m.AuthModule)
   },
 
+ 
+  
   {
     path: '',
-    component: DefaultLayoutComponent,
-    children: childrenRoutes,
+    component: AdminComponent,
+    children: adminChildrenRoutes,
     canActivate: [AuthGuard],
     data: {
       title: 'Home'
-    },
-
-  },
-  {
-    path: 'adminn',
-    component: AdminComponent,
-    // children: childrenRoutes,
-    canActivate: [AuthGuard],
-    data: {
-      title: 'Admin Home'
     },
 
   },

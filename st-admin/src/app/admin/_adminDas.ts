@@ -1,28 +1,29 @@
 import { INavData } from '@coreui/angular';
+import { MatIcon } from '@angular/material/icon';
 
 export const navItems: INavData[] = [
-//   {
-//     name: 'Dashboard',
-//     url: '/dashboard',
-//     iconComponent: { name: 'cil-speedometer' },
-//     badge: {
-//       color: 'info',
-//       text: 'NEW'
-//     }
-//   },
+  {
+    name: 'Dashboard',
+    url: '/dashboard',
+    iconComponent: { name: 'cil-speedometer' },
+    badge: {
+      color: 'info',
+      text: 'NEW'
+    }
+  },
 
   {
-    name: 'Institute',
-    url: '/base',
-    iconComponent: { name: 'cil-library-building' },
+    name: 'Student',
+    url: '/student',
+    iconComponent: { name: 'cil-user' },
     children: [
       {
-        name: 'Institute Lists',
-        url: '/base/instList'
+        name: 'Student Add',
+        url: '/student/studentAdd'
       },
       {
-        name: 'Add Institute',
-        url: '/base/instituteAdd'
+        name: 'Student List ',
+        url: '/student/studentList'
       },
 
       // {
@@ -32,25 +33,80 @@ export const navItems: INavData[] = [
 
     ]
   },
-  // {
-  //   name: 'Buttons',
-  //   url: '/buttons',
-  //   iconComponent: { name: 'cil-cursor' },
-  //   children: [
-  //     {
-  //       name: 'Buttons',
-  //       url: '/buttons/buttons'
-  //     },
-  //     {
-  //       name: 'Button groups',
-  //       url: '/buttons/button-groups'
-  //     },
-  //     {
-  //       name: 'Dropdowns',
-  //       url: '/buttons/dropdowns'
-  //     },
-  //   ]
-  // },
+  {
+    name: 'Teachers',
+    url: '/student',
+    iconComponent: { name: 'cil-people' },
+    children: [
+      {
+        name: 'Teachers Add',
+        url: '/student/studentAdd'
+      },
+      {
+        name: 'Teachers List ',
+        url: '/student/studentList'
+      },
+
+      // {
+      //   name: 'Tables',
+      //   url: '/base/tables'
+      // },
+
+    ]
+  },
+  {
+    name: 'Parents',
+    url: '/student',
+    iconComponent: { name: 'cil-wc' },
+    children: [
+      {
+        name: 'Parents Add',
+        url: '/student/studentAdd'
+      },
+      {
+        name: 'Parents List ',
+        url: '/student/studentList'
+      },
+
+      // {
+      //   name: 'Tables',
+      //   url: '/base/tables'
+      // },
+
+    ]
+  },
+  {
+    name: 'Class',
+    url: '/buttons',
+    iconComponent: { name: 'cil-school' },
+    children: [
+      {
+        name: 'Class Add',
+        url: '/buttons/buttons'
+      },
+      {
+        name: 'Class List',
+        url: '/buttons/button-groups'
+      },
+      
+    ]
+  },
+  {
+    name: 'Subject',
+    url: '/buttons',
+    iconComponent: { name: 'cil-book' },
+    children: [
+      {
+        name: 'Subject Add',
+        url: '/buttons/buttons'
+      },
+      {
+        name: 'Subject List',
+        url: '/buttons/button-groups'
+      },
+      
+    ]
+  },
   // {
   //   name: 'Forms',
   //   url: '/forms',

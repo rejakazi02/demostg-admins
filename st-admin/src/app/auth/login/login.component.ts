@@ -28,22 +28,22 @@ export class LoginComponent implements OnInit {
 
   logIn() {
     // console.log(this.logInForm.value);
-    if (this.logInForm.valid) {
-      this.authService
-        .proceedLogin(this.logInForm.value)
-        .subscribe((result) => {
-          if (result != null) {
-            this.responceData = result;
+    // if (this.logInForm.valid) {
+    //   this.authService
+    //     .proceedLogin(this.logInForm.value)
+    //     .subscribe((result) => {
+    //       if (result != null) {
+    //         this.responceData = result;
 
-            localStorage.setItem('token',this.responceData.access_token);
+    //         localStorage.setItem('token',this.responceData.access_token);
            
-            this.route.navigate(['/', 'dashboard']);
-            console.log('login token',this.responceData.access_token);
-            alert('Login Successfull');
-          }
-        });
+    //         this.route.navigate(['/', 'dashboard']);
+    //         console.log('login token',this.responceData.access_token);
+    //         alert('Login Successfull');
+    //       }
+    //     });
 
-    }
+    // }
 
 
     if (this.logInForm.valid) {
