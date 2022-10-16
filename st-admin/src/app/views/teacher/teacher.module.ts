@@ -18,11 +18,16 @@ import {
 import { DocsComponentsModule } from '@docs-components/docs-components.module';
 import { FormsRoutingModule } from '../forms/forms-routing.module';
 import { MatIconModule } from '@angular/material/icon';
+import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { TeacherAddComponent } from './teacher-add/teacher-add.component';
 
 
 @NgModule({
   declarations: [
 
+  
+    TeacherListComponent,
+        TeacherAddComponent
   ],
   imports: [
     CommonModule,

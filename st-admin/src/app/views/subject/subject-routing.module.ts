@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SubjectAddComponent } from './subject-add/subject-add.component';
+import { SubjectListComponent } from './subject-list/subject-list.component';
 
 const routes: Routes = [
   {
@@ -14,17 +16,17 @@ const routes: Routes = [
         redirectTo: 'cards',
       },
       {
-        path: 'studentAdd',
-        // component: StudentAddComponent,
+        path: 'subjectAdd',
+        component: SubjectAddComponent,
         data: {
-          title: 'Student Add',
+          title: 'Subject Add',
         },
       },
       {
-        path: 'studentList',
-        // component: StudentListComponent,
+        path: 'subjectList',
+        component: SubjectListComponent,
         data: {
-          title: 'Student List',
+          title: 'Subject List',
         },
       },
       

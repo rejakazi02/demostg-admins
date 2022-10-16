@@ -40,11 +40,11 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Teachers Add',
-        url: '/student/studentAdd'
+        url: '/teacher/teacherAdd'
       },
       {
         name: 'Teachers List ',
-        url: '/student/studentList'
+        url: '/teacher/teacherList'
       },
 
       // {
@@ -61,11 +61,11 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Parents Add',
-        url: '/student/studentAdd'
+        url: '/parents/parentsAdd'
       },
       {
         name: 'Parents List ',
-        url: '/student/studentList'
+        url: '/parents/parentsList'
       },
 
       // {
@@ -82,11 +82,11 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Class Add',
-        url: '/buttons/buttons'
+        url: '/class/classAdd'
       },
       {
         name: 'Class List',
-        url: '/buttons/button-groups'
+        url: '/class/classList'
       },
       
     ]
@@ -98,11 +98,11 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Subject Add',
-        url: '/buttons/buttons'
+        url: '/subject/subjectAdd'
       },
       {
         name: 'Subject List',
-        url: '/buttons/button-groups'
+        url: '/subject/subjectList'
       },
       
     ]

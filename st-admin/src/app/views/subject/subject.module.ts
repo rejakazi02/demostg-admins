@@ -18,10 +18,15 @@ import {
 import { DocsComponentsModule } from '@docs-components/docs-components.module';
 import { FormsRoutingModule } from '../forms/forms-routing.module';
 import { MatIconModule } from '@angular/material/icon';
+import { SubjectAddComponent } from './subject-add/subject-add.component';
+import { SubjectListComponent } from './subject-list/subject-list.component';
 
 @NgModule({
   declarations: [
    
+  
+    SubjectAddComponent,
+           SubjectListComponent
   ],
   imports: [
     CommonModule,
