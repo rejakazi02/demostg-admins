@@ -1,5 +1,3 @@
-import { StudentListComponent } from './student-list/student-list.component';
-import { StudentAddComponent } from './student-add/student-add.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -7,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     data: { 
-      title: 'Student',
+      title: 'Subjects',
     },
     children: [
       {
@@ -17,14 +15,14 @@ const routes: Routes = [
       },
       {
         path: 'studentAdd',
-        component: StudentAddComponent,
+        // component: StudentAddComponent,
         data: {
           title: 'Student Add',
         },
       },
       {
         path: 'studentList',
-        component: StudentListComponent,
+        // component: StudentListComponent,
         data: {
           title: 'Student List',
         },
@@ -40,4 +38,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class StudentRoutingModule { }
+export class SubjectRoutingModule { }

@@ -75,10 +75,35 @@ const adminChildrenRoutes: Routes = [
 
 
   },
+ 
+  {
+    path: 'class',
+    loadChildren: () =>
+      import('./views/class/class.module').then((m) => m.ClassModule)
+
+
+  },
+  {
+    path: 'parents',
+    loadChildren: () =>
+      import('./views/parent/parent.module').then((m) => m.ParentModule)
+  },
+  {
+    path: 'subject',
+    loadChildren: () =>
+      import('./views/subject/subject.module').then((m) => m.SubjectModule)
+  },
   {
     path: 'student',
     loadChildren: () =>
       import('./views/student/student.module').then((m) => m.StudentModule)
+
+
+  },
+  {
+    path: 'teacher',
+    loadChildren: () =>
+      import('./views/teacher/teacher.module').then((m) => m.TeacherModule)
 
 
   },
