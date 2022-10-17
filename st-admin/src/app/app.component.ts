@@ -11,7 +11,7 @@ import { Title } from '@angular/platform-browser';
   template: '<router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
-  title = 'CoreUI Free Angular Admin Template';
+  title = 'ST Goals';
 
   constructor(
     private router: Router,
@@ -27,7 +27,9 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
+        
       }
+      
     });
   }
 }

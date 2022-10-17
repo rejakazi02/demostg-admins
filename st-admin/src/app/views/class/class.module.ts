@@ -20,8 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { ClassAddComponent } from './class-add/class-add.component';
 import { ClassListComponent } from './class-list/class-list.component';
-
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,8 @@ import { ClassListComponent } from './class-list/class-list.component';
     SharedModule,
     ListGroupModule,
      MatIconModule,
+     MatSelectModule,
+     MatMenuModule,
   ]
 })
 export class ClassModule { }

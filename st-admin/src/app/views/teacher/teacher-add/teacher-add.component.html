@@ -2,45 +2,63 @@
   <c-col xs="12">
     <c-card class="mb-4">
       <c-card-body>
-        <form cForm class="row g-3" [formGroup]="teacherAdd">
+        <form cForm class="row g-3" [formGroup]="teacherAdd" (ngSubmit)="teaSubmit()">
           <c-col md="6">
             <label cLabel for="inputEmail4">Teacher Name</label>
-            <input cFormControl id="inputEmail4" type="text" placeholder="Teacher Name" />
+            <input formControlName="name" cFormControl id="inputEmail4" type="text" placeholder="Teacher Name" />
           </c-col>
 
           <c-col md="6">
             <label cLabel for="inputState">Department Id</label>
-            <select cSelect id="inputState">
+            <select formControlName="department_id" cSelect id="inputState">
               <option>Choose...</option>
-              <option>...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
             </select>
           </c-col>
 
           <c-col md="6">
             <label cLabel for="inputPassword4">Joining date</label>
-            <input cFormControl id="inputPassword4" type="date" />
+            <input formControlName="joining_date" cFormControl id="inputPassword4" type="date" />
           </c-col>
 
           <c-col md="6">
-            <label cLabel for="inputPassword4">Phone</label>
-            <input cFormControl id="inputPassword4" type="text" placeholder="Phone" />
+            <label cLabel for="inputPassword444">Phone</label>
+            <input formControlName="phone"  cFormControl id="inputPassword444" type="text" placeholder="Phone" />
           </c-col>
           <c-col md="6">
-            <label cLabel for="inputPassword4">Gender</label>
-            <input cFormControl id="inputPassword4" type="text" placeholder="Gender" />
+            <label cLabel for="inputPassword34">Gender</label>
+            <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
+            <select formControlName="gender"cSelect id="inputState1">
+              <option>Choose...</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+             
+            </select>
+          
           </c-col>
 
+           <c-col md="6">
+            <label cLabel for="inputState4">Union Name</label>
+            <select formControlName="union_id" cSelect id="inputState333">
+              <option>Choose...</option>
+              <option *ngFor="let item of unionName" value="{{ item.id }}">
+                {{ item.name }}
+              </option>
+            </select>
+          </c-col>
+
+
           <c-col md="6">
-            <label cLabel for="inputPassword4">Union Name</label>
-            <input cFormControl id="inputPassword4" type="text" placeholder="Union Name" />
+            <label cLabel for="inputPassword41">Present Address</label>
+            <input formControlName="present_address" value="id" cFormControl id="inputPassword41" type="text" placeholder="Present Address" />
           </c-col>
           <c-col md="6">
-            <label cLabel for="inputPassword4">Email</label>
-            <input cFormControl id="inputPassword4" type="email" placeholder="Email" />
-          </c-col>
-          <c-col md="6">
-            <label cLabel for="inputPassword4">Password</label>
-            <input cFormControl id="inputPassword4" type="password" placeholder="Password" />
+            <label cLabel for="inputPassword42">Password</label>
+            <input formControlName="password"  cFormControl id="inputPassword42" type="password" placeholder="Password" />
           </c-col>
 
           <c-col xs="12">

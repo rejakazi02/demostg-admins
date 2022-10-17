@@ -32,7 +32,7 @@ export class DepartmentAddComponent implements OnInit {
     // window.location.reload();
   }
 
-
+ 
 
   depSubmit(){
     console.log("test", this.departmentAdd.value)
