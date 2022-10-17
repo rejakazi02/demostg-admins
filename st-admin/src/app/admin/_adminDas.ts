@@ -76,9 +76,25 @@ export const navItems: INavData[] = [
     ]
   },
   {
+    name: 'Department',
+    url: '/department',
+    iconComponent: { name: 'cil-school' },
+    children: [
+      {
+        name: 'Department Add',
+        url: '/department/departmentAdd'
+      },
+      {
+        name: 'Department List',
+        url: '/department/departmentList'
+      },
+      
+    ]
+  },
+  {
     name: 'Class',
     url: '/class',
-    iconComponent: { name: 'cil-school' },
+    iconComponent: { name: 'cil-color-border' },
     children: [
       {
         name: 'Class Add',

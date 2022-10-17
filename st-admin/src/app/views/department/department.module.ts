@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ClassRoutingModule } from './class-routing.module';
+import { DepartmentRoutingModule } from './department-routing.module';
+import { DepartmentAddComponent } from './department-add/department-add.component';
+import { DepartmentListComponent } from './department-list/department-list.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
@@ -17,22 +19,16 @@ import {
 import { DocsComponentsModule } from '@docs-components/docs-components.module';
 import { FormsRoutingModule } from '../forms/forms-routing.module';
 import { MatIconModule } from '@angular/material/icon';
-
-import { ClassAddComponent } from './class-add/class-add.component';
-import { ClassListComponent } from './class-list/class-list.component';
-
-
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
-    
-  
-    ClassAddComponent,
-            ClassListComponent
+    DepartmentAddComponent,
+    DepartmentListComponent
   ],
   imports: [
     CommonModule,
-    ClassRoutingModule,
+    DepartmentRoutingModule,
     FormsRoutingModule,
     DocsComponentsModule,
     CardModule,
@@ -48,6 +44,7 @@ import { ClassListComponent } from './class-list/class-list.component';
     SharedModule,
     ListGroupModule,
      MatIconModule,
+     MatMenuModule,
   ]
 })
-export class ClassModule { }
+export class DepartmentModule { }

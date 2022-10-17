@@ -92,6 +92,7 @@ import {
   cilWc,
   cilBook,
   cilSchool,
+  cilColorBorder,
 } from '@coreui/icons';
 
 export const iconSubset = {
@@ -188,9 +189,11 @@ export const iconSubset = {
   cilWc,
   cilBook,
   cilSchool,
+  cilColorBorder,
 };
 
 export enum IconSubset {
+  cilColorBorder = 'cilColorBorder',
   cilSchool = 'cilSchool',
   cilBook = 'cilBook',
   cilWc = 'cilWc',

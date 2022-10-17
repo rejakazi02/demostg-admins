@@ -94,6 +94,11 @@ const adminChildrenRoutes: Routes = [
       import('./views/subject/subject.module').then((m) => m.SubjectModule)
   },
   {
+    path: 'department',
+    loadChildren: () =>
+      import('./views/department/department.module').then((m) => m.DepartmentModule)
+  },
+  {
     path: 'student',
     loadChildren: () =>
       import('./views/student/student.module').then((m) => m.StudentModule)
