@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-teacher-add',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teacher-add.component.scss']
 })
 export class TeacherAddComponent implements OnInit {
-
-  constructor() { }
+  teacherAdd!:FormGroup;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
   }
 
 }

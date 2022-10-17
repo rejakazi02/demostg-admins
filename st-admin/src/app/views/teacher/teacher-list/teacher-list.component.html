@@ -1,51 +1,82 @@
-
-
-
 <section>
-    <div class="table-main-area">
-        <div class="table">
-            <div class="table-thead">
-                <div class="table-row" >
-                    <div class="table-heading">Name</div>
-                    <div class="table-heading">EIIN</div>
-                    <div class="table-heading">Parent Category</div>
-                    <div class="table-heading">Type</div>
-                    <div class="table-heading">Union</div>
-                    <div class="table-heading">Phone</div>
-                    
-                    <div class="table-heading">Action</div>
-                  
-                </div>
-            </div>
-            <div class="tbody">
-              <div class="table-row" >
-                 <div class="table-data">Mandra radhagonj united institution</div>
-                 <div class="table-data">123456</div>
-                 <div class="table-data">Secondary school</div>
-                 <div class="table-data">Government</div>
-                 <div class="table-data">khusla</div>
-                 <div class="table-data">01630630899</div>
-                 <div class="table-data">
-                  <button><a href="" routerLink="/teacher/teacherAdd"><mat-icon>edit</mat-icon></a></button>
-      <button><mat-icon>delete</mat-icon></button>
-                 </div>
-              </div>
-              <div class="table-row" >
-                 <div class="table-data">Rajuk Uttora</div>
-                 <div class="table-data">123456</div>
-                 <div class="table-data">Secondary school</div>
-                 <div class="table-data">Government</div>
-                 <div class="table-data">khusla</div>
-                 <div class="table-data">01630630899</div>
-                 <div class="table-data">
-                  <button><a href="" routerLink="/teacher/teacherAdd"><mat-icon>edit</mat-icon></a></button>
-      <button><mat-icon>delete</mat-icon></button>
-                 </div>
-              </div>
-              
-             
-         
-            </div>
-         </div>
+  <div class="table-main-area">
+    <div class="table">
+      <div class="table-thead">
+        <div class="table-row">
+          <div class="table-heading">Name</div>
+          <div class="table-heading">EIIN</div>
+          <div class="table-heading">Parent Category</div>
+          <div class="table-heading">Type</div>
+          <div class="table-heading">Union</div>
+          <div class="table-heading">Phone</div>
+
+          <div class="table-heading">Action</div>
+        </div>
+      </div>
+      <div class="tbody">
+        <div class="table-row">
+          <div class="table-data">Mandra radhagonj united institution</div>
+          <div class="table-data">123456</div>
+          <div class="table-data">Secondary school</div>
+          <div class="table-data">Government</div>
+          <div class="table-data">khusla</div>
+          <div class="table-data">01630630899</div>
+          <div class="table-data">
+            <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+              class="action-Btn">
+              <!-- <mat-icon>more_vert</mat-icon> -->
+              Action
+            </button>
+            <mat-menu #menu="matMenu">
+              <a class="button-atag">
+                <button mat-menu-item>
+                  <mat-icon>edit</mat-icon>
+                  <span> Edit </span>
+                </button></a>
+
+              <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+              <!-- [routerLink]="['/base/instituteEdit', element.slug]" -->
+              <!-- (click)="deleteData(element.slug)" -->
+            </mat-menu>
+          </div>
+        </div>
+        <div class="table-row">
+          <div class="table-data">Rajuk Uttora</div>
+          <div class="table-data">123456</div>
+          <div class="table-data">Secondary school</div>
+          <div class="table-data">Government</div>
+          <div class="table-data">khusla</div>
+          <div class="table-data">01630630899</div>
+          <div class="table-data">
+            <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+              class="action-Btn">
+              <!-- <mat-icon>more_vert</mat-icon> -->
+              Action
+            </button>
+            <mat-menu #menu="matMenu">
+              <!-- <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                        <mat-icon>edit</mat-icon>
+                      </button> -->
+              <!-- (click)="editDataa(element.slug, i)" -->
+              <a class="button-atag">
+                <button mat-menu-item>
+                  <mat-icon>edit</mat-icon>
+                  <span> Edit </span>
+                </button></a>
+
+              <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+              <!-- [routerLink]="['/base/instituteEdit', element.slug]" -->
+              <!-- (click)="deleteData(element.slug)" -->
+            </mat-menu>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>

@@ -20,7 +20,7 @@ import { FormsRoutingModule } from '../forms/forms-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { TeacherAddComponent } from './teacher-add/teacher-add.component';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,7 @@ import { TeacherAddComponent } from './teacher-add/teacher-add.component';
     SharedModule,
     ListGroupModule,
      MatIconModule,
+     MatMenuModule,
   ]
 })
 export class TeacherModule { }
