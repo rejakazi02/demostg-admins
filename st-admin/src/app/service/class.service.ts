@@ -30,7 +30,7 @@ export class ClassService {
   }
   classData() {
     // return this.http.get<any>(baseurl + 'admin/institutes')
-    return this.http.get(baseurl + 'classes');
+    return this.http.get(baseurl + 'all-classes');
   }
 
   // dept data delete 
