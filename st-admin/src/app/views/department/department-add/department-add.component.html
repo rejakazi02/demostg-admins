@@ -1,62 +1,26 @@
 <c-row>
-   
-  
-   
-   
-    
-  
+
     <c-col xs="12">
         <c-card class="mb-4">
          
           <c-card-body>
            
            
-            <form cForm class="row g-3">
-                <!-- <c-col md="6">
-                  <label cLabel for="inputEmail4">Email</label>
-                  <input cFormControl id="inputEmail4" type="email" />
-                </c-col>
-                <c-col md="6">
-                  <label cLabel for="inputPassword4">Password</label>
-                  <input cFormControl id="inputPassword4" type="password" />
-                </c-col>
-                <c-col xs="12">
-                  <label cLabel for="inputAddress">Address</label>
-                  <input cFormControl id="inputAddress" placeholder="1234 Main St" />
-                </c-col>
-                <c-col xs="12">
-                  <label cLabel for="inputAddress2">Address 2</label>
-                  <input cFormControl id="inputAddress2" placeholder="Apartment, studio, or floor" />
-                </c-col>
-                <c-col md="6">
-                  <label cLabel for="inputCity">City</label>
-                  <input cFormControl id="inputCity" />
-                </c-col>
-                <c-col md="4">
-                  <label cLabel for="inputState">State</label>
-                  <select cSelect id="inputState">
-                    <option>Choose...</option>
-                    <option>...</option>
-                  </select>
-                </c-col>
-                <c-col md="2">
-                  <label cLabel for="inputZip">Zip</label>
-                  <input cFormControl id="inputZip" />
-                </c-col> -->
+            <form cForm class="row g-3" [formGroup]="departmentAdd" (ngSubmit)="depSubmit()">
+                
                 <c-col md="12" class="test">
                   <label cLabel for="2">Depertment name</label>
                   <mat-form-field appearance="fill" cSelect id="inputState21" appearance="outline">
                     <!-- <mat-label>Choose...</mat-label> -->
-                    <mat-select formControlName="categories_id" for [formControl]="toppings" multiple>
-                      <mat-option value="">Bangla</mat-option>
-                      <mat-option value="">English</mat-option>
-                      <mat-option value="">Math</mat-option>
-                      <mat-option value="">Science</mat-option>
+                    <mat-select formControlName="name" for [formControl]="toppings" multiple>
+                      <mat-option value="bangla">Bangla</mat-option>
+                      <mat-option value="english">English</mat-option>
+                      <mat-option value="math">Math</mat-option>
+                      <mat-option value="science">Science</mat-option>
                       
                     </mat-select>
                   </mat-form-field>
                 </c-col>
-
 
 
 

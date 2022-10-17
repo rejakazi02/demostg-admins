@@ -13,7 +13,8 @@
         .table-row {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: space-evenly !important;
+          text-align: center;
   
           .table-heading {
               width: 100%;
@@ -29,8 +30,9 @@
         .table-row {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: space-around !important;
           border-bottom: 2px solid rgb(112, 111, 110);
+          text-align: center;
           .table-data {
               width: 100%;
               // min-width: 200px;
