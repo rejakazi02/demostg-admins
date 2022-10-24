@@ -23,6 +23,7 @@ export class TeacherAddComponent implements OnInit {
   responceData: any;
   undata:any;
   unionName:any;
+  errorMessage:any;
   constructor(private fb: FormBuilder,
     private teaService: TeacherService
     ) { }
@@ -53,10 +54,16 @@ this.unionData();
       this.responceData = result;
       console.log('responceData', this.responceData);
 
+      
       this.teacherAdd.reset();
-      alert(' Teacher Insert Successfull');
-    
-    });
+          alert(result.message);
+          this.errorMessage=null;
+        },
+        (err)=>{
+          this.errorMessage=err.error.errors;
+          console.log("errors",err.error.errors)
+          // alert(err.error.message)
+        });
     
   }
 
@@ -70,7 +77,7 @@ this.unionData();
       next: (result) => {
         this.undata = result;
         this.unionName = this.undata.data;
-        console.log('union data',  this.unionName)
+       
       },
       error: (err) => {
         console.log(err);

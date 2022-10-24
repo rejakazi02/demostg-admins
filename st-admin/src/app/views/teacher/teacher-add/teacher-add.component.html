@@ -6,6 +6,7 @@
           <c-col md="6">
             <label cLabel for="inputEmail4">Teacher Name</label>
             <input formControlName="name" cFormControl id="inputEmail4" type="text" placeholder="Teacher Name" />
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p>
           </c-col>
 
           <c-col md="6">
@@ -17,16 +18,20 @@
               <option value="3">3</option>
               <option value="4">4</option>
             </select>
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.department_id && errorMessage.department_id.length">{{errorMessage.department_id[0]}}</p>
+         
           </c-col>
 
           <c-col md="6">
             <label cLabel for="inputPassword4">Joining date</label>
             <input formControlName="joining_date" cFormControl id="inputPassword4" type="date" />
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.joining_date && errorMessage.joining_date.length">{{errorMessage.joining_date[0]}}</p>
           </c-col>
 
           <c-col md="6">
             <label cLabel for="inputPassword444">Phone</label>
             <input formControlName="phone"  cFormControl id="inputPassword444" type="text" placeholder="Phone" />
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.phone && errorMessage.phone.length">{{errorMessage.phone[0]}}</p>
           </c-col>
           <c-col md="6">
             <label cLabel for="inputPassword34">Gender</label>
@@ -39,6 +44,7 @@
              
             </select>
           
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p>
           </c-col>
 
            <c-col md="6">
@@ -49,16 +55,19 @@
                 {{ item.name }}
               </option>
             </select>
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.union_id && errorMessage.union_id.length">{{errorMessage.union_id[0]}}</p>
           </c-col>
 
 
           <c-col md="6">
             <label cLabel for="inputPassword41">Present Address</label>
             <input formControlName="present_address" value="id" cFormControl id="inputPassword41" type="text" placeholder="Present Address" />
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.present_address && errorMessage.present_address.length">{{errorMessage.present_address[0]}}</p>
           </c-col>
           <c-col md="6">
             <label cLabel for="inputPassword42">Password</label>
             <input formControlName="password"  cFormControl id="inputPassword42" type="password" placeholder="Password" />
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p>
           </c-col>
 
           <c-col xs="12">

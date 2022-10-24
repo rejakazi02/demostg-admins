@@ -18,7 +18,7 @@ export class ClassAddComponent implements OnInit {
   classAdd!: FormGroup;
   responceData: any;
 classDatas:any;
-toppings = new FormControl('');
+
   constructor(
     private classService: ClassService,
     private fb: FormBuilder,

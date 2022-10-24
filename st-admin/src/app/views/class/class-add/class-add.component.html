@@ -14,7 +14,7 @@
                 <label cLabel for="2">Class Name</label>
                 <mat-form-field appearance="fill" cSelect id="inputState21" appearance="outline">
                   <!-- <mat-label>Choose...</mat-label> -->
-                  <mat-select formControlName="name" for [formControl]="toppings" multiple>
+                  <mat-select formControlName="name"  multiple>
                     <mat-option *ngFor="let item of classDatas" value="{{ item.name }}">{{item.name}}</mat-option>
                   </mat-select>
                 </mat-form-field>
