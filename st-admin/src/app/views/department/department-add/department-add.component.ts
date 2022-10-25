@@ -16,7 +16,7 @@ import {
 export class DepartmentAddComponent implements OnInit {
   departmentAdd!: FormGroup;
   responceData: any;
-
+  errorMessage:any;
   constructor(
     private depService: DepartmentService,
     private fb: FormBuilder,
@@ -41,9 +41,14 @@ export class DepartmentAddComponent implements OnInit {
       console.log('responceData', this.responceData);
 
       this.departmentAdd.reset();
-      alert(' Department Insert Successfull');
-    
-    });
+      alert(result.message);
+          this.errorMessage=null;
+        },
+        (err)=>{
+          this.errorMessage=err.error.errors;
+          console.log("errors",err.error.errors)
+          // alert(err.error.message)
+        });
     
   }
  

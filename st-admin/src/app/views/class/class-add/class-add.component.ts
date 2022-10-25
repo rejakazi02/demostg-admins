@@ -18,6 +18,7 @@ export class ClassAddComponent implements OnInit {
   classAdd!: FormGroup;
   responceData: any;
 classDatas:any;
+errorMessage:any;
 
   constructor(
     private classService: ClassService,
@@ -42,9 +43,14 @@ classDatas:any;
       console.log('responceData', this.responceData);
 
       this.classAdd.reset();
-      alert(' Department Insert Successfull');
-    
-    });
+      alert(result.message);
+          this.errorMessage=null;
+        },
+        (err)=>{
+          this.errorMessage=err.error.errors;
+          console.log("errors",err.error.errors)
+          // alert(err.error.message)
+        });
     
   }
 
