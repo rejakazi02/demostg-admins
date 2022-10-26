@@ -37,7 +37,40 @@ export class ClassService {
   deleteClassData(data: string) {
     return this.http.delete(baseurl + 'classes/' + data);
   }
-// token 
+
+
+
+
+// section api start here 
+
+
+
+sectionPost(secAdd: any) {
+  return this.http.post<any>(baseurl + 'sections', secAdd);
+}
+
+
+
+sectionData() {
+  // return this.http.get<any>(baseurl + 'admin/institutes')
+  return this.http.get(baseurl + 'sections');
+}
+
+sectionList() {
+  // return this.http.get<any>(baseurl + 'admin/institutes')
+  return this.http.get(baseurl + 'sections');
+}
+
+// dept data delete 
+deleteSectionData(data: string) {
+  return this.http.delete(baseurl + 'classes/' + data);
+}
+
+
+
+
+
+// Global token 
   IsLoggedIn() {
     return localStorage.getItem('token') != null;
   }

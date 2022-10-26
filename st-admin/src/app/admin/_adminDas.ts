@@ -75,22 +75,7 @@ export const navItems: INavData[] = [
 
     ]
   },
-  {
-    name: 'Department',
-    url: '/department',
-    iconComponent: { name: 'cil-school' },
-    children: [
-      {
-        name: 'Department Add',
-        url: '/department/departmentAdd'
-      },
-      {
-        name: 'Department List',
-        url: '/department/departmentList'
-      },
-      
-    ]
-  },
+
   {
     name: 'Class',
     url: '/class',
@@ -103,6 +88,39 @@ export const navItems: INavData[] = [
       {
         name: 'Class List',
         url: '/class/classList'
+      },
+      
+    ]
+  },
+  {
+    name: 'Section',
+    url: '/section',
+    iconComponent: { name: 'cil-color-border' },
+    children: [
+      {
+        name: 'Section Add',
+        url: '/section/sectionAdd'
+      },
+      {
+        name: 'Section List',
+        url: '/section/sectionList'
+      },
+      
+    ]
+  },
+
+  {
+    name: 'Department',
+    url: '/department',
+    iconComponent: { name: 'cil-school' },
+    children: [
+      {
+        name: 'Department Add',
+        url: '/department/departmentAdd'
+      },
+      {
+        name: 'Department List',
+        url: '/department/departmentList'
       },
       
     ]
@@ -123,6 +141,8 @@ export const navItems: INavData[] = [
       
     ]
   },
+  
+ 
   // {
   //   name: 'Forms',
   //   url: '/forms',

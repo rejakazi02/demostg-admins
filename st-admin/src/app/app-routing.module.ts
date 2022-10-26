@@ -112,6 +112,13 @@ const adminChildrenRoutes: Routes = [
 
 
   },
+  {
+    path: 'section',
+    loadChildren: () =>
+      import('./views/section/section.module').then((m) => m.SectionModule)
+
+
+  },
   
  
  
