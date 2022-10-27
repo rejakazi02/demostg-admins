@@ -9,17 +9,38 @@ import Swal from 'sweetalert2';
 })
 export class ClassListComponent implements OnInit {
   classListData: any;
-  constructor(private classService: ClassService) {}
+  sectionDatas:any;
+
+  constructor(
+    private classService: ClassService,
+    ) {}
 
   ngOnInit(): void {
     this.classtList();
+    this.sectionData();
   }
 
   classtList() {
     this.classService.classtList().subscribe((result) => {
       this.classListData = result;
+      console.log('classssssss',this.classListData);
+      
     });
   }
+
+
+
+
+  sectionData(){
+    this.classService.sectionData().subscribe((result)=>{
+      
+      this.sectionDatas = result;
+      console.log('sectin', this.sectionDatas)
+    })
+  }
+
+
+
 
   confirmBox(id: string) {
     Swal.fire({

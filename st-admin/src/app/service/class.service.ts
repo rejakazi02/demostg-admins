@@ -53,12 +53,12 @@ sectionPost(secAdd: any) {
 
 sectionData() {
   // return this.http.get<any>(baseurl + 'admin/institutes')
-  return this.http.get(baseurl + 'sections');
+  return this.http.get<any>(baseurl + 'sections');
 }
 
 sectionList() {
   // return this.http.get<any>(baseurl + 'admin/institutes')
-  return this.http.get(baseurl + 'sections');
+  return this.http.get<any>(baseurl + 'sections');
 }
 
 // dept data delete 

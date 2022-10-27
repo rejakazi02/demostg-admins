@@ -84,7 +84,7 @@
             <select formControlName="section_id" cSelect>
             <!-- <option>Choose...</option> -->
             <!-- <option  *ngFor="let item of instituteData" [value]="item.instituteName">{{item.instituteName}}</option> -->
-            <option *ngFor="let item of subSectionData" [value]="item.name">
+            <option *ngFor="let item of subSectionData" value="{{item.name}}">
               {{item.name}}
             </option>
           </select>
