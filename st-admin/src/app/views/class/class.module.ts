@@ -22,13 +22,17 @@ import { ClassAddComponent } from './class-add/class-add.component';
 import { ClassListComponent } from './class-list/class-list.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 @NgModule({
   declarations: [
     
   
     ClassAddComponent,
-            ClassListComponent
+            ClassListComponent,
+            
   ],
   imports: [
     CommonModule,
@@ -50,6 +54,7 @@ import {MatMenuModule} from '@angular/material/menu';
      MatIconModule,
      MatSelectModule,
      MatMenuModule,
+     MatDialogModule
   ]
 })
 export class ClassModule { }

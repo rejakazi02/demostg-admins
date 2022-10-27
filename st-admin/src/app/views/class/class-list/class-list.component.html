@@ -1,5 +1,7 @@
 <div class="add-btn-div">
-  <a href="" routerLink="/class/classAdd">Add class</a>
+  <a href="" routerLink="/class/classAdd"><span class="material-symbols-outlined">
+    add
+    </span>Add class</a>
 </div>
 
 <section>
@@ -12,11 +14,18 @@
         </button>
         <mat-menu #menu="matMenu">
           <!-- <a [routerLink]="['/base/instituteEdit', item.id]" class="button-atag"> -->
-          <a class="button-atag">
+          <!-- <a class="button-atag">
             <button mat-menu-item class="deleteBtn">
               <span class="material-symbols-outlined"> edit </span>
               <span> Edit </span>
-            </button></a>
+            </button></a> -->
+
+            <button mat-menu-item (click)="openDialog()" class="deleteBtn">
+              <span class="material-symbols-outlined">
+                add
+                </span>
+                Add section
+              </button>
 
           <button (click)="confirmBox(item.id)" mat-menu-item class="deleteBtn">
             <span class="material-symbols-outlined"> delete</span>
@@ -36,3 +45,10 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
