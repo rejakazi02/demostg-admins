@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ClassService } from './../../../service/class.service';
 import {
   FormControl,
@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-section-add',
@@ -21,19 +22,20 @@ errorMessage:any;
   constructor(
     private sectionService: ClassService,
     private fb: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) private classId: number 
   ) { }
 
   ngOnInit(): void {
     this.sectionAdd = this.fb.group({
       name: ['', Validators.required],
-     
+      class_id: [this.classId, Validators.required]
     });
     // window.location.reload();
 this.sectionData();
   }
   sectionSubmit(){
     console.log("test", this.sectionAdd.value)
-    this.sectionService.sectionPost(this.sectionAdd.value).subscribe((result) => {
+    this.sectionService.sectionPost( this.sectionAdd.value).subscribe((result) => {
       this.responceData = result;
       console.log('responceData of section', this.responceData);
 

@@ -22,6 +22,8 @@ import { FormsRoutingModule } from '../forms/forms-routing.module';
 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import {MatSelectModule} from '@angular/material/select';
     SharedModule,
     ListGroupModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatChipsModule
   ]
 })
 export class SectionModule { }

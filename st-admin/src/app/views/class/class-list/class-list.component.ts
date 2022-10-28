@@ -2,8 +2,8 @@ import { ClassService } from './../../../service/class.service';
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import {MatDialog} from '@angular/material/dialog';
+import { SectionAddComponent } from '../../section/section-add/section-add.component';
 
-import { SectionListComponent } from '../../section/section-list/section-list.component';
 
 @Component({
   selector: 'app-class-list',
@@ -35,8 +35,8 @@ export class ClassListComponent implements OnInit {
 
 
 
-  openDialog() {
-    const dialogRef = this.dialog.open(SectionListComponent);
+  openDialog(classId: number) {
+    const dialogRef = this.dialog.open(SectionAddComponent, {data: classId});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

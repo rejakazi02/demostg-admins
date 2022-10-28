@@ -20,7 +20,7 @@
               <span> Edit </span>
             </button></a> -->
 
-            <button mat-menu-item (click)="openDialog()" class="deleteBtn">
+            <button mat-menu-item (click)="openDialog(item.id)" class="deleteBtn" >
               <span class="material-symbols-outlined">
                 add
                 </span>
@@ -41,7 +41,8 @@
       <p class="class-list">
         Class: <span>{{ item.name }}</span>
       </p>
-      <p class="section-list">Section: <span *ngFor="let item of sectionDatas?.sections">{{ item.name }},</span></p>
+      <p  class="section-list">Section: <span *ngFor="let item of sectionDatas?.sections">{{ item.name }},</span></p>
+      <!-- <p  class="section-list">Section: No Section</p> -->
     </div>
   </div>
 </section>
