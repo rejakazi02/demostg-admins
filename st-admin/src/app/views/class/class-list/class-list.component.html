@@ -35,9 +35,9 @@
           <!-- (click)="deleteDepData(item.id)" -->
         </mat-menu>
       </div>
-
+      <a [routerLink]="['/section/sectionListShow', item.id]" class="button-atag">
       <p class="class-Numaric">{{item.numeric}}</p>
-
+</a>
       <p class="class-list">
         Class: <span>{{ item.name }}</span>
       </p>

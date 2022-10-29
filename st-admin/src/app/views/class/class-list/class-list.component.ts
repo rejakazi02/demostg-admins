@@ -21,7 +21,7 @@ export class ClassListComponent implements OnInit {
 
   ngOnInit(): void {
     this.classtList();
-    this.sectionData();
+  
   }
 
   classtList() {
@@ -33,13 +33,13 @@ export class ClassListComponent implements OnInit {
   }
 
 
-
+// open dilog dection start 
 
   openDialog(classId: number) {
     const dialogRef = this.dialog.open(SectionAddComponent, {data: classId});
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -48,17 +48,17 @@ export class ClassListComponent implements OnInit {
 
 
 
-  sectionData(){
-    this.classService.sectionData().subscribe((result)=>{
+  // sectionsList(classId: any){
+  //   this.classService.sectionList(classId).subscribe((result)=>{
       
-      this.sectionDatas = result;
-      console.log('sectin', this.sectionDatas)
-    })
-  }
+  //     this.sectionDatas = result;
+  //     console.log('secti  class', this.sectionDatas)
+  //   })
+  // }
 
 
 
-
+// delete section 
   confirmBox(id: string) {
     Swal.fire({
       title: 'Are you sure want to remove?',

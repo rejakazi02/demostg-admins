@@ -20,8 +20,8 @@ import {
 import { DocsComponentsModule } from '@docs-components/docs-components.module';
 import { FormsRoutingModule } from '../forms/forms-routing.module';
 import { MatIconModule } from '@angular/material/icon';
-
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     StudentAddComponent,
@@ -46,6 +46,8 @@ import { MatIconModule } from '@angular/material/icon';
     SharedModule,
     ListGroupModule,
      MatIconModule,
+     MatMenuModule,
+     MatDialogModule
 
   ]
 })

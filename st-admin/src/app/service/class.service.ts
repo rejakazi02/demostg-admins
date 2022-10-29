@@ -56,14 +56,14 @@ sectionData() {
   return this.http.get<any>(baseurl + 'sections');
 }
 
-sectionList() {
+sectionList(ClassId: any) {
   // return this.http.get<any>(baseurl + 'admin/institutes')
-  return this.http.get<any>(baseurl + 'sections');
+  return this.http.get<any>(baseurl + '/sections?class_id='+ ClassId);
 }
 
 // dept data delete 
-deleteSectionData(data: string) {
-  return this.http.delete(baseurl + 'classes/' + data);
+deleteSectionData(data: any, cId:any) {
+  return this.http.delete(baseurl + 'sections/' + data + '?class_id='+ cId);
 }
 
 

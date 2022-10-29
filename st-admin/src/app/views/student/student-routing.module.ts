@@ -29,6 +29,13 @@ const routes: Routes = [
           title: 'Student List',
         },
       },
+      {
+        path: 'studentListBySection/:id',
+        component: StudentListComponent,
+        data: {
+          title: 'Student List',
+        },
+      },
       
 
 

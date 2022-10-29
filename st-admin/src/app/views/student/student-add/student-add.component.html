@@ -1,4 +1,4 @@
-<c-row>
+<c-row class="testsss">
   <c-col xs="12">
     <c-card class="mb-4">
       <c-card-body>
@@ -9,6 +9,10 @@
             <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p>
           </c-col>
 
+          
+          
+
+         
           <c-col md="6">
             <label cLabel for="inputPassword444">Phone</label>
             <input formControlName="phone"  cFormControl id="inputPassword444" type="text" placeholder="Phone" />
@@ -47,16 +51,7 @@
          
 
 
-          <c-col md="12">
-            <label cLabel for="inputPassword41">Present Address</label>
-            <input formControlName="present_address" value="id" cFormControl id="inputPassword41" type="text" placeholder="Present Address" />
-            <p class="validation-Message" *ngIf="errorMessage && errorMessage.present_address && errorMessage.present_address.length">{{errorMessage.present_address[0]}}</p>
-          </c-col>
-          <c-col md="12">
-            <label cLabel for="inputPassword4112">Permanent Address</label>
-            <input formControlName="permanent_address" value="id" cFormControl id="inputPassword4112" type="text" placeholder="Permanent Address" />
-            <p class="validation-Message" *ngIf="errorMessage && errorMessage.permanent_address && errorMessage.permanent_address.length">{{errorMessage.permanent_address[0]}}</p>
-          </c-col>
+      
 
 
 
@@ -92,30 +87,9 @@
           </c-col>
 
 
-          <c-col md="6">
-            <label cLabel >Blood group</label>
-            <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
-            <select formControlName="blood_group"cSelect >
-              <option>Choose...</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-             
-            </select>
-          
-            <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
-          </c-col>
+         
 
-          <c-col md="6">
-            <label cLabel for="inputPassword427">Session</label>
-            <input formControlName="session"  cFormControl id="inputPassword427" type="text" placeholder="Session" />
-            <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
-          </c-col>
+         
 
 
 
@@ -127,8 +101,8 @@
 
 
           <c-col md="6">
-            <label cLabel >Date of birth</label>
-            <input formControlName="date_of_birth" cFormControl  type="date" />
+            <label cLabel >Image </label>
+            <input formControlName="date_of_birth" cFormControl  type="file" />
             <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.joining_date && errorMessage.joining_date.length">{{errorMessage.joining_date[0]}}</p> -->
           </c-col>
 

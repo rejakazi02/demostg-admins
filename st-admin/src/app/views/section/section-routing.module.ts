@@ -29,6 +29,13 @@ const routes: Routes = [
           title: 'Section List',
         },
       },
+      {
+        path: 'sectionListShow/:id',
+        component: SectionListComponent,
+        data: {
+          title: 'Institute Add',
+        },
+      },
       
 
 
