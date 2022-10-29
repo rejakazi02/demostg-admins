@@ -2,10 +2,12 @@
 
 .testsss{
   
-  height: 65vh;
+  height: 55vh;
   // padding-left: 30%;
   z-index: 9999999999;
-  margin-top: 10%;
+  // margin-top: 10%;
+  
+  width: 550px;
 
 }
 
@@ -16,4 +18,14 @@
   }
 
 
+  @media (min-width: 300px) and (max-width: 400px) {
+
+
+.testsss{
+  height: 48vh;
+  z-index: 9999999999;
+  width: 224px;
+
+}
+  }
 
