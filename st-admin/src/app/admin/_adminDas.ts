@@ -92,22 +92,22 @@ export const navItems: INavData[] = [
       
     ]
   },
-  {
-    name: 'Section',
-    url: '/section',
-    iconComponent: { name: 'cil-color-border' },
-    children: [
-      {
-        name: 'Section Add',
-        url: '/section/sectionAdd'
-      },
-      {
-        name: 'Section List',
-        url: '/section/sectionList'
-      },
+  // {
+  //   name: 'Section',
+  //   url: '/section',
+  //   iconComponent: { name: 'cil-color-border' },
+  //   children: [
+  //     {
+  //       name: 'Section Add',
+  //       url: '/section/sectionAdd'
+  //     },
+  //     {
+  //       name: 'Section List',
+  //       url: '/section/sectionList'
+  //     },
       
-    ]
-  },
+  //   ]
+  // },
 
   {
     name: 'Department',
