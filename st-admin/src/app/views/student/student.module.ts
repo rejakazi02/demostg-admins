@@ -22,6 +22,7 @@ import { FormsRoutingModule } from '../forms/forms-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     StudentAddComponent,
@@ -47,7 +48,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     ListGroupModule,
      MatIconModule,
      MatMenuModule,
-     MatDialogModule
+     MatDialogModule,
+     ToastrModule,
 
   ]
 })

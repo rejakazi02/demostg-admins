@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-section-add',
@@ -22,6 +23,7 @@ errorMessage:any;
   constructor(
     private sectionService: ClassService,
     private fb: FormBuilder,
+    private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) private classId: number 
   ) { }
 
@@ -37,16 +39,22 @@ this.sectionData();
     console.log("test", this.sectionAdd.value)
     this.sectionService.sectionPost( this.sectionAdd.value).subscribe((result) => {
       this.responceData = result;
-      console.log('responceData of section', this.responceData);
+ 
 
       this.sectionAdd.reset();
-      alert(result.message);
+      this.toastr.success(result.message);
           this.errorMessage=null;
         },
         (err)=>{
           this.errorMessage=err.error.errors;
-          console.log("errors",err.error.errors)
-          // alert(err.error.message)
+          
+          if(err.error.errors.name){
+            this.toastr.error(err.error.errors.name);
+          }
+          if(err.error.errors.class_id){
+            this.toastr.error(err.error.errors.class_id);
+          }
+          
         });
     
   }
@@ -55,7 +63,7 @@ this.sectionData();
     this.sectionService.sectionData().subscribe((result)=>{
       
       this.sectionDatas = result;
-      console.log('sectin', this.sectionDatas)
+      
     })
   }
 }

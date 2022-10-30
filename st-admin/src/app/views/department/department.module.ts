@@ -21,6 +21,7 @@ import { FormsRoutingModule } from '../forms/forms-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import {MatSelectModule} from '@angular/material/select';
     ListGroupModule,
      MatIconModule,
      MatMenuModule,
-     MatSelectModule
+     MatSelectModule,
+     ToastrModule, 
   ]
 })
 export class DepartmentModule { }

@@ -11,6 +11,7 @@ import {
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { param } from 'jquery';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class TeacherAddComponent implements OnInit {
   unionName:any;
   errorMessage:any;
   constructor(private fb: FormBuilder,
-    private teaService: TeacherService
+    private teaService: TeacherService,
+    private toastr: ToastrService,
     ) { }
 
   ngOnInit(): void {
@@ -52,17 +54,43 @@ this.unionData();
     console.log("test", this.teacherAdd.value)
     this.teaService.teaPost(this.teacherAdd.value).subscribe((result) => {
       this.responceData = result;
-      console.log('responceData', this.responceData);
+   
 
       
       this.teacherAdd.reset();
-          alert(result.message);
+      this.toastr.success(result.message);
           this.errorMessage=null;
         },
         (err)=>{
           this.errorMessage=err.error.errors;
-          console.log("errors",err.error.errors)
-          // alert(err.error.message)
+
+          if(err.error.errors.name){
+            this.toastr.error(err.error.errors.name);
+          }
+          if(err.error.errors.phone){
+            this.toastr.error(err.error.errors.phone);
+          }
+          if(err.error.errors.department_id){
+            this.toastr.error(err.error.errors.department_id);
+          }
+          if(err.error.errors.joining_date){
+            this.toastr.error(err.error.errors.joining_date);
+          }
+          if(err.error.errors.gender){
+            this.toastr.error(err.error.errors.gender);
+          }
+          if(err.error.errors.present_address_union_id){
+            this.toastr.error(err.error.errors.present_address_union_id);
+          }
+          if(err.error.errors.present_address){
+            this.toastr.error(err.error.errors.present_address);
+          }
+          if(err.error.errors.password){
+            this.toastr.error(err.error.errors.password);
+          }
+
+      
+         
         });
     
   }

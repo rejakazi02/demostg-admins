@@ -7,6 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-department-add',
@@ -20,6 +21,7 @@ export class DepartmentAddComponent implements OnInit {
   constructor(
     private depService: DepartmentService,
     private fb: FormBuilder,
+    private toastr: ToastrService
     
     ) { }
   toppings = new FormControl('');
@@ -38,16 +40,16 @@ export class DepartmentAddComponent implements OnInit {
     console.log("test", this.departmentAdd.value)
     this.depService.deptPost(this.departmentAdd.value).subscribe((result) => {
       this.responceData = result;
-      console.log('responceData', this.responceData);
+
 
       this.departmentAdd.reset();
-      alert(result.message);
+      this.toastr.success(result.message);
           this.errorMessage=null;
         },
         (err)=>{
           this.errorMessage=err.error.errors;
-          console.log("errors",err.error.errors)
-          // alert(err.error.message)
+          this.toastr.error(err.error.errors.name);
+          
         });
     
   }

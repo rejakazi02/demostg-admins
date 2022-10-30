@@ -10,6 +10,7 @@ import {
 import { Router, ActivatedRoute } from '@angular/router';
 import { param } from 'jquery';
 import { ClassService } from 'src/app/service/class.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -29,6 +30,7 @@ export class StudentAddComponent implements OnInit {
     private fb: FormBuilder,
     private stuService: StudentService,
     private classService: ClassService,
+    private toastr: ToastrService,
     ) { }
 
   ngOnInit(): void {
@@ -63,12 +65,12 @@ this. classData();
 
       
       this.studentAdd.reset();
-          alert(result.message);
+      this.toastr.success(result.message);
           this.errorMessage=null;
         },
         (err)=>{
           this.errorMessage=err.error.errors;
-          console.log("errors",err.error.errors)
+          this.toastr.error(err.error.errors.name);
           // alert(err.error.message)
         });
     

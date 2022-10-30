@@ -21,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { TeacherAddComponent } from './teacher-add/teacher-add.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {MatMenuModule} from '@angular/material/menu';
     ListGroupModule,
      MatIconModule,
      MatMenuModule,
+     ToastrModule,
   ]
 })
 export class TeacherModule { }

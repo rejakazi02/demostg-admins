@@ -51,7 +51,7 @@ errorMessage:any;
         },
         (err)=>{
           this.errorMessage=err.error.errors;
-          this.toastr.error(err.error.errors);
+          this.toastr.error(err.error.errors.name);
           // alert(err.error.message)
         });
     

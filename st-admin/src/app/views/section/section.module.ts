@@ -23,6 +23,7 @@ import { FormsRoutingModule } from '../forms/forms-routing.module';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -50,7 +51,8 @@ import {MatChipsModule} from '@angular/material/chips';
     ListGroupModule,
     MatSelectModule,
     MatMenuModule,
-    MatChipsModule
+    MatChipsModule,
+    ToastrModule, 
   ]
 })
 export class SectionModule { }
