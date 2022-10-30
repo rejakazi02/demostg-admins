@@ -25,6 +25,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 
 
+import { ToastrModule } from 'ngx-toastr';
+
+
 
 @NgModule({
   declarations: [
@@ -54,7 +57,9 @@ import {MatDialogModule} from '@angular/material/dialog';
      MatIconModule,
      MatSelectModule,
      MatMenuModule,
-     MatDialogModule
+     MatDialogModule,
+     
+     ToastrModule, 
   ]
 })
 export class ClassModule { }

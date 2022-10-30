@@ -55,7 +55,7 @@ import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { ProfileComponent } from './containers/default-layout/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
-
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -102,7 +102,7 @@ const APP_CONTAINERS = [
     MatIconModule,
     HttpClientModule,
     FormsModule,
- 
+    ToastrModule.forRoot(),
 
   ],
   providers: [

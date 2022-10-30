@@ -5,6 +5,9 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { ButtonModule, CardModule, FormModule, GridModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -23,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormModule,
     FormsModule,
     ReactiveFormsModule,
-
+    ToastrModule,
   ]
 })
 export class AuthModule { }

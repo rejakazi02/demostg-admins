@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -23,6 +24,7 @@ errorMessage:any;
   constructor(
     private classService: ClassService,
     private fb: FormBuilder,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -43,12 +45,13 @@ errorMessage:any;
       console.log('responceData', this.responceData);
 
       this.classAdd.reset();
-      alert(result.message);
+      // alert(result.message);
+      this.toastr.success(result.message);
           this.errorMessage=null;
         },
         (err)=>{
           this.errorMessage=err.error.errors;
-          console.log("errors",err.error.errors)
+          this.toastr.error(err.error.errors);
           // alert(err.error.message)
         });
     
