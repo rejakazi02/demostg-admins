@@ -82,7 +82,15 @@
     gap: 10px;
   }
 
-
+  .no-Data-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    font-size: 30px;
+    color: brown;
+    font-weight: 600;
+}
 
 
   @media (min-width: 300px) and (max-width: 400px) {

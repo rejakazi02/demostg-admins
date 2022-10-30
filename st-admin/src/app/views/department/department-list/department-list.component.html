@@ -4,9 +4,9 @@
     </span>Add Department</a>
 </div>
 
-<section>
-  <div class="card-main-div">
-    <div *ngFor="let item of deptListData.departments"  class="card-sub-div dept-card" >
+<section >
+  <div class="card-main-div" *ngIf="deptListData?.departments.length">
+    <div *ngFor="let item of deptListData?.departments"  class="card-sub-div dept-card" >
       <div class="menu-div">
         <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="action-Btn">
           <!-- <mat-icon>more_vert</mat-icon> -->
@@ -40,6 +40,7 @@
       <!-- <p  class="section-list">Section: No Section</p> -->
     </div>
   </div>
+  <h3 *ngIf="!deptListData?.departments.length" class="no-Data-text">No data</h3>
 </section>
 
 
