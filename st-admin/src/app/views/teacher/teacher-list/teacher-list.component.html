@@ -5,7 +5,7 @@
 </div>
 
 <section>
-  <div class="table-main-area">
+  <div class="table-main-area" *ngIf="teaData?.teachers.data.length" >
    
       <div class="table">
         <h1>Teacher's List</h1>
@@ -71,6 +71,7 @@
         <!-- <pagination-controls (pageChange)="onPageChanged($event)" [maxSize]="8"></pagination-controls> -->
        </div>
   </div>
+  <h3 *ngIf="!teaData?.teachers.data.length" class="no-Data-text">No data</h3>
 </section>
 
 
