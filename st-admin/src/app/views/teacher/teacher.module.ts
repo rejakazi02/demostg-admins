@@ -23,6 +23,13 @@ import { TeacherAddComponent } from './teacher-add/teacher-add.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ToastrModule } from 'ngx-toastr';
 
+import {MatButtonModule} from '@angular/material/button';
+// import {NgxPaginationModule} from 'ngx-pagination';
+
+import { MatSelectFilterModule } from 'mat-select-filter';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+
 @NgModule({
   declarations: [
 
@@ -50,7 +57,12 @@ import { ToastrModule } from 'ngx-toastr';
     ListGroupModule,
      MatIconModule,
      MatMenuModule,
+     MatSelectFilterModule,
      ToastrModule,
+     MatButtonModule,
+     MatFormFieldModule,
+     MatSelectModule
+
   ]
 })
 export class TeacherModule { }

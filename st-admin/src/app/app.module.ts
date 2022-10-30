@@ -56,6 +56,7 @@ import { ProfileComponent } from './containers/default-layout/profile/profile.co
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { ToastrModule } from 'ngx-toastr';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -103,6 +104,7 @@ const APP_CONTAINERS = [
     HttpClientModule,
     FormsModule,
     ToastrModule.forRoot(),
+    MatMenuModule
 
   ],
   providers: [

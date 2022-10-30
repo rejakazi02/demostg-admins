@@ -12,6 +12,7 @@ import {
 import { Router, ActivatedRoute } from '@angular/router';
 import { param } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
+import { MatSelectChange } from '@angular/material/select';
 
 
 @Component({
@@ -23,8 +24,11 @@ export class TeacherAddComponent implements OnInit {
   teacherAdd!:FormGroup;
   responceData: any;
   undata:any;
-  unionName:any;
+  // unionName:any;
   errorMessage:any;
+  unionName?: any[];
+  filteredUnionList?: any[];
+  
   constructor(private fb: FormBuilder,
     private teaService: TeacherService,
     private toastr: ToastrService,
@@ -105,12 +109,13 @@ this.unionData();
       next: (result) => {
         this.undata = result;
         this.unionName = this.undata.data;
-       
+        console.log("union", this.unionName);
+        
+        this.filteredUnionList = this.unionName?.slice();
       },
       error: (err) => {
         console.log(err);
       },
     });
   }
-
 }
