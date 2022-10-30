@@ -17,10 +17,10 @@ export const navItems: INavData[] = [
     url: '/student',
     iconComponent: { name: 'cil-user' },
     children: [
-      {
-        name: 'Student Add',
-        url: '/student/studentAdd'
-      },
+      // {
+      //   name: 'Student Add',
+      //   url: '/student/studentAdd'
+      // },
       {
         name: 'Student List ',
         url: '/student/studentList'
