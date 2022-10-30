@@ -47,16 +47,7 @@
             <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p>
           </c-col>
 
-           <!-- <c-col md="6">
-            <label cLabel for="inputState4">Union Name</label>
-            <select formControlName="union_id" cSelect id="inputState333">
-              <option>Choose...</option>
-              <option *ngFor="let item of unionName" value="{{ item.id }}">
-                {{ item.name }}
-              </option>
-            </select>
-            <p class="validation-Message" *ngIf="errorMessage && errorMessage.union_id && errorMessage.union_id.length">{{errorMessage.union_id[0]}}</p>
-          </c-col> -->
+      
 
           <c-col md="6">
             <label cLabel for="inputState4">Union Name</label>
@@ -75,7 +66,7 @@
               </mat-select>
               <mat-error *ngIf="">This field is required</mat-error>
             </mat-form-field>
-            <p class="validation-Message" *ngIf="errorMessage && errorMessage.union_id && errorMessage.union_id.length">{{errorMessage.union_id[0]}}</p>
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.present_address_union_id && errorMessage.present_address_union_id.length">{{errorMessage.present_address_union_id[0]}}</p>
           </c-col> 
 
 
