@@ -46,8 +46,7 @@ export class StudentAddComponent implements OnInit {
       section_id: ['', Validators.required],
       blood_group: ['', Validators.required],
       session: ['', Validators.required],
-      roll_no: ['', Validators.required],
-      date_of_birth: ['', Validators.required],
+     
     
      
     });

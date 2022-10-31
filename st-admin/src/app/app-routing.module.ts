@@ -99,7 +99,7 @@ const adminChildrenRoutes: Routes = [
       import('./views/department/department.module').then((m) => m.DepartmentModule)
   },
   {
-    path: 'student',
+    path: '',
     loadChildren: () =>
       import('./views/student/student.module').then((m) => m.StudentModule)
 
@@ -113,7 +113,7 @@ const adminChildrenRoutes: Routes = [
 
   },
   {
-    path: 'section',
+    path: '',
     loadChildren: () =>
       import('./views/section/section.module').then((m) => m.SectionModule)
 

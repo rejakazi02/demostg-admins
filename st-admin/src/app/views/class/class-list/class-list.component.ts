@@ -17,11 +17,12 @@ export class ClassListComponent implements OnInit {
 
   constructor(
     private classService: ClassService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
     ) {}
 
   ngOnInit(): void {
     this.classtList();
+    
   
   }
 

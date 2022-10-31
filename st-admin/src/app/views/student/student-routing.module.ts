@@ -30,7 +30,7 @@ const routes: Routes = [
         },
       },
       {
-        path: 'studentListBySection/:id',
+        path: 'sections/:id',
         component: StudentListComponent,
         data: {
           title: 'Student List',

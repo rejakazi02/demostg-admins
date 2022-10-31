@@ -30,7 +30,7 @@ const routes: Routes = [
         },
       },
       {
-        path: 'sectionListShow/:id',
+        path: 'classes/:id',
         component: SectionListComponent,
         data: {
           title: 'Institute Add',
