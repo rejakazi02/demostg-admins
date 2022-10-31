@@ -29,8 +29,9 @@ export class ClassListComponent implements OnInit {
     this.classService.classtList().subscribe((result) => {
       this.classListData = result;
       console.log('classssssss',this.classListData);
-      
+      // this.classtList()
     });
+    
   }
 
 

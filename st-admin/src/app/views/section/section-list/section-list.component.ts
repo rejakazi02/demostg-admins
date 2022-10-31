@@ -1,5 +1,6 @@
+import { ActivatedRoute } from '@angular/router';
 import { ClassService } from './../../../service/class.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList } from '@angular/core';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-section-list',
@@ -12,36 +13,48 @@ export class SectionListComponent implements OnInit {
 item: any;
 sectionListData:any;
 itemss:any;
- 
+sectionListDataaa:any;
+ id:any;
 
   constructor(
     private classService: ClassService,
+    private activatedRoute:ActivatedRoute
     
     ) {}
 
   ngOnInit(): void {
-    this.classtList();
-  
-  }
+    
+    this.activatedRoute.paramMap.subscribe((param) => {
+      this.id = param.get('id');
 
-  classtList() {
-    this.classService.classtList().subscribe((result) => {
-      this.classListData = result;
-       this.itemss=this.classListData.classes;
-      // console.log('classssssss',this.classListData);
-      
-    });
-  }
-  sectionList(classId:any) {
-    this.classService.sectionList(classId).subscribe((result) => {
-      this.sectionListData = result;
-      console.log('classssssss',this.classListData);
-      
+      if (this.id) {
+        
+    this.sectionList();
+        
+      }
     });
   }
 
+  // classtList() {
+  //   this.classService.classtList().subscribe((result) => {
+  //     this.classListData = result;
+  //      this.itemss=this.classListData.classes;
+  //     this.sectionListDataaa= this.itemss?.sections;
+  //     console.log('asahgjkhj',this.sectionListDataaa);
+      
+  //   });
+  // }
+  sectionList() {
+    this.classService.sectionList(this.id).subscribe((result) => {
+      this.sectionListDataaa = result;
+
+      console.log('section',this.sectionListDataaa);
+      
+    });
+  }
+
   
-  confirmBox(data:any, cId:any) {
+  confirmBox(data:any) {
     Swal.fire({
       title: 'Are you sure want to remove?',
       text: 'You will not be able to recover this file!',
@@ -56,10 +69,10 @@ itemss:any;
           'Your imaginary file has been deleted.',
           'success'
         );
-        this.classService.deleteSectionData(data, cId).subscribe((result) => {
+        this.classService.deleteSectionData(data, this.id).subscribe((result) => {
           console.log("section data", result);
           
-          this.classtList();
+          this.sectionList();
         });
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
