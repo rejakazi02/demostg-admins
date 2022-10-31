@@ -2,7 +2,7 @@
 
 <section>
   <div class="card-main-div">
-    <div  *ngFor="let item of classListData?.classes"  class="card-sub-div dept-card" >
+    <div  *ngFor="let sec of itemss.sections"  class="card-sub-div dept-card" >
       <div class="menu-div">
         <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="action-Btn">
           <!-- <mat-icon>more_vert</mat-icon> -->
@@ -38,7 +38,7 @@
         Class: <span>{{ item.name }}</span>
       </p> -->
       <a [routerLink]="['/student/studentListBySection', item.id]" class="button-atag">
-         <p  class="section-list depTName">Section: <span >{{ item.name }},</span></p>
+         <p  class="section-list depTName">Section: <span >{{ sec.name }},</span></p>
       </a>
      
       <!-- <p  class="section-list">Section: No Section</p> -->

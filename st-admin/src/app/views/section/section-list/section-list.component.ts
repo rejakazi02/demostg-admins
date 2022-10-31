@@ -10,6 +10,8 @@ export class SectionListComponent implements OnInit {
   classListData: any;
   sectionDatas:any;
 item: any;
+sectionListData:any;
+itemss:any;
  
 
   constructor(
@@ -25,7 +27,15 @@ item: any;
   classtList() {
     this.classService.classtList().subscribe((result) => {
       this.classListData = result;
+       this.itemss=this.classListData.classes;
       // console.log('classssssss',this.classListData);
+      
+    });
+  }
+  sectionList(classId:any) {
+    this.classService.sectionList(classId).subscribe((result) => {
+      this.sectionListData = result;
+      console.log('classssssss',this.classListData);
       
     });
   }

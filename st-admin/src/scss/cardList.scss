@@ -82,14 +82,10 @@
     gap: 10px;
   }
 
-  .no-Data-text{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10%;
-    font-size: 30px;
-    color: brown;
-    font-weight: 600;
+  .no-Data-img{
+    width: 40%;
+    padding: 8% 0;
+    margin: 0 30%;
 }
 
 
@@ -175,6 +171,10 @@
         align-items: center !important;
         gap: 10px;
       }
-    
+      .no-Data-img{
+        width: 61%;
+        padding: 41% 0;
+        margin: 0 23%;
+    }
 
   }

@@ -13,6 +13,7 @@ import { SectionAddComponent } from '../../section/section-add/section-add.compo
 export class ClassListComponent implements OnInit {
   classListData: any;
   sectionDatas:any;
+  section= true;
 
   constructor(
     private classService: ClassService,
@@ -41,6 +42,8 @@ export class ClassListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
     });
+  this.section= false;
+
   }
 
 

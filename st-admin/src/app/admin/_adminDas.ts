@@ -12,27 +12,27 @@ export const navItems: INavData[] = [
     }
   },
 
-  {
-    name: 'Student',
-    url: '/student',
-    iconComponent: { name: 'cil-user' },
-    children: [
-      // {
-      //   name: 'Student Add',
-      //   url: '/student/studentAdd'
-      // },
-      {
-        name: 'Student List ',
-        url: '/student/studentList'
-      },
+  // {
+  //   name: 'Student',
+  //   url: '/student',
+  //   iconComponent: { name: 'cil-user' },
+  //   children: [
+  //     // {
+  //     //   name: 'Student Add',
+  //     //   url: '/student/studentAdd'
+  //     // },
+  //     {
+  //       name: 'Student List ',
+  //       url: '/student/studentList'
+  //     },
 
-      // {
-      //   name: 'Tables',
-      //   url: '/base/tables'
-      // },
+  //     // {
+  //     //   name: 'Tables',
+  //     //   url: '/base/tables'
+  //     // },
 
-    ]
-  },
+  //   ]
+  // },
   {
     name: 'Teachers',
     url: '/teacher',
@@ -54,27 +54,27 @@ export const navItems: INavData[] = [
 
     ]
   },
-  {
-    name: 'Parents',
-    url: '/parents',
-    iconComponent: { name: 'cil-wc' },
-    children: [
-      {
-        name: 'Parents Add',
-        url: '/parents/parentsAdd'
-      },
-      {
-        name: 'Parents List ',
-        url: '/parents/parentsList'
-      },
+  // {
+  //   name: 'Parents',
+  //   url: '/parents',
+  //   iconComponent: { name: 'cil-wc' },
+  //   children: [
+  //     {
+  //       name: 'Parents Add',
+  //       url: '/parents/parentsAdd'
+  //     },
+  //     {
+  //       name: 'Parents List ',
+  //       url: '/parents/parentsList'
+  //     },
 
-      // {
-      //   name: 'Tables',
-      //   url: '/base/tables'
-      // },
+  //     // {
+  //     //   name: 'Tables',
+  //     //   url: '/base/tables'
+  //     // },
 
-    ]
-  },
+  //   ]
+  // },
 
   {
     name: 'Class',
@@ -125,22 +125,22 @@ export const navItems: INavData[] = [
       
     ]
   },
-  {
-    name: 'Subject',
-    url: '/subject',
-    iconComponent: { name: 'cil-book' },
-    children: [
-      {
-        name: 'Subject Add',
-        url: '/subject/subjectAdd'
-      },
-      {
-        name: 'Subject List',
-        url: '/subject/subjectList'
-      },
+  // {
+  //   name: 'Subject',
+  //   url: '/subject',
+  //   iconComponent: { name: 'cil-book' },
+  //   children: [
+  //     {
+  //       name: 'Subject Add',
+  //       url: '/subject/subjectAdd'
+  //     },
+  //     {
+  //       name: 'Subject List',
+  //       url: '/subject/subjectList'
+  //     },
       
-    ]
-  },
+  //   ]
+  // },
   
  
   // {

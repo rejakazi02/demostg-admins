@@ -24,6 +24,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import { ToastrModule } from 'ngx-toastr';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -53,6 +54,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatMenuModule,
     MatChipsModule,
     ToastrModule, 
+    MatDialogModule,
   ]
 })
 export class SectionModule { }
