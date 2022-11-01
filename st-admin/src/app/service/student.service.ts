@@ -16,8 +16,8 @@ let baseurl = ' https://api.omegaitsys.com/api/v1/';
 export class StudentService {
 
   constructor(private http: HttpClient) { }
-
-  studentPost(stuAdd: any,fd:any, httpOptions:any) {
+  // , httpOptions:any, fd:any
+  studentPost(stuAdd: any) {
     return this.http.post<any>(baseurl + 'students', stuAdd);
   
   }
@@ -30,9 +30,9 @@ export class StudentService {
     return this.http.get(baseurl + 'sections?class_id=' + select, subSecType);
   }
 
-  studentList() {
+  studentList(class_id:any,section_id:any) {
     // return this.http.get<any>(baseurl + 'admin/institutes')
-    return this.http.get(baseurl + 'teachers');
+    return this.http.get(baseurl + 'students?class_id='+class_id+'&section_id='+section_id);
   }
 
 

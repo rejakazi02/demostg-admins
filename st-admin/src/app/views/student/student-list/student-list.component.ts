@@ -1,3 +1,4 @@
+import { StudentService } from './../../../service/student.service';
 import { param } from 'jquery';
 import { ActivatedRoute } from '@angular/router';
 import { Component, Inject, OnInit } from '@angular/core';
@@ -26,7 +27,11 @@ export class StudentListComponent implements OnInit {
   classsId:any;
   classIdd:any;
   sectionId:any;
-  constructor(public dialog: MatDialog, private activatedRoute: ActivatedRoute,
+  studentListData:any;
+  constructor(
+    public dialog: MatDialog, 
+    private activatedRoute: ActivatedRoute,
+    private studentService:StudentService
  
     ) { }
 
@@ -40,8 +45,21 @@ export class StudentListComponent implements OnInit {
       this.classIdd=qParam.get('classId')
       console.log('   this.classIdd',this.classIdd)
     })
-    
+    this.studentList();
   }
+
+  // studentList section 
+
+  studentList() {
+    this.studentService.studentList(this.classIdd,this.sectionId).subscribe((result) => {
+    this.studentListData = result;
+
+    console.log('studentListData',this.studentListData);
+    
+  });
+}
+
+
   openDialog() {
     const dialogRef = this.dialog.open(StudentAddComponent, {
       data:{
@@ -54,6 +72,10 @@ export class StudentListComponent implements OnInit {
       // console.log(`Dialog result: ${result}`);
     });
   }
+
+
+
+
 
 
   // delete section 

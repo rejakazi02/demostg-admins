@@ -26,6 +26,10 @@ export class StudentAddComponent implements OnInit {
   subSectionData: any;
   classDatas: any;
   selectedFile!: File;
+
+  // File
+  file: any;
+  pickedImage: any;
   constructor(
     private fb: FormBuilder,
     private stuService: StudentService,
@@ -51,30 +55,57 @@ export class StudentAddComponent implements OnInit {
 
 // file upload section 
 
-onFileSelected(event:Event){
-console.log('event',event)
-const file = (event.target as HTMLInputElement)?.files;
-this.studentAdd.patchValue({
-  image:file
-});
+// onFileSelected(event:Event){
+// console.log('event',event)
+// const file = event?.target?.files[0];
+// console.log('file',file)
+// this.studentAdd.patchValue({
+//   image:file
+ 
+// });
+// }
+
+/*
+   * IMAGE METHODS
+   * pickImage()
+   */
+
+
+onFileSelected(event:any) {
+  this.file = event.target.files[0].name;
+  if (this.file) {
+    this.studentAdd.patchValue({
+      image: this.file,
+    });
+    this.studentAdd.get('image').updateValueAndValidity();
+
+    let reader = new FileReader();
+    reader.readAsDataURL(this.file);
+    reader.onload = (_event) => {
+      this.pickedImage = reader.result;
+    }
+  }
+
+}
+
+getImagePreview() {
+   return this.pickedImage;
 }
 
 // student addd 
   studentSubmit() {
     console.log('test', this.studentAdd.value);
-    const fd:any= new FormData();
-    fd.append("image", this.studentAdd.controls['image'].value);
-    const httpOptions ={
-      Headers: new HttpHeaders({
-          'Accept': 'application/json'
-      })
-    
-    };
+  
+
+    const mData = {
+      ...this.studentAdd.value,
+      ...{
+        image: this.pickedImage 
+      }
+    }
 
 
-
-
-    this.stuService.studentPost(this.studentAdd.value,fd,httpOptions).subscribe(
+    this.stuService.studentPost(mData).subscribe(
       (result) => {
         this.responceData = result;
         console.log('responceData', this.responceData);
@@ -85,7 +116,13 @@ this.studentAdd.patchValue({
       },
       (err) => {
         this.errorMessage = err.error.errors;
-        this.toastr.error(err.error.errors.name);
+        // this.toastr.error(err.error.message);
+         if(err.error.errors.name){
+          this.toastr.error(err.error.errors.name);
+         }
+         if(err.error.errors.phone){
+          this.toastr.error(err.error.errors.phone);
+         }
         // alert(err.error.message)
       }
     );
