@@ -1,5 +1,5 @@
 import { StudentService } from './../../../service/student.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import {
   FormControl,
   FormBuilder,
@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { param } from 'jquery';
 import { ClassService } from 'src/app/service/class.service';
 import { ToastrService } from 'ngx-toastr';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 
@@ -21,6 +22,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./student-add.component.scss']
 })
 export class StudentAddComponent implements OnInit {
+
+
+ 
   studentAdd:any;
   errorMessage:any;
   responceData:any;
@@ -31,6 +35,7 @@ export class StudentAddComponent implements OnInit {
     private stuService: StudentService,
     private classService: ClassService,
     private toastr: ToastrService,
+    @Inject(MAT_DIALOG_DATA) public data:any,
     ) { }
 
   ngOnInit(): void {
@@ -39,13 +44,11 @@ export class StudentAddComponent implements OnInit {
       phone: ['', Validators.required],
       password: ['', Validators.required],
       admission_date: ['', Validators.required],
-      gender: ['', Validators.required],
-      present_address: ['', Validators.required],
-      permanent_address: ['', Validators.required],
-      class_id: ['', Validators.required],
-      section_id: ['', Validators.required],
-      blood_group: ['', Validators.required],
-      session: ['', Validators.required],
+      
+      class_id: [this.data.claData, Validators.required],
+      section_id: [this.data.secData, Validators.required],
+      image: [''],
+   
      
     
      
@@ -58,6 +61,7 @@ this. classData();
 
   studentSubmit(){
     console.log("test", this.studentAdd.value)
+ 
     this.stuService.studentPost(this.studentAdd.value).subscribe((result) => {
       this.responceData = result;
       console.log('responceData', this.responceData);

@@ -37,7 +37,7 @@
       <p class="class-list">
         Class: <span>{{ item.name }}</span>
       </p> -->
-      <a   [routerLink]="['/sections', item.id]" class="button-atag">
+      <a   [routerLink]="['/sections', item.id]" [queryParams]="{classId: id}" class="button-atag">
          <p  class="section-list depTName"> <span >{{ item.name }}</span></p>
       </a>
      

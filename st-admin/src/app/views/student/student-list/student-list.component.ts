@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { param } from 'jquery';
+import { ActivatedRoute } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormControl,
   FormBuilder,
@@ -9,6 +11,7 @@ import {
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 import {MatDialog} from '@angular/material/dialog';
 import Swal from 'sweetalert2';
@@ -20,12 +23,32 @@ import { StudentAddComponent } from '../student-add/student-add.component';
 })
 export class StudentListComponent implements OnInit {
   instData:any;
-  constructor(public dialog: MatDialog) { }
+  classsId:any;
+  classIdd:any;
+  sectionId:any;
+  constructor(public dialog: MatDialog, private activatedRoute: ActivatedRoute,
+ 
+    ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(param=>{
+      this.sectionId=param.get('id')
+  
+     console.log(' this.sectionId',  this.sectionId)
+    })
+    this.activatedRoute.queryParamMap.subscribe(qParam => {
+      this.classIdd=qParam.get('classId')
+      console.log('   this.classIdd',this.classIdd)
+    })
+    
   }
   openDialog() {
-    const dialogRef = this.dialog.open(StudentAddComponent);
+    const dialogRef = this.dialog.open(StudentAddComponent, {
+      data:{
+      claData:this.classIdd,
+      secData:this.sectionId
+    }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);

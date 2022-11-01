@@ -33,7 +33,13 @@ sectionListDataaa:any;
         
       }
     });
+
+
+   
   }
+
+
+
 
   // classtList() {
   //   this.classService.classtList().subscribe((result) => {
