@@ -26,6 +26,7 @@ export class StudentAddComponent implements OnInit {
   subSectionData: any;
   classDatas: any;
   selectedFile!: File;
+  studentListData:any;
 
   // File
   file: any;
@@ -35,7 +36,8 @@ export class StudentAddComponent implements OnInit {
     private stuService: StudentService,
     private classService: ClassService,
     private toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private studentService:StudentService,
   ) {}
 
   ngOnInit(): void {
@@ -92,6 +94,18 @@ getImagePreview() {
    return this.pickedImage;
 }
 
+
+
+
+studentList() {
+  this.studentService.studentList(this.data.claData,this.data.secData).subscribe((result) => {
+  this.studentListData = result;
+
+  console.log('studentListData',this.studentListData);
+  
+});
+
+}
 // student addd 
   studentSubmit() {
     console.log('test', this.studentAdd.value);
@@ -113,6 +127,7 @@ getImagePreview() {
         this.studentAdd.reset();
         this.toastr.success(result.message);
         this.errorMessage = null;
+        window.location.reload();
       },
       (err) => {
         this.errorMessage = err.error.errors;
@@ -126,6 +141,8 @@ getImagePreview() {
         // alert(err.error.message)
       }
     );
+
+   
   }
 
   classData() {
@@ -143,4 +160,6 @@ getImagePreview() {
         console.log('section14', this.subSectionData);
       });
   }
+
+
 }

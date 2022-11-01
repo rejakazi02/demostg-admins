@@ -5,7 +5,7 @@
           <form cForm class="row g-3" [formGroup]="classRoomAdd" (ngSubmit)="classRoomSubmit()">
             <c-col md="6">
               <label cLabel for="inputEmail4">Room Number</label>
-              <input formControlName="room_no" cFormControl id="inputEmail4" type="text" placeholder="Teacher Name" />
+              <input formControlName="room_no" cFormControl id="inputEmail4" type="text" placeholder="Room Number" />
               <p class="validation-Message" *ngIf="errorMessage && errorMessage.room_no && errorMessage.room_no.length">{{errorMessage.room_no[0]}}</p>
             </c-col>
   
@@ -13,7 +13,7 @@
   
             <c-col md="6">
               <label cLabel for="inputPassword41">Room capacity</label>
-              <input formControlName="capacity" value="id" cFormControl id="inputPassword41" type="text" placeholder="Present Address" />
+              <input formControlName="capacity" value="id" cFormControl id="inputPassword41" type="text" placeholder="Room capacity" />
               <p class="validation-Message" *ngIf="errorMessage && errorMessage.capacity && errorMessage.capacity.length">{{errorMessage.capacity[0]}}</p>
             </c-col>
           

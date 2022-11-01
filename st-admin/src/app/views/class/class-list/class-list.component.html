@@ -41,8 +41,9 @@
       <p class="class-list">
         Class: <span>{{ item.name }}</span>
       </p>
-      <p  class="section-list">Section: <span *ngFor="let item of item?.sections">{{ item.name }},</span></p>
+      <p *ngIf="item?.sections.length"  class="section-list">Section: <span  *ngFor="let item of item?.sections">{{ item.name }},</span></p>
       <!-- <p  class="section-list">Section: No Section</p> -->
+      <h3 *ngIf="!item?.sections.length" class="no-Data-text">Section: No data</h3>
     </div>
   </div>
 

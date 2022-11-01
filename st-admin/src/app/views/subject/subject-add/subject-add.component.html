@@ -4,22 +4,22 @@
       <c-card-body>
         <form cForm class="row g-3" [formGroup]="subjectAdd" (ngSubmit)="subjectSubmit()">
           <c-col md="6">
-            <label cLabel for="inputEmail4">Subject Name</label>
+            <label cLabel for="inputEmail4">Name</label>
             <input formControlName="name" cFormControl id="inputEmail4" type="text" placeholder="Subject Name" />
             <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p>
           </c-col>
 
 
           <c-col md="6">
-            <label cLabel >Subject Code</label>
+            <label cLabel >Code</label>
             <input formControlName="code"  cFormControl  type="text" placeholder="Subject Code" />
             <p class="validation-Message" *ngIf="errorMessage && errorMessage.code && errorMessage.code.length">{{errorMessage.code[0]}}</p>
           </c-col>
 
           <c-col md="6">
-            <label cLabel for="inputState">Subject type</label>
-            <select formControlName="type" cSelect id="inputState">
-              <option>Choose...</option>
+            <label cLabel for="inputState"> Type</label>
+            <select formControlName="type" cSelect id="inputState" ngModel="Choose...">
+              <option selected disabled value="Choose...">Choose...</option>
               <option value="theory">Theory</option>
               <option value="practical">Practical</option>
             
@@ -32,9 +32,9 @@
 
          
           <c-col md="6">
-            <label cLabel for="inputPassword34">Class Id</label>
-            <select formControlName="class_id"cSelect id="inputState1">
-              <option>Choose...</option>
+            <label cLabel for="inputPassword34">Select Class</label>
+            <select formControlName="class_id"cSelect id="inputState1" ngModel="Choose...">
+              <option selected disabled value="Choose...">Choose...</option>
               <option *ngFor="let item of classDatas" value="{{item.id}}">{{item.name}}</option>
               
              

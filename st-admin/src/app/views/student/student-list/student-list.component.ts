@@ -57,6 +57,7 @@ export class StudentListComponent implements OnInit {
     console.log('studentListData',this.studentListData);
     
   });
+
 }
 
 
@@ -71,6 +72,7 @@ export class StudentListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
     });
+    
   }
 
 
