@@ -1,1 +1,47 @@
-<p>class-room-list works!</p>
+<div class="add-btn-div">
+    <a href="" routerLink="/classRoom/classRoomAdd"><span class="material-symbols-outlined">
+      add
+      </span>Add Class Room</a>
+  </div>
+  
+  <section >
+    <div class="card-main-div" *ngIf="classRoomListData?.length">
+      <div *ngFor="let item of classRoomListData"  class="card-sub-div room-card" >
+        <div class="menu-div">
+          <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="action-Btn">
+            <!-- <mat-icon>more_vert</mat-icon> -->
+            <span class="material-symbols-outlined"> more_horiz </span>
+          </button>
+          <mat-menu #menu="matMenu">
+          
+  
+             
+  
+            <button (click)="confirmBox(item.id)" mat-menu-item class="deleteBtn">
+              <span class="material-symbols-outlined"> delete</span>
+              <span>Delete</span>
+            </button>
+            
+          </mat-menu>
+        </div>
+  
+       
+  
+        <p class="class-list ">
+           <span class="roomNO">Room No: {{ item.room_no }}</span>
+        </p>
+        <p class="class-list ">
+           <span class="roomCapacity"> Capacity: {{ item.capacity }}</span>
+        </p>
+       
+      </div>
+    </div>
+   
+    <img *ngIf="!classRoomListData?.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt="">
+  </section>
+  
+  
+  
+  
+  
+  

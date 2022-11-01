@@ -119,6 +119,13 @@ const adminChildrenRoutes: Routes = [
 
 
   },
+  {
+    path: 'classRoom',
+    loadChildren: () =>
+      import('./views/class-room/class-room.module').then((m) => m.ClassRoomModule)
+
+
+  },
   
  
  

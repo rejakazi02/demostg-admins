@@ -92,22 +92,22 @@ export const navItems: INavData[] = [
       
     ]
   },
-  // {
-  //   name: 'Section',
-  //   url: '/section',
-  //   iconComponent: { name: 'cil-color-border' },
-  //   children: [
-  //     {
-  //       name: 'Section Add',
-  //       url: '/section/sectionAdd'
-  //     },
-  //     {
-  //       name: 'Section List',
-  //       url: '/section/sectionList'
-  //     },
+  {
+    name: 'Class Room',
+    url: '/classRoom',
+    iconComponent: { name: 'cil-room' },
+    children: [
+      {
+        name: 'Class Room Add',
+        url: '/classRoom/classRoomAdd'
+      },
+      {
+        name: 'Class Room List',
+        url: '/classRoom/classRoomList'
+      },
       
-  //   ]
-  // },
+    ]
+  },
 
   {
     name: 'Department',
@@ -125,22 +125,22 @@ export const navItems: INavData[] = [
       
     ]
   },
-  // {
-  //   name: 'Subject',
-  //   url: '/subject',
-  //   iconComponent: { name: 'cil-book' },
-  //   children: [
-  //     {
-  //       name: 'Subject Add',
-  //       url: '/subject/subjectAdd'
-  //     },
-  //     {
-  //       name: 'Subject List',
-  //       url: '/subject/subjectList'
-  //     },
+  {
+    name: 'Subject',
+    url: '/subject',
+    iconComponent: { name: 'cil-book' },
+    children: [
+      {
+        name: 'Subject Add',
+        url: '/subject/subjectAdd'
+      },
+      {
+        name: 'Subject List',
+        url: '/subject/subjectList'
+      },
       
-  //   ]
-  // },
+    ]
+  },
   
  
   // {

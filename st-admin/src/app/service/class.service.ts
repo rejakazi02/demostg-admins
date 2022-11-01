@@ -74,6 +74,28 @@ deleteSectionData(data: any, cId:any) {
   return this.http.delete(baseurl + 'sections/' + data + '?class_id='+ cId);
 }
 
+// class room section ---------------------------------------------------------------
+classRoomPost(classRoomAdd: any) {
+  return this.http.post<any>(baseurl + 'rooms', classRoomAdd);
+}
+
+classRoomList() {
+ 
+  return this.http.get<any>(baseurl + 'rooms');
+}
+
+
+
+// dept data delete 
+deleteSclassRoomData(data: any) {
+  return this.http.delete(baseurl + 'rooms/' + data);
+}
+
+
+
+
+
+
 
 
 
