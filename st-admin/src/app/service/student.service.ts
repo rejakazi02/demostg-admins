@@ -17,8 +17,8 @@ export class StudentService {
 
   constructor(private http: HttpClient) { }
 
-  studentPost(teaAdd: any) {
-    return this.http.post<any>(baseurl + 'students', teaAdd);
+  studentPost(stuAdd: any,fd:any, httpOptions:any) {
+    return this.http.post<any>(baseurl + 'students', stuAdd);
   
   }
 
