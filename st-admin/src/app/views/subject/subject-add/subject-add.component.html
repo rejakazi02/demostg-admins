@@ -1,60 +1,75 @@
 <c-row>
-   
-  
-   
-   
-    
-  
-    <c-col xs="12">
-        <c-card class="mb-4">
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-body>
+        <form cForm class="row g-3" [formGroup]="subjectAdd" (ngSubmit)="subjectSubmit()">
+          <c-col md="6">
+            <label cLabel for="inputEmail4">Subject Name</label>
+            <input formControlName="name" cFormControl id="inputEmail4" type="text" placeholder="Subject Name" />
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p>
+          </c-col>
+
+
+          <c-col md="6">
+            <label cLabel >Subject Code</label>
+            <input formControlName="code"  cFormControl  type="text" placeholder="Subject Code" />
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.code && errorMessage.code.length">{{errorMessage.code[0]}}</p>
+          </c-col>
+
+          <c-col md="6">
+            <label cLabel for="inputState">Subject type</label>
+            <select formControlName="type" cSelect id="inputState">
+              <option>Choose...</option>
+              <option value="theory">Theory</option>
+              <option value="practical">Practical</option>
+            
+            </select>
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.type && errorMessage.type.length">{{errorMessage.type[0]}}</p>
          
-          <c-card-body>
-           
-           
-            <form cForm class="row g-3">
-                <c-col md="6">
-                  <label cLabel for="inputEmail4">Email</label>
-                  <input cFormControl id="inputEmail4" type="email" />
-                </c-col>
-                <c-col md="6">
-                  <label cLabel for="inputPassword4">Password</label>
-                  <input cFormControl id="inputPassword4" type="password" />
-                </c-col>
-                <c-col xs="12">
-                  <label cLabel for="inputAddress">Address</label>
-                  <input cFormControl id="inputAddress" placeholder="1234 Main St" />
-                </c-col>
-                <c-col xs="12">
-                  <label cLabel for="inputAddress2">Address 2</label>
-                  <input cFormControl id="inputAddress2" placeholder="Apartment, studio, or floor" />
-                </c-col>
-                <c-col md="6">
-                  <label cLabel for="inputCity">City</label>
-                  <input cFormControl id="inputCity" />
-                </c-col>
-                <c-col md="4">
-                  <label cLabel for="inputState">State</label>
-                  <select cSelect id="inputState">
-                    <option>Choose...</option>
-                    <option>...</option>
-                  </select>
-                </c-col>
-                <c-col md="2">
-                  <label cLabel for="inputZip">Zip</label>
-                  <input cFormControl id="inputZip" />
-                </c-col>
-                <c-col xs="12">
-                  <c-form-check>
-                    <input cFormCheckInput id="gridCheck" name="gridCheck" type="checkbox" />
-                    <label cFormCheckLabel for="gridCheck">Check me out</label>
-                  </c-form-check>
-                </c-col>
-                <c-col xs="12">
-                  <button cButton type="submit">Add student</button>
-                </c-col>
-              </form>
-          </c-card-body>
-        </c-card>
-      </c-col>
-  </c-row>
-   
+          </c-col>
+
+        
+
+         
+          <c-col md="6">
+            <label cLabel for="inputPassword34">Class Id</label>
+            <select formControlName="class_id"cSelect id="inputState1">
+              <option>Choose...</option>
+              <option *ngFor="let item of classDatas" value="{{item.id}}">{{item.name}}</option>
+              
+             
+            </select>
+          
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.class_id && errorMessage.class_id.length">{{errorMessage.class_id[0]}}</p>
+          </c-col>
+
+      
+
+
+
+          <c-col md="6">
+            <label cLabel for="inputPassword41">Total Marks</label>
+            <input formControlName="total_marks" value="id" cFormControl id="inputPassword41" type="text" placeholder="Total Marks" />
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.total_marks && errorMessage.total_marks.length">{{errorMessage.total_marks[0]}}</p>
+          </c-col>
+          <c-col md="6">
+            <label cLabel for="inputPassword42">Pass Marks</label>
+            <input formControlName="pass_marks"  cFormControl id="inputPassword42" type="text" placeholder="Pass Marks" />
+            <p class="validation-Message" *ngIf="errorMessage && errorMessage.pass_marks && errorMessage.pass_marks.length">{{errorMessage.pass_marks[0]}}</p>
+          </c-col>
+
+          <c-col xs="12">
+            <c-form-check>
+              <input formControlName="is_optional" cFormCheckInput  type="checkbox" />
+              <label cFormCheckLabel for="gridCheck">Optional Subject</label>
+            </c-form-check>
+          </c-col>
+
+          <c-col xs="12">
+            <button cButton type="submit">Add Subject</button>
+          </c-col>
+        </form>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
