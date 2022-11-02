@@ -39,7 +39,7 @@ export class TeacherService {
 
 
   // dept data delete 
-  deleteTeaData(data: string) {
+  deleteTeaData(data: any) {
     return this.http.delete(baseurl + 'departments/' + data);
   }
 // token 

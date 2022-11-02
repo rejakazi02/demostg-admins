@@ -45,6 +45,7 @@ this.sectionData();
       this.sectionAdd.reset();
       this.toastr.success(result.message);
           this.errorMessage=null;
+          window.location.reload();
         },
         (err)=>{
           this.errorMessage=err.error.errors;

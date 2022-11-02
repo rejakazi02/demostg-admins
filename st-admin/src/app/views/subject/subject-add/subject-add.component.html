@@ -18,7 +18,7 @@
 
           <c-col md="6">
             <label cLabel for="inputState"> Type</label>
-            <select formControlName="type" cSelect id="inputState" ngModel="Choose...">
+            <select formControlName="type" cSelect id="inputState" >
               <option selected disabled value="Choose...">Choose...</option>
               <option value="theory">Theory</option>
               <option value="practical">Practical</option>
@@ -33,7 +33,7 @@
          
           <c-col md="6">
             <label cLabel for="inputPassword34">Select Class</label>
-            <select formControlName="class_id"cSelect id="inputState1" ngModel="Choose...">
+            <select formControlName="class_id"cSelect id="inputState1" >
               <option selected disabled value="Choose...">Choose...</option>
               <option *ngFor="let item of classDatas" value="{{item.id}}">{{item.name}}</option>
               

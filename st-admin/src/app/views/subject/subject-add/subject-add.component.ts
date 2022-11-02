@@ -42,7 +42,7 @@ export class SubjectAddComponent implements OnInit {
 
       
     });
-console.log(Number(true))
+
     this.classData();
   }
 

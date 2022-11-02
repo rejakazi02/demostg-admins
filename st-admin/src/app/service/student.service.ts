@@ -38,9 +38,9 @@ export class StudentService {
 
 
 
-  // dept data delete 
-  deleteStudentData(data: string) {
-    return this.http.delete(baseurl + 'departments/' + data);
+  // student data delete 
+  deleteStudentData(data: any) {
+    return this.http.delete(baseurl + 'students/' + data);
   }
 
 

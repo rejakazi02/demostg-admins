@@ -39,11 +39,11 @@ export class StudentListComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(param=>{
       this.sectionId=param.get('id')
   
-     console.log(' this.sectionId',  this.sectionId)
+    //  console.log(' this.sectionId',  this.sectionId)
     })
     this.activatedRoute.queryParamMap.subscribe(qParam => {
       this.classIdd=qParam.get('classId')
-      console.log('   this.classIdd',this.classIdd)
+      // console.log('   this.classIdd',this.classIdd)
     })
     this.studentList();
   }
@@ -54,7 +54,7 @@ export class StudentListComponent implements OnInit {
     this.studentService.studentList(this.classIdd,this.sectionId).subscribe((result) => {
     this.studentListData = result;
 
-    console.log('studentListData',this.studentListData);
+    // console.log('studentListData',this.studentListData);
     
   });
 
@@ -81,7 +81,7 @@ export class StudentListComponent implements OnInit {
 
 
   // delete section 
-  confirmBox(id: string) {
+  confirmBox(id: any) {
     Swal.fire({
       title: 'Are you sure want to remove?',
       text: 'You will not be able to recover this file!',
@@ -96,9 +96,10 @@ export class StudentListComponent implements OnInit {
           'Your imaginary file has been deleted.',
           'success'
         );
-        // this.classService.deleteClassData(id).subscribe((result) => {
-        //   this.classtList();
-        // });
+        this.studentService.deleteStudentData(id).subscribe((result) => {
+          console.log("stu data", result);
+          this.studentList();
+        });
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
       }
