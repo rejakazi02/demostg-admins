@@ -5,7 +5,7 @@
 </div>
 
 <section>
-  <div class="card-main-div"  *ngIf="classListData?.classes.length">
+  <div class="card-main-div"  *ngIf="classListData?.classes?.length">
     <div  *ngFor="let item of classListData?.classes"  class="card-sub-div" >
       <div class="menu-div">
         <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="action-Btn">
@@ -48,7 +48,7 @@
   </div>
 
   <!-- <h3 *ngIf="!classListData?.classes.length" class="no-Data-text">No data</h3> -->
-  <img *ngIf="!classListData?.classes.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt="">
+  <img *ngIf="!classListData?.classes?.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt="">
 
 </section>
 

@@ -29,13 +29,13 @@
             </div>
             <div class="tbody">
               <!-- <div *ngFor="let element of instData?.institutes.data | paginate: { itemsPerPage: itemPer_page, currentPage: current_page, totalItems: total }" class="table-row" > -->
-              <div *ngFor="let item of studentListData?.students.data"   class="table-row" >
+              <div *ngFor="let item of studentListData?.students?.data"   class="table-row" >
                  
                  <div class="table-data">{{ item.roll_no }}</div>
-                <div class="table-data">{{item.user.name}}</div>
-                 <div class="table-data"> {{ item.student_id }}</div>
-                 <div class="table-data">{{ item.user.phone }}</div>
-                 <div class="table-data">{{ item.present_address }}</div>
+                <div class="table-data">{{item?.user?.name}}</div>
+                 <div class="table-data"> {{item.student_id}}</div>
+                 <div class="table-data">{{item?.user?.phone}}</div>
+                 <div class="table-data">{{item.present_address}}</div>
                  
                  <div class="table-data">
                 <!-- <button><a href="" routerLink="/class/classAdd"><mat-icon>edit</mat-icon></a></button>

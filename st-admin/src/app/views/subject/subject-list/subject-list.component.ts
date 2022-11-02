@@ -28,7 +28,7 @@ export class SubjectListComponent implements OnInit {
 
 
 
-  confirmBox(id: string) {
+  confirmBox(id: any) {
     Swal.fire({
       title: 'Are you sure want to remove?',
       text: 'You will not be able to recover this file!',
