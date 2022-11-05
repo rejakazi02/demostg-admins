@@ -69,6 +69,11 @@ export class LoginComponent implements OnInit {
               this.toastr.success(result.message);
               console.log('user Id:',this.responceData?.userData?.role)
             }
+            if(this.responceData?.userData?.role==='staff'){
+              this.route.navigate(['/', 'teacher-dashboard']);
+              this.toastr.success(result.message);
+              console.log('user Id:',this.responceData?.userData?.role)
+            }
            
           }
         },(err)=>{

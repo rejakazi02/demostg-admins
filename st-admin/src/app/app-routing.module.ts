@@ -1,3 +1,4 @@
+import { TeacherPanelComponent } from './teacher-panel/teacher-panel.component';
 import { StudentPanelComponent } from './student-panel/student-panel.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -172,6 +173,39 @@ const studentPanelChildrenRoutes: Routes = [
       ),
   },
 ];
+const teacherPanelChildrenRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: 'teacher-dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: 'teacher-dashboard',
+    loadChildren: () =>
+      import('./views/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+  },
+
+  // {
+  //   path: 'parents',
+  //   loadChildren: () =>
+  //     import('./views/parent/parent.module').then((m) => m.ParentModule),
+  // },
+  {
+    path: 'teacher-info',
+    loadChildren: () =>
+      import('./views/teacher-info/teacher-info.module').then((m) => m.TeacherInfoModule),
+  },
+
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./containers/default-layout/profile/profile.module').then(
+        (m) => m.ProfileModule
+      ),
+  },
+];
 
 const routes: Routes = [
   {
@@ -197,6 +231,15 @@ const routes: Routes = [
     path: '',
     component: StudentPanelComponent,
     children: studentPanelChildrenRoutes,
+    canActivate: [AuthGuard],
+    data: {
+      title: 'Home',
+    },
+  },
+  {
+    path: '',
+    component: TeacherPanelComponent,
+    children: teacherPanelChildrenRoutes,
     canActivate: [AuthGuard],
     data: {
       title: 'Home',
