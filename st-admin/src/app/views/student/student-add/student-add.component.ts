@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { StudentService } from './../../../service/student.service';
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, Input, OnInit } from '@angular/core';
 import {
   FormControl,
   FormBuilder,
@@ -31,6 +31,7 @@ export class StudentAddComponent implements OnInit {
   // File
   file: any;
   pickedImage: any;
+  url:any;
   constructor(
     private fb: FormBuilder,
     private stuService: StudentService,
@@ -38,6 +39,7 @@ export class StudentAddComponent implements OnInit {
     private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private studentService:StudentService,
+    private dtr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
@@ -74,19 +76,33 @@ export class StudentAddComponent implements OnInit {
 
 
 onFileSelected(event:any) {
-  this.file = event.target.files[0].name;
-  if (this.file) {
-    this.studentAdd.patchValue({
-      image: this.file,
-    });
-    this.studentAdd.get('image').updateValueAndValidity();
+  if (event.target.files && event.target.files[0]) {
 
-    let reader = new FileReader();
-    reader.readAsDataURL(this.file);
-    reader.onload = (_event) => {
-      this.pickedImage = reader.result;
-    }
+    this.file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = () => {
+      this.url = reader.result;
+          this.dtr.detectChanges();
+
+    };
   }
+// onFileSelected(event:any) {
+//   this.file = event.target.files[0].name;
+
+//   if (this.file) {
+//     this.studentAdd.patchValue({
+//       image: this.file,
+//     });
+//     this.studentAdd.get('image').updateValueAndValidity();
+
+//     let reader = new FileReader();
+//     reader.readAsDataURL(this.file);
+//     reader.onload = (_event) => {
+//       this.pickedImage = reader.result;
+//       this.dtr.detectChanges();        
+//     }
+//   }
 
 }
 
