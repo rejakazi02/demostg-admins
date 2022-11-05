@@ -14,18 +14,18 @@ export const navItems: INavData[] = [
 
   
   {
-    name: 'Parents',
-    url: '/parents',
+    name: 'Info',
+    url: '/info',
     iconComponent: { name: 'cil-wc' },
     children: [
       {
-        name: 'Parents Add',
-        url: '/parents/parentsAdd'
+        name: 'Student info',
+        url: '/info/studentInfo'
       },
-      {
-        name: 'Parents List ',
-        url: '/parents/parentsList'
-      },
+    //   {
+    //     name: 'Parents List ',
+    //     url: '/parents/parentsList'
+    //   },
 
       // {
       //   name: 'Tables',
@@ -35,22 +35,22 @@ export const navItems: INavData[] = [
     ]
   },
 
-  {
-    name: 'Subject',
-    url: '/subject',
-    iconComponent: { name: 'cil-book' },
-    children: [
-      {
-        name: 'Subject Add',
-        url: '/subject/subjectAdd'
-      },
-      {
-        name: 'Subject List',
-        url: '/subject/subjectList'
-      },
+//   {
+//     name: 'Subject',
+//     url: '/subject',
+//     iconComponent: { name: 'cil-book' },
+//     children: [
+//       {
+//         name: 'Subject Add',
+//         url: '/subject/subjectAdd'
+//       },
+//       {
+//         name: 'Subject List',
+//         url: '/subject/subjectList'
+//       },
       
-    ]
-  },
+//     ]
+//   },
   
  
   // {

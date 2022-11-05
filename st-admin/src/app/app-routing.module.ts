@@ -153,15 +153,15 @@ const studentPanelChildrenRoutes: Routes = [
       ),
   },
 
+  // {
+  //   path: 'parents',
+  //   loadChildren: () =>
+  //     import('./views/parent/parent.module').then((m) => m.ParentModule),
+  // },
   {
-    path: 'parents',
+    path: 'info',
     loadChildren: () =>
-      import('./views/parent/parent.module').then((m) => m.ParentModule),
-  },
-  {
-    path: 'subject',
-    loadChildren: () =>
-      import('./views/subject/subject.module').then((m) => m.SubjectModule),
+      import('./views/student-info/student-info.module').then((m) => m.StudentInfoModule),
   },
 
   {
