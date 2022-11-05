@@ -75,34 +75,36 @@ export class StudentAddComponent implements OnInit {
    */
 
 
-onFileSelected(event:any) {
-  if (event.target.files && event.target.files[0]) {
-
-    this.file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload = () => {
-      this.url = reader.result;
-          this.dtr.detectChanges();
-
-    };
-  }
 // onFileSelected(event:any) {
-//   this.file = event.target.files[0].name;
+//   if (event.target.files && event.target.files[0].name) {
 
-//   if (this.file) {
-//     this.studentAdd.patchValue({
-//       image: this.file,
-//     });
-//     this.studentAdd.get('image').updateValueAndValidity();
-
-//     let reader = new FileReader();
-//     reader.readAsDataURL(this.file);
-//     reader.onload = (_event) => {
+//     this.file = event.target.files[0];
+//     const reader = new FileReader();
+//     reader.readAsDataURL(event.target.files[0].name);
+//     reader.onload = () => {
 //       this.pickedImage = reader.result;
-//       this.dtr.detectChanges();        
-//     }
+//           this.dtr.detectChanges();
+
+//     };
 //   }
+
+
+onFileSelected(event:any) {
+  this.file = event.target.files[0].name;
+
+  if (this.file) {
+    this.studentAdd.patchValue({
+      image: this.file,
+    });
+    this.studentAdd.get('image').updateValueAndValidity();
+
+    let reader = new FileReader();
+    reader.readAsDataURL(this.file);
+    reader.onload = (_event) => {
+      this.pickedImage = reader.result;
+      this.dtr.detectChanges();        
+    }
+  }
 
 }
 

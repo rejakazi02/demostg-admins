@@ -4,7 +4,7 @@ import { MatIcon } from '@angular/material/icon';
 export const navItems: INavData[] = [
   {
     name: 'Dashboard',
-    url: '/dashboard',
+    url: '/student',
     iconComponent: { name: 'cil-speedometer' },
     badge: {
       color: 'info',

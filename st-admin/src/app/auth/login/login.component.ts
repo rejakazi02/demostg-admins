@@ -62,10 +62,12 @@ export class LoginComponent implements OnInit {
             if(this.responceData?.userData?.role==='admin'){
               this.route.navigate(['/', 'admin']);
               this.toastr.success(result.message);
+              console.log('user Id:',this.responceData?.userData?.role)
             }
             if(this.responceData?.userData?.role==='student'){
               this.route.navigate(['/', 'student']);
               this.toastr.success(result.message);
+              console.log('user Id:',this.responceData?.userData?.role)
             }
            
           }

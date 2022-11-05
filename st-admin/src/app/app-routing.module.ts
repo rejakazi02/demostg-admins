@@ -72,11 +72,11 @@ const childrenRoutes: Routes = [
 const adminChildrenRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'admin',
     pathMatch: 'full',
   },
   {
-    path: 'dashboard',
+    path: 'admin',
     loadChildren: () =>
       import('./views/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
@@ -88,16 +88,16 @@ const adminChildrenRoutes: Routes = [
     loadChildren: () =>
       import('./views/class/class.module').then((m) => m.ClassModule),
   },
-  {
-    path: 'parents',
-    loadChildren: () =>
-      import('./views/parent/parent.module').then((m) => m.ParentModule),
-  },
-  {
-    path: 'subject',
-    loadChildren: () =>
-      import('./views/subject/subject.module').then((m) => m.SubjectModule),
-  },
+  // {
+  //   path: 'parents',
+  //   loadChildren: () =>
+  //     import('./views/parent/parent.module').then((m) => m.ParentModule),
+  // },
+  // {
+  //   path: 'subject',
+  //   loadChildren: () =>
+  //     import('./views/subject/subject.module').then((m) => m.SubjectModule),
+  // },
   {
     path: 'department',
     loadChildren: () =>
@@ -142,11 +142,11 @@ const adminChildrenRoutes: Routes = [
 const studentPanelChildrenRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'student',
     pathMatch: 'full',
   },
   {
-    path: 'dashboard',
+    path: 'student',
     loadChildren: () =>
       import('./views/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
@@ -185,7 +185,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
     children: adminChildrenRoutes,
     canActivate: [AuthGuard],
@@ -194,7 +194,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'student',
+    path: '',
     component: StudentPanelComponent,
     children: studentPanelChildrenRoutes,
     canActivate: [AuthGuard],
