@@ -93,11 +93,11 @@ const adminChildrenRoutes: Routes = [
   //   loadChildren: () =>
   //     import('./views/parent/parent.module').then((m) => m.ParentModule),
   // },
-  // {
-  //   path: 'subject',
-  //   loadChildren: () =>
-  //     import('./views/subject/subject.module').then((m) => m.SubjectModule),
-  // },
+  {
+    path: 'subject',
+    loadChildren: () =>
+      import('./views/subject/subject.module').then((m) => m.SubjectModule),
+  },
   {
     path: 'department',
     loadChildren: () =>
