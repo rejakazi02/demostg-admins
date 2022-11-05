@@ -57,9 +57,17 @@ export class LoginComponent implements OnInit {
             this.responceData = result;
 
             localStorage.setItem('token',this.responceData.access_token);
-            this.route.navigate(['/', 'adminn']);
+            
             // console.log('login token',this.responceData.access_token);
-            this.toastr.success(result.message);
+            if(this.responceData?.userData?.role==='admin'){
+              this.route.navigate(['/', 'admin']);
+              this.toastr.success(result.message);
+            }
+            if(this.responceData?.userData?.role==='student'){
+              this.route.navigate(['/', 'student']);
+              this.toastr.success(result.message);
+            }
+           
           }
         },(err)=>{
           this.errorMessage=err.error.errors;

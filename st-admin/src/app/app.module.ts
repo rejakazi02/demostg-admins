@@ -57,6 +57,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { ToastrModule } from 'ngx-toastr';
 import {MatMenuModule} from '@angular/material/menu';
+import { StudentPanelComponent } from './student-panel/student-panel.component';
 
 
 
@@ -72,7 +73,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, ProfileComponent, AdminComponent],
+  declarations: [AppComponent, ...APP_CONTAINERS, ProfileComponent, AdminComponent, StudentPanelComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

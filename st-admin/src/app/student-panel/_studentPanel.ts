@@ -4,7 +4,7 @@ import { MatIcon } from '@angular/material/icon';
 export const navItems: INavData[] = [
   {
     name: 'Dashboard',
-    url: './dashboard',
+    url: '/dashboard',
     iconComponent: { name: 'cil-speedometer' },
     badge: {
       color: 'info',
@@ -12,39 +12,19 @@ export const navItems: INavData[] = [
     }
   },
 
-  // {
-  //   name: 'Student',
-  //   url: '/student',
-  //   iconComponent: { name: 'cil-user' },
-  //   children: [
-  //     // {
-  //     //   name: 'Student Add',
-  //     //   url: '/student/studentAdd'
-  //     // },
-  //     {
-  //       name: 'Student List ',
-  //       url: '/student/studentList'
-  //     },
-
-  //     // {
-  //     //   name: 'Tables',
-  //     //   url: '/base/tables'
-  //     // },
-
-  //   ]
-  // },
+  
   {
-    name: 'Teachers',
-    url: './teacher',
-    iconComponent: { name: 'cil-people' },
+    name: 'Parents',
+    url: '/parents',
+    iconComponent: { name: 'cil-wc' },
     children: [
       {
-        name: 'Teachers Add',
-        url: './teacher/teacherAdd'
+        name: 'Parents Add',
+        url: '/parents/parentsAdd'
       },
       {
-        name: 'Teachers List ',
-        url: './teacher/teacherList'
+        name: 'Parents List ',
+        url: '/parents/parentsList'
       },
 
       // {
@@ -54,89 +34,19 @@ export const navItems: INavData[] = [
 
     ]
   },
-  // {
-  //   name: 'Parents',
-  //   url: '/parents',
-  //   iconComponent: { name: 'cil-wc' },
-  //   children: [
-  //     {
-  //       name: 'Parents Add',
-  //       url: '/parents/parentsAdd'
-  //     },
-  //     {
-  //       name: 'Parents List ',
-  //       url: '/parents/parentsList'
-  //     },
 
-  //     // {
-  //     //   name: 'Tables',
-  //     //   url: '/base/tables'
-  //     // },
-
-  //   ]
-  // },
-
-  {
-    name: 'Class',
-    url: './class',
-    iconComponent: { name: 'cil-color-border' },
-    children: [
-      {
-        name: 'Class Add',
-        url: './class/classAdd'
-      },
-      {
-        name: 'Class List',
-        url: './class/classList'
-      },
-      
-    ]
-  },
-  {
-    name: 'Class Room',
-    url: './classRoom',
-    iconComponent: { name: 'cil-room' },
-    children: [
-      {
-        name: 'Class Room Add',
-        url: './classRoom/classRoomAdd'
-      },
-      {
-        name: 'Class Room List',
-        url: './classRoom/classRoomList'
-      },
-      
-    ]
-  },
-
-  {
-    name: 'Department',
-    url: './department',
-    iconComponent: { name: 'cil-school' },
-    children: [
-      {
-        name: 'Department Add',
-        url: './department/departmentAdd'
-      },
-      {
-        name: 'Department List',
-        url: './department/departmentList'
-      },
-      
-    ]
-  },
   {
     name: 'Subject',
-    url: './subject',
+    url: '/subject',
     iconComponent: { name: 'cil-book' },
     children: [
       {
         name: 'Subject Add',
-        url: './subject/subjectAdd'
+        url: '/subject/subjectAdd'
       },
       {
         name: 'Subject List',
-        url: './subject/subjectList'
+        url: '/subject/subjectList'
       },
       
     ]
