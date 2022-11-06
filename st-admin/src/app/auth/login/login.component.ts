@@ -60,17 +60,17 @@ export class LoginComponent implements OnInit {
             if (this.responceData?.role === 'admin') {
               this.route.navigate(['/', 'admin']);
               this.toastr.success(result.message);
-              console.log('user Id:', this.responceData?.userData?.role);
+              console.log('user Id:', this.responceData?.role);
             }
             if (this.responceData?.role === 'student') {
               this.route.navigate(['/', 'student']);
               this.toastr.success(result.message);
-              console.log('user Id:', this.responceData?.userData?.role);
+              console.log('user Id:', this.responceData?.role);
             }
             if (this.responceData?.role === 'staff') {
               this.route.navigate(['/', 'teacher-dashboard']);
               this.toastr.success(result.message);
-              console.log('user Id:', this.responceData?.userData?.role);
+              console.log('user Id:', this.responceData?.role);
             }
           }
         },
