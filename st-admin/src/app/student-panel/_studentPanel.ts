@@ -6,10 +6,10 @@ export const navItems: INavData[] = [
     name: 'Dashboard',
     url: '/student',
     iconComponent: { name: 'cil-speedometer' },
-    badge: {
-      color: 'info',
-      text: 'NEW'
-    }
+    // badge: {
+    //   color: 'info',
+    //   text: 'NEW'
+    // }
   },
 
   

@@ -14,7 +14,7 @@ import { AuthService } from '../../service/auth.service';
 export class LoginComponent implements OnInit {
   responceData: any;
   logInForm!: FormGroup;
-  errorMessage:any;
+  errorMessage: any;
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.logInForm = this.fb.group({
-      email: ['', [ Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', Validators.required],
     });
   }
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     //         this.responceData = result;
 
     //         localStorage.setItem('token',this.responceData.access_token);
-           
+
     //         this.route.navigate(['/', 'dashboard']);
     //         console.log('login token',this.responceData.access_token);
     //         alert('Login Successfull');
@@ -48,58 +48,46 @@ export class LoginComponent implements OnInit {
 
     // }
 
-
     if (this.logInForm.valid) {
-      this.authService
-        .anyUserLogin(this.logInForm.value)
-        .subscribe((result) => {
+      this.authService.anyUserLogin(this.logInForm.value).subscribe(
+        (result) => {
           if (result != null) {
             this.responceData = result;
 
-            localStorage.setItem('token',this.responceData.access_token);
-            
+            localStorage.setItem('token', this.responceData.access_token);
+
             // console.log('login token',this.responceData.access_token);
-            if(this.responceData?.userData?.role==='admin'){
+            if (this.responceData?.role === 'admin') {
               this.route.navigate(['/', 'admin']);
               this.toastr.success(result.message);
-              console.log('user Id:',this.responceData?.userData?.role)
+              console.log('user Id:', this.responceData?.userData?.role);
             }
-            if(this.responceData?.userData?.role==='student'){
+            if (this.responceData?.role === 'student') {
               this.route.navigate(['/', 'student']);
               this.toastr.success(result.message);
-              console.log('user Id:',this.responceData?.userData?.role)
+              console.log('user Id:', this.responceData?.userData?.role);
             }
-            if(this.responceData?.userData?.role==='staff'){
+            if (this.responceData?.role === 'staff') {
               this.route.navigate(['/', 'teacher-dashboard']);
               this.toastr.success(result.message);
-              console.log('user Id:',this.responceData?.userData?.role)
+              console.log('user Id:', this.responceData?.userData?.role);
             }
-           
           }
-        },(err)=>{
-          this.errorMessage=err.error.errors;
-          if(err.error.errors.email){
+        },
+        (err) => {
+          this.errorMessage = err.error.errors;
+          if (err.error.errors.email) {
             this.toastr.error(err.error.errors.email);
           }
-          if(err.error.errors.password){
+          if (err.error.errors.password) {
             this.toastr.error(err.error.errors.password);
           }
-      
-         
+
           // alert(err.error.message)
-        });
+        }
+      );
     }
-
-
-
-    
-    
   }
-
-
-
-
-
 
   logout(): void {
     this.authService.logOut();

@@ -11,15 +11,13 @@ import { TokenService } from './token.service';
 let baseurl = ' https://api.omegaitsys.com/api/v1/';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StudentService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   // , httpOptions:any, fd:any
   studentPost(stuAdd: any) {
     return this.http.post<any>(baseurl + 'students', stuAdd);
-  
   }
 
   // unionData(unionname: any) {
@@ -30,21 +28,19 @@ export class StudentService {
     return this.http.get(baseurl + 'sections?class_id=' + select, subSecType);
   }
 
-  studentList(class_id:any,section_id:any) {
+  studentList(class_id: any, section_id: any) {
     // return this.http.get<any>(baseurl + 'admin/institutes')
-    return this.http.get(baseurl + 'students?class_id='+class_id+'&section_id='+section_id);
+    return this.http.get(
+      baseurl + 'students?class_id=' + class_id + '&section_id=' + section_id
+    );
   }
 
-
-
-
-  // student data delete 
+  // student data delete
   deleteStudentData(data: any) {
     return this.http.delete(baseurl + 'students/' + data);
   }
 
-
-
+  //Global token
   IsLoggedIn() {
     return localStorage.getItem('token') != null;
   }

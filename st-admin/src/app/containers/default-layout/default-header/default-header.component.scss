@@ -1,4 +1,21 @@
 
+.role-btn{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #206bc4!important;
+  color: white;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: calc(0.25rem - 1px) 0.25rem;
+  height: 1.50rem;
+  border: 1px solid transparent;
+  min-width: 1.25rem;
+  border-radius: 5px;
+}
 
 
 .logoutbtn{

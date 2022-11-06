@@ -13,17 +13,16 @@ import { TokenService } from './token.service';
 let baseurl = ' https://api.omegaitsys.com/api/v1/';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClassService {
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  constructor(private http: HttpClient, private tokenService: TokenService) { }
-
+  // classes api start here---------------------------------------------------------------
 
   classPost(dptadd: any) {
     return this.http.post<any>(baseurl + 'classes', dptadd);
   }
-
 
   classtList() {
     // return this.http.get<any>(baseurl + 'admin/institutes')
@@ -34,95 +33,69 @@ export class ClassService {
     return this.http.get(baseurl + 'all-classes');
   }
 
-  // dept data delete 
+  // classes data delete
   deleteClassData(data: string) {
     return this.http.delete(baseurl + 'classes/' + data);
   }
 
+  // section api start here---------------------------------------------------------------
 
+  sectionPost(secAdd: any) {
+    return this.http.post<any>(baseurl + 'sections', secAdd);
+  }
 
+  sectionData() {
+    // return this.http.get<any>(baseurl + 'admin/institutes')
+    return this.http.get<any>(baseurl + 'sections');
+  }
 
-// section api start here 
+  sectionList(ClassId: any) {
+    // console.log("first", ClassId)
+    // let params = new HttpParams();
+    // if(ClassId) {
+    //   params = params.append('ClassId', ClassId);
+    // }
+    // return this.http.get<any>(baseurl + 'admin/institutes')
+    return this.http.get<any>(baseurl + 'sections?class_id=' + ClassId);
+  }
 
+  // sections data delete
+  deleteSectionData(data: any, cId: any) {
+    return this.http.delete(baseurl + 'sections/' + data + '?class_id=' + cId);
+  }
 
+  // class room section ---------------------------------------------------------------
 
-sectionPost(secAdd: any) {
-  return this.http.post<any>(baseurl + 'sections', secAdd);
-}
+  classRoomPost(classRoomAdd: any) {
+    return this.http.post<any>(baseurl + 'rooms', classRoomAdd);
+  }
 
+  classRoomList() {
+    return this.http.get<any>(baseurl + 'rooms');
+  }
 
+  // class room data delete
+  deleteSclassRoomData(data: any) {
+    return this.http.delete(baseurl + 'rooms/' + data);
+  }
 
-sectionData() {
-  // return this.http.get<any>(baseurl + 'admin/institutes')
-  return this.http.get<any>(baseurl + 'sections');
-}
+  //subject section ---------------------------------------------------------------
 
-sectionList(ClassId: any) {
-  // console.log("first", ClassId)
-  // let params = new HttpParams();
-  // if(ClassId) {
-  //   params = params.append('ClassId', ClassId);
-  // }
-  // return this.http.get<any>(baseurl + 'admin/institutes')
-  return this.http.get<any>(baseurl + 'sections?class_id='+ ClassId);
-}
+  subjectPost(subjectsAdd: any) {
+    return this.http.post<any>(baseurl + 'subjects', subjectsAdd);
+  }
 
+  subjectList() {
+    return this.http.get<any>(baseurl + 'subjects');
+  }
 
+  // subjects data delete
+  deleteSubjectData(data: any) {
+    return this.http.delete(baseurl + 'subjects/' + data);
+  }
 
-// dept data delete 
-deleteSectionData(data: any, cId:any) {
-  return this.http.delete(baseurl + 'sections/' + data + '?class_id='+ cId);
-}
-
-// class room section ---------------------------------------------------------------
-
-classRoomPost(classRoomAdd: any) {
-  return this.http.post<any>(baseurl + 'rooms', classRoomAdd);
-}
-
-classRoomList() {
- 
-  return this.http.get<any>(baseurl + 'rooms');
-}
-
-
-
-// dept data delete 
-deleteSclassRoomData(data: any) {
-  return this.http.delete(baseurl + 'rooms/' + data);
-}
-
-
-
-
-//subject section ---------------------------------------------------------------
-
-subjectPost(subjectsAdd: any) {
-  return this.http.post<any>(baseurl + 'subjects', subjectsAdd);
-}
-
-subjectList() {
- 
-  return this.http.get<any>(baseurl + 'subjects');
-}
-
-
-
-// dept data delete 
-deleteSubjectData(data: any) {
-  return this.http.delete(baseurl + 'subjects/' + data);
-}
-
-
-
-
-
-
-
-
-// Global token 
+  // Global token
   IsLoggedIn() {
     return localStorage.getItem('token') != null;
   }
 }
- 

@@ -12,13 +12,10 @@ import { TokenService } from './token.service';
 let baseurl = ' https://api.omegaitsys.com/api/v1/';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TeacherService {
-
-  constructor(private http: HttpClient, private tokenService: TokenService) { }
-
-  
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   teaPost(teaAdd: any) {
     return this.http.post<any>(baseurl + 'teachers', teaAdd);
@@ -28,21 +25,16 @@ export class TeacherService {
     return this.http.get(baseurl + 'unions', unionname);
   }
 
-
-
   teaList() {
     // return this.http.get<any>(baseurl + 'admin/institutes')
     return this.http.get(baseurl + 'teachers');
   }
 
-
-
-
-  // dept data delete 
+  // teacher data delete
   deleteTeaData(data: any) {
-    return this.http.delete(baseurl + 'departments/' + data);
+    return this.http.delete(baseurl + 'teachers/' + data);
   }
-// token 
+  //Global token
   IsLoggedIn() {
     return localStorage.getItem('token') != null;
   }
