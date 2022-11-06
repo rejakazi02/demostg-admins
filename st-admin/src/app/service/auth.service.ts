@@ -17,11 +17,13 @@ export class AuthService {
 
   constructor(private http:HttpClient,  private route: Router) { }
 
-
+// Institute super admin api 
 proceedLogin(usercred: any){
 return this.http.post<any>(apiurl + "admin/login", usercred)
 }
 
+
+// all user login api 
 anyUserLogin(anyuserlogin:any){
   return this.http.post<any> (apiurl + "login", anyuserlogin)
 }

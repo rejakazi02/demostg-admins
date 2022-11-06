@@ -130,7 +130,7 @@ const adminChildrenRoutes: Routes = [
   },
 
   {
-    path: 'profile',
+    path: 'admin-profile',
     loadChildren: () =>
       import('./containers/default-layout/profile/profile.module').then(
         (m) => m.ProfileModule
@@ -166,7 +166,7 @@ const studentPanelChildrenRoutes: Routes = [
   },
 
   {
-    path: 'profile',
+    path: 'student-profile',
     loadChildren: () =>
       import('./containers/default-layout/profile/profile.module').then(
         (m) => m.ProfileModule
@@ -199,7 +199,7 @@ const teacherPanelChildrenRoutes: Routes = [
   },
 
   {
-    path: 'profile',
+    path: 'teacher-profile',
     loadChildren: () =>
       import('./containers/default-layout/profile/profile.module').then(
         (m) => m.ProfileModule
