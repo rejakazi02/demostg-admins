@@ -4,9 +4,11 @@
   padding: 30px 20px;
   border-radius: 5px;
   margin: 30px 0;
+
   .stu-dtls-header-div {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     .stu-dtls-header-text {
       h3 {
         font-size: 22px;
@@ -20,15 +22,58 @@
       display: flex;
       justify-content: end;
       margin-right: 2%;
+
       a {
         button {
           border: none;
           border-radius: 5px;
           padding: 3px 12px;
         }
+
         button:hover {
           background-color: #fd7e14;
           color: #fff;
+        }
+      }
+    }
+  }
+
+  //   <!-- stu-dtls-header-div end  -->
+
+  .stu-info-main-div {
+    display: grid;
+    grid-template-columns: 0.7fr 2fr;
+    gap: 40px;
+
+    .stu-info-img-div {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    // stu-info-img-div end
+    .stu-info-text-main-div {
+      .stu-info-text-sub-div {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        width: 100%;
+
+        .stu-info-header-div {
+          h4 {
+            font-size: 16px;
+            font-weight: 400;
+            color: #646464;
+          }
+        }
+
+        .stu-info-data-div {
+          h3 {
+            color: #212529;
+            font-weight: 500;
+            font-size: 16px;
+          }
         }
       }
     }
