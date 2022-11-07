@@ -53,11 +53,11 @@
                 </button> -->
                 <!-- (click)="editDataa(element.slug, i)" -->
                 <!-- <a [routerLink]="['/base/instituteEdi', element.slug]" class="button-atag"> -->
-                <!-- <a [routerLink]="[]" class="button-atag">
+                <a [routerLink]="['/single-student-details/singleStudentDetailsList', item.student_id]" class="button-atag">
                   <button  mat-menu-item class="deleteBtn" >
-                    <span class="material-symbols-outlined"> edit </span>
-                  <span> Edit </span>
-                </button></a> -->
+                    <span class="material-symbols-outlined">visibility </span>
+                  <span> View </span>
+                </button></a>
                   
                   <button (click)="confirmBox(item.student_id)"  mat-menu-item class="deleteBtn" >
                   

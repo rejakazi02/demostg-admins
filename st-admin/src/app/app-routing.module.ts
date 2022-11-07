@@ -128,6 +128,13 @@ const adminChildrenRoutes: Routes = [
         (m) => m.ClassRoomModule
       ),
   },
+  {
+    path: 'single-student-details',
+    loadChildren: () =>
+      import('./views/single-student-details/single-student-details.module').then(
+        (m) => m.SingleStudentDetailsModule
+      ),
+  },
 
   {
     path: 'admin-profile',
