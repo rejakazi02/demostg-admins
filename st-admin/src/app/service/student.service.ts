@@ -30,9 +30,7 @@ export class StudentService {
 // section and class by student list 
   studentList(class_id: any, section_id: any) {
     // return this.http.get<any>(baseurl + 'admin/institutes')
-    return this.http.get(
-      baseurl + 'students?class_id=' + class_id + '&section_id=' + section_id
-    );
+    return this.http.get(baseurl + 'students?class_id=' + class_id + '&section_id=' + section_id);
   }
 
 // only student id by list 

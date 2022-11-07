@@ -54,7 +54,7 @@ export class StudentListComponent implements OnInit {
     this.studentService.studentList(this.classIdd,this.sectionId).subscribe((result) => {
     this.studentListData = result;
 
-    // console.log('studentListData',this.studentListData);
+    console.log('studentListData',this.studentListData);
     
   });
 
