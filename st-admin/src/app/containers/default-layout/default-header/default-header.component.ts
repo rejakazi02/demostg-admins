@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/service/auth.service';
   templateUrl: './default-header.component.html',
   styleUrls: ['./default-header.component.scss'],
 })
-export class DefaultHeaderComponent extends HeaderComponent {
+export class DefaultHeaderComponent extends HeaderComponent implements OnInit  {
 
   responceData:any;
   logInForm:any;
@@ -26,11 +26,20 @@ export class DefaultHeaderComponent extends HeaderComponent {
     super();
   }
 
-  logout(): void {
-    this.authService.logOut();
+  ngOnInit(): void {
+    this.userDataList();
+    
+  
   }
 
-  
+  userDataList() {
+    this.authService.userDataList().subscribe((result) => {
+      this.responceData = result;
+      console.log('user dataresponceData',this.responceData);
+      // this.classtList()
+    });
+    
+  }
 
   profile(){
     
@@ -65,5 +74,21 @@ export class DefaultHeaderComponent extends HeaderComponent {
 
   }
 
+  get userRole(){
+    if(this.responceData?.user?.role === 'admin'){
+      return 'Admin'
+    }
+     else if(this.responceData?.user?.role === 'student'){
+      return 'Student'
+     }
+     else{
+      return 'Teacher'
+     }
+  }
+
+
+  logout(): void {
+    this.authService.logOut();
+  }
 
 }

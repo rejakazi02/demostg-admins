@@ -28,6 +28,11 @@ anyUserLogin(anyuserlogin:any){
   return this.http.post<any> (apiurl + "login", anyuserlogin)
 }
 
+// get all user data list
+userDataList(){
+  return this.http.get<any>(apiurl + 'my-info')
+}
+
 IsLoggedIn(){
   return localStorage.getItem('token')!=null;
 }

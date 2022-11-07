@@ -1,7 +1,7 @@
 
 
 <section>
-  <div class="card-main-div">
+  <div class="card-main-div" *ngIf="sectionListDataaa?.sections?.length">
     <div  *ngFor="let item of sectionListDataaa?.sections"  class="card-sub-div dept-card" >
       <div class="menu-div">
         <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="action-Btn">
@@ -45,6 +45,8 @@
       <!-- <p  class="section-list">Section: No Section</p> -->
     </div>
   </div>
+  <img *ngIf="!sectionListDataaa?.sections?.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt="">
+
 </section>
 
 
