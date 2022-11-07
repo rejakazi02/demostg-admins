@@ -27,13 +27,22 @@ export class StudentService {
   SubSectionData(subSecType: any, select: any) {
     return this.http.get(baseurl + 'sections?class_id=' + select, subSecType);
   }
-
+// section and class by student list 
   studentList(class_id: any, section_id: any) {
     // return this.http.get<any>(baseurl + 'admin/institutes')
     return this.http.get(
       baseurl + 'students?class_id=' + class_id + '&section_id=' + section_id
     );
   }
+
+// only student id by list 
+  singleStudentList(single_student_id: any) {
+    
+    return this.http.get(
+      baseurl + 'students/' + single_student_id);
+  }
+
+
 
   // student data delete
   deleteStudentData(data: any) {
