@@ -1,3 +1,4 @@
+import { SingleStudentDetailsUpdateComponent } from './single-student-details-update/single-student-details-update.component';
 import { SingleStudentDetailsListComponent } from './single-student-details-list/single-student-details-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,13 +15,20 @@ const routes: Routes = [
         pathMatch: 'full',
         redirectTo: 'studentDetails',
       },
-      // {
-      //   path: 'subjectAdd',
-      //   component: SubjectAddComponent,
-      //   data: {
-      //     title: 'Subject Add',
-      //   },
-      // },
+      {
+        path: 'studentDetailsUpdate',
+        component: SingleStudentDetailsUpdateComponent,
+        data: {
+          title: 'Student Details Update',
+        },
+      },
+      {
+        path: 'studentDetailsUpdateList/:id',
+        component: SingleStudentDetailsUpdateComponent,
+        data: {
+          title: 'Student Details Update',
+        },
+      },
       {
         path: 'studentDetails',
         component: SingleStudentDetailsListComponent,

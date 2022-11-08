@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+
+
+
+<c-row class="testsss">
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-body>
+          <form cForm class="row g-3" [formGroup]="studentDataUpdate" (ngSubmit)="studentDataUpdateSubmit()">
+            <c-col md="12">
+              <label cLabel for="inputEmail4">Student Name</label>
+              <input formControlName="name" cFormControl id="inputEmail4" type="text" placeholder="Student Name" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p> -->
+            </c-col>
+  
+            <c-col md="6">
+              <label cLabel for="inputPassword444">Phone</label>
+              <input formControlName="phone"  cFormControl id="inputPassword444" type="text" placeholder="Phone" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.phone && errorMessage.phone.length">{{errorMessage.phone[0]}}</p> -->
+            </c-col>
+  
+            <c-col md="6">
+              <label cLabel for="inputPassword4441">Password</label>
+              <input formControlName="password"  cFormControl id="inputPassword4441" type="password" placeholder="Password" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
+            </c-col>
+  
+         
+            <c-col md="6">
+              <label cLabel for="inputPassword4">Admission date</label>
+              <input formControlName="admission_date" cFormControl id="inputPassword4" type="date" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.admission_date && errorMessage.admission_date.length">{{errorMessage.admission_date[0]}}</p> -->
+            </c-col>
+  
+  
+            <c-col md="6">
+              <label cLabel >Image </label>
+              <input cFormControl  type="file" (change)="onFileSelected($event)">
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.joining_date && errorMessage.joining_date.length">{{errorMessage.joining_date[0]}}</p> -->
+            </c-col>
+  
+            <c-col xs="12">
+              <button cButton type="submit" >Add Student</button>
+              
+           
+            </c-col>
+          
+          </form>
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>
+  
+  
+  
+  
+  
+  
+  
+  
+  

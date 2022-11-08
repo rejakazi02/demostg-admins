@@ -113,17 +113,6 @@ getImagePreview() {
 }
 
 
-
-
-studentList() {
-  this.studentService.studentList(this.data.claData,this.data.secData).subscribe((result) => {
-  this.studentListData = result;
-
-  console.log('studentListData',this.studentListData);
-  
-});
-
-}
 // student addd 
   studentSubmit() {
     console.log('test', this.studentAdd.value);
@@ -162,6 +151,25 @@ studentList() {
 
    
   }
+
+
+
+  studentList() {
+    this.studentService.studentList(this.data.claData,this.data.secData).subscribe((result) => {
+    this.studentListData = result;
+  
+    console.log('studentListData',this.studentListData);
+    
+  });
+  
+  }
+
+
+
+
+
+
+
 
   classData() {
     this.classService.classData().subscribe((result) => {

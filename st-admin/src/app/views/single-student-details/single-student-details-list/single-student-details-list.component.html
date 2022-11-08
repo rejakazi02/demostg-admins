@@ -5,7 +5,7 @@
        <div class="stu-dtls-header-div">
         <div class="stu-dtls-header-text"><h3>Student Details</h3></div>
         <div class="stu-dtls-edit-div">
-            <a ><button><span class="material-symbols-outlined">
+            <a [routerLink]="['/single-student-details/studentDetailsUpdateList', singleStudentListData?.student?.student_id]"><button><span class="material-symbols-outlined">
                 edit_square
                 </span></button></a>
         </div>
