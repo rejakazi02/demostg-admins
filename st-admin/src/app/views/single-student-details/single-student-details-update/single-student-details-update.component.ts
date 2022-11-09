@@ -1,3 +1,4 @@
+import { filter } from 'rxjs/operators';
 import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import {
   FormControl,
@@ -24,6 +25,7 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
   stu_id?: any;
   classSectionData:any;
   classDatas:any;
+  class_Id:any;
 
 
   // File
@@ -80,7 +82,8 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
 
       // this.getStuDataBySlug();
       // this.classData();
-  }
+      
+    }
 
 
 // immage upload
@@ -153,19 +156,27 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
     this.classService.classData().subscribe((result)=>{
       
       this.classDatas = result;
-      console.log('class', this.classDatas)
+
+      this.studentDataUpdate.patchValue({
+        class_id: this.classDatas.find( (f: { name: any }) => f.name == this.getUpdateData.student.class).id
+      })      
+      console.log('this.studentDataUpdate.value.class_id', this.studentDataUpdate.value.class_id);
+      
+      this.getSection(this.studentDataUpdate.value.class_id)
     })
   }
 
 
-  getSection(select:any){
+  getSection(value?:any){
+
     this.classService
-    .SubSectData(this.studentDataUpdate.value, select.value)
+    .SubSectData(this.studentDataUpdate.value, value)
     .subscribe((result) => {
       this.classSectionData = result;
-      console.log('dfgdfgdf', this.classSectionData);
-      
-     
+      this.studentDataUpdate.patchValue({
+        section_id: this.classSectionData.sections.find( (f: { name: any }) => f.name == this.getUpdateData.student.section)?.id
+      })
+      console.log('classSectionData', this.classSectionData);
     });
 
   }
@@ -185,15 +196,20 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
       email: this.getUpdateData.student.user.email,
       phone: this.getUpdateData.student.user.phone,
       image: this.getUpdateData.student.user.image,
+     
+      
       // categories_id: this.subCatagoryData.find((f: { id: any; }) => f.id == this.getUpdateData.first_category_id).slug,
       // categories_id: this.getUpdateData.first_category_id,
       // categories_id: this.getUpdateData.first_category_id,
     });
     this.studentDataUpdate.patchValue(this.getUpdateData.student);
+
+    
+    
   }
 
-  stuDataUpdate(data: any, slug: any) {
-    this.stuService.stuDataUpdate(data, slug).subscribe((result) => {
+  stuDataUpdate(data: any, stud_id: any) {
+    this.stuService.stuDataUpdate(data, stud_id).subscribe((result) => {
 
       this.studentDataUpdate.reset();
       this.toastr.success(result.message);
