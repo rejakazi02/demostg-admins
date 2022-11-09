@@ -58,6 +58,12 @@ export class ClassService {
     // return this.http.get<any>(baseurl + 'admin/institutes')
     return this.http.get<any>(baseurl + 'sections?class_id=' + ClassId);
   }
+// get section for student 
+
+SubSectData(subCatType: any, select: any) {
+  return this.http.get(baseurl + 'sections?class_id=' + select, subCatType);
+}
+
 
   // sections data delete
   deleteSectionData(data: any, cId: any) {

@@ -18,7 +18,59 @@
               <input formControlName="name" cFormControl id="inputEmail4" type="text" placeholder="Student Name" />
               <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p> -->
             </c-col>
-  
+
+            <c-col md="6">
+              <label cLabel for="inputPassword34">Gender</label>
+              <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
+              <select formControlName="gender"cSelect id="inputState1">
+                <option>Choose...</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+               
+              </select>
+            
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+            </c-col>
+
+            <c-col md="6">
+              <label cLabel >Blood group</label>
+              <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
+              <select formControlName="blood_group"cSelect >
+                <option>Choose...</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+               
+              </select>
+            
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+            </c-col>
+
+
+
+            <c-col md="6">
+              <label cLabel > Date Of Birth </label>
+              <input formControlName="date_of_birth" cFormControl type="date" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.admission_date && errorMessage.admission_date.length">{{errorMessage.admission_date[0]}}</p> -->
+            </c-col>
+
+            <c-col md="6">
+              <label cLabel for="inputPassword4">Admission date</label>
+              <input formControlName="admission_date" cFormControl id="inputPassword4" type="date" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.admission_date && errorMessage.admission_date.length">{{errorMessage.admission_date[0]}}</p> -->
+            </c-col>
+
+            <c-col md="6">
+              <label cLabel >E-mail :</label>
+              <input formControlName="email"  cFormControl  type="email" placeholder="E-mail :" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.phone && errorMessage.phone.length">{{errorMessage.phone[0]}}</p> -->
+            </c-col>
             <c-col md="6">
               <label cLabel for="inputPassword444">Phone</label>
               <input formControlName="phone"  cFormControl id="inputPassword444" type="text" placeholder="Phone" />
@@ -33,11 +85,78 @@
   
          
             <c-col md="6">
-              <label cLabel for="inputPassword4">Admission date</label>
-              <input formControlName="admission_date" cFormControl id="inputPassword4" type="date" />
-              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.admission_date && errorMessage.admission_date.length">{{errorMessage.admission_date[0]}}</p> -->
+              <label cLabel >Religion </label>
+              <input formControlName="religion"  cFormControl  type="text" placeholder="Religion " />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.phone && errorMessage.phone.length">{{errorMessage.phone[0]}}</p> -->
             </c-col>
-  
+
+            <c-col md="6">
+              <label cLabel for="inputState1">Class </label>
+              <!-- <select formControlName="instituteCat" cSelect id="inputState" (change)="getSubType(select)" #select> -->
+              <select formControlName="class_id" cSelect id="inputState11" (change)="getSection(select)"
+                #select>
+                <!-- <option>Choose...</option> -->
+                <!-- <option  *ngFor="let item of instituteData" [value]="item.instituteName">{{item.instituteName}}</option> -->
+                <option *ngFor="let item of classDatas"  [value]="item.id">
+                  {{item.name}}
+                </option>
+              </select>
+              <p class="validation-Message" *ngIf="errorMessage && errorMessage.class_id && errorMessage.class_id.length">{{errorMessage.class_id[0]}}</p>
+            </c-col>
+          
+          
+          
+          
+            <c-col md="6">
+              <label cLabel for="inputPassword424">Section</label>
+              <!-- <input formControlName="section_id"  cFormControl id="inputPassword424" type="text" placeholder="Section" /> -->
+              
+              <select formControlName="section_id" cSelect>
+              <!-- <option>Choose...</option> -->
+              <!-- <option  *ngFor="let item of instituteData" [value]="item.instituteName">{{item.instituteName}}</option> -->
+              <option *ngFor="let item of classSectionData?.sections" value="{{ item.id }}">{{ item.name }}
+              </option>
+            </select>
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
+            </c-col>
+          
+          
+           
+          
+           
+          
+          
+          
+            <c-col md="6">
+              <label cLabel >Session</label>
+              <input formControlName="session"  cFormControl  type="text" placeholder="Session" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
+            </c-col>
+
+
+            <c-col md="6">
+              <label cLabel >Roll No</label>
+              <input formControlName="roll_no"  cFormControl  type="text" placeholder="Roll No" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
+            </c-col>
+
+            <c-col md="6">
+              <label cLabel >Student id</label>
+              <input formControlName="student_id"  cFormControl  type="text" placeholder="Student id" />
+              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
+            </c-col>
+          
+
+            <c-col md="6">
+              <label cLabel for="inputPassword41">Present Address</label>
+              <input formControlName="present_address" value="id" cFormControl id="inputPassword41" type="text" placeholder="Present Address" />
+              <p class="validation-Message" *ngIf="errorMessage && errorMessage.present_address && errorMessage.present_address.length">{{errorMessage.present_address[0]}}</p>
+            </c-col>
+            <c-col md="6">
+              <label cLabel for="inputPassword4112">Permanent Address</label>
+              <input formControlName="permanent_address" value="id" cFormControl id="inputPassword4112" type="text" placeholder="Permanent Address" />
+              <p class="validation-Message" *ngIf="errorMessage && errorMessage.permanent_address && errorMessage.permanent_address.length">{{errorMessage.permanent_address[0]}}</p>
+            </c-col>
   
             <c-col md="6">
               <label cLabel >Image </label>
@@ -46,7 +165,7 @@
             </c-col>
   
             <c-col xs="12">
-              <button cButton type="submit" >Add Student</button>
+              <button cButton type="submit" >Update Student</button>
               
            
             </c-col>
@@ -58,6 +177,29 @@
   </c-row>
   
   
+
+
+
+
+
+
+
+ 
+  
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
   
   
   

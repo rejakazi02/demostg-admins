@@ -35,7 +35,7 @@ export class DefaultHeaderComponent extends HeaderComponent implements OnInit  {
   userDataList() {
     this.authService.userDataList().subscribe((result) => {
       this.responceData = result;
-      console.log('user dataresponceData',this.responceData);
+      // console.log('user dataresponceData',this.responceData);
       // this.classtList()
     });
     

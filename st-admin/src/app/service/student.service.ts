@@ -40,6 +40,23 @@ export class StudentService {
       baseurl + 'students/' + single_student_id);
   }
 
+// student data update 
+
+getStuDataBySlug(slug: any){
+  
+  return this.http.get(baseurl + 'students/' + slug);
+  console.log('data',baseurl + 'students/' + slug);
+  
+  
+}
+
+
+stuDataUpdate(data: any, slug: any) {
+  return this.http.put<any>(baseurl + 'students/' + slug, data);
+}
+
+
+
 
 
   // student data delete

@@ -29,7 +29,7 @@ export class SingleStudentDetailsListComponent implements OnInit {
     this.singleStudentSercice.singleStudentList(this.singleStudentId).subscribe((result) => {
     this.singleStudentListData = result;
 
-    console.log('single Student List Data',this.singleStudentListData);
+    // console.log('single Student List Data',this.singleStudentListData);
     
   });
 
