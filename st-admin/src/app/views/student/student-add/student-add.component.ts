@@ -29,7 +29,7 @@ export class StudentAddComponent implements OnInit {
   studentListData:any;
 
   // File
-  file: any;
+  file!: File;
   pickedImage: any;
   url:any;
   constructor(
@@ -51,7 +51,7 @@ export class StudentAddComponent implements OnInit {
 
       class_id: [this.data.claData, Validators.required],
       section_id: [this.data.secData, Validators.required],
-      image: null,
+      image: new FormControl()
     });
 
     this.classData();
@@ -75,10 +75,10 @@ export class StudentAddComponent implements OnInit {
    */
 
 
-// onFileSelected(event:any) {
-//   if (event.target.files && event.target.files[0].name) {
+onFileSelected(event:any) {
+  // if (event.target.files && event.target.files[0].name) {
 
-//     this.file = event.target.files[0];
+    this.file = event.target.files[0].name;
 //     const reader = new FileReader();
 //     reader.readAsDataURL(event.target.files[0].name);
 //     reader.onload = () => {
@@ -86,46 +86,42 @@ export class StudentAddComponent implements OnInit {
 //           this.dtr.detectChanges();
 
 //     };
-//   }
-
-
-onFileSelected(event:any) {
-  this.file = event.target.files[0].name;
-
-  if (this.file) {
-    this.studentAdd.patchValue({
-      image: this.file,
-    });
-    this.studentAdd.get('image').updateValueAndValidity();
-
-    let reader = new FileReader();
-    reader.readAsDataURL(this.file);
-    reader.onload = (_event) => {
-      this.pickedImage = reader.result;
-      this.dtr.detectChanges();        
-    }
   }
 
-}
 
-getImagePreview() {
-   return this.pickedImage;
-}
+// onFileSelected(event:any) {
+//   this.file = event.target.files[0];
+// console.log(' this.file',  this.file);
+
+  // if (this.file) {
+  //   this.studentAdd.patchValue({
+  //     image: this.file,
+  //   });
+  //   this.studentAdd.get('image').updateValueAndValidity();
+
+  //   let reader = new FileReader();
+  //   reader.readAsDataURL(this.file);
+  //   reader.onload = (_event) => {
+  //     this.pickedImage = reader.result;
+  //     this.dtr.detectChanges();        
+  //   }
+  // }
+
+// }
+
+// getImagePreview() {
+//    return this.pickedImage;
+// }
 
 
 // student addd 
   studentSubmit() {
     console.log('test', this.studentAdd.value);
-  
+    // this.studentAdd.get('image').value = this.file;
+    const mData = this.studentAdd.value;
+    mData.image = this.file;
 
-    const mData = {
-      ...this.studentAdd.value,
-      ...{
-        image: this.pickedImage 
-      }
-    }
-
-
+console.log('mData',mData)
     this.stuService.studentPost(mData).subscribe(
       (result) => {
         this.responceData = result;
@@ -134,7 +130,7 @@ getImagePreview() {
         this.studentAdd.reset();
         this.toastr.success(result.message);
         this.errorMessage = null;
-        window.location.reload();
+        // window.location.reload();
       },
       (err) => {
         this.errorMessage = err.error.errors;
