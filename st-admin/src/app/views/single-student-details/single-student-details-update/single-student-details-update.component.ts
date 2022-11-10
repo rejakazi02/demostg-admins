@@ -123,29 +123,8 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
       }
     }
 
-    // this.stuDataUpdate(this.studentDataUpdate.value, this.getUpdateData.slug);
-    this.stuService.studentPost(mData).subscribe(
-      (result) => {
-        this.responceData = result;
-        console.log('responceData', this.responceData);
-
-        this.studentDataUpdate.reset();
-        this.toastr.success(result.message);
-        this.errorMessage = null;
-        window.location.reload();
-      },
-      (err) => {
-        this.errorMessage = err.error.errors;
-        // this.toastr.error(err.error.message);
-         if(err.error.errors.name){
-          this.toastr.error(err.error.errors.name);
-         }
-         if(err.error.errors.phone){
-          this.toastr.error(err.error.errors.phone);
-         }
-        // alert(err.error.message)
-      }
-    );
+    this.stuDataUpdate(this.studentDataUpdate.value, this.stu_id);
+ 
 
 
   }

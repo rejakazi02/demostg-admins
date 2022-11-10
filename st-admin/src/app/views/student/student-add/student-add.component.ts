@@ -32,6 +32,11 @@ export class StudentAddComponent implements OnInit {
   file!: File;
   pickedImage: any;
   url:any;
+  selectedImage:any;
+
+  selectedUploadFile: any;
+
+
   constructor(
     private fb: FormBuilder,
     private stuService: StudentService,
@@ -51,23 +56,13 @@ export class StudentAddComponent implements OnInit {
 
       class_id: [this.data.claData, Validators.required],
       section_id: [this.data.secData, Validators.required],
-      image: new FormControl()
+      image: null
     });
 
     this.classData();
   }
 
 // file upload section 
-
-// onFileSelected(event:Event){
-// console.log('event',event)
-// const file = event?.target?.files[0];
-// console.log('file',file)
-// this.studentAdd.patchValue({
-//   image:file
- 
-// });
-// }
 
 /*
    * IMAGE METHODS
@@ -76,53 +71,34 @@ export class StudentAddComponent implements OnInit {
 
 
 onFileSelected(event:any) {
-  // if (event.target.files && event.target.files[0].name) {
 
-    this.file = event.target.files[0].name;
-//     const reader = new FileReader();
-//     reader.readAsDataURL(event.target.files[0].name);
-//     reader.onload = () => {
-//       this.pickedImage = reader.result;
-//           this.dtr.detectChanges();
+    this.selectedUploadFile = event.target.files[0]
+    console.log(this.selectedImage);
 
-//     };
   }
 
 
-// onFileSelected(event:any) {
-//   this.file = event.target.files[0];
-// console.log(' this.file',  this.file);
-
-  // if (this.file) {
-  //   this.studentAdd.patchValue({
-  //     image: this.file,
-  //   });
-  //   this.studentAdd.get('image').updateValueAndValidity();
-
-  //   let reader = new FileReader();
-  //   reader.readAsDataURL(this.file);
-  //   reader.onload = (_event) => {
-  //     this.pickedImage = reader.result;
-  //     this.dtr.detectChanges();        
-  //   }
-  // }
-
-// }
-
-// getImagePreview() {
-//    return this.pickedImage;
-// }
 
 
 // student addd 
   studentSubmit() {
+   const finalData = new FormData();
     console.log('test', this.studentAdd.value);
-    // this.studentAdd.get('image').value = this.file;
-    const mData = this.studentAdd.value;
-    mData.image = this.file;
 
-console.log('mData',mData)
-    this.stuService.studentPost(mData).subscribe(
+
+finalData.append('name',this.studentAdd.get('name').value);
+finalData.append('phone',this.studentAdd.get('phone').value);
+finalData.append('password',this.studentAdd.get('password').value);
+finalData.append('admission_date',this.studentAdd.get('admission_date').value);
+finalData.append('class_id',this.studentAdd.get('class_id').value);
+finalData.append('section_id',this.studentAdd.get('section_id').value);
+if(this.selectedUploadFile){
+  finalData.append('image',this.selectedUploadFile);
+
+}
+
+
+    this.stuService.studentPost(finalData).subscribe(
       (result) => {
         this.responceData = result;
         console.log('responceData', this.responceData);
