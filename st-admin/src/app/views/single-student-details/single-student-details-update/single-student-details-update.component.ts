@@ -32,6 +32,9 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
   file: any;
   pickedImage: any;
   url:any;
+  selectedImage:any;
+
+  selectedUploadFile: any;
   constructor(
     private fb: FormBuilder,
     private stuService: StudentService,
@@ -52,8 +55,8 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
       password: ['', Validators.required],
       admission_date: ['', Validators.required],
       date_of_birth: ['', Validators.required],
-      gender: ['', Validators.required],
-      religion: ['', Validators.required],
+      // gender: ['', Validators.required],
+      // religion: ['', Validators.required],
       blood_group: ['', Validators.required],
       class_id: ['', Validators.required],
       section_id: ['', Validators.required],
@@ -87,44 +90,63 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
 
 
 // immage upload
-  onFileSelected(event:any) {
-    this.file = event.target.files[0].name;
-  
-    if (this.file) {
-      this.studentDataUpdate.patchValue({
-        image: this.file,
-      });
-      this.studentDataUpdate.get('image').updateValueAndValidity();
-  
-      let reader = new FileReader();
-      reader.readAsDataURL(this.file);
-      reader.onload = (_event) => {
-        this.pickedImage = reader.result;
-        this.dtr.detectChanges();        
-      }
-    }
-  
-  }
-  
-  getImagePreview() {
-     return this.pickedImage;
-  }
+onFileSelected(event:any) {
+
+  this.selectedUploadFile = event.target.files[0]
+  console.log(this.selectedUploadFile);
+
+}
 
   // student Data Update Submit
 
   studentDataUpdateSubmit(){
-    console.log('test', this.studentDataUpdate.value);
+   
+    const stuFinalData = new FormData();
+ 
+ console.log('this.studentDataUpdate', this.studentDataUpdate.value);
   
 
-    const mData = {
-      ...this.studentDataUpdate.value,
-      ...{
-        image: this.pickedImage 
-      }
-    }
+// finalData.append('_method','PUT');
+stuFinalData.append('name',this.studentDataUpdate.get('name').value);
+stuFinalData.append('phone',this.studentDataUpdate.get('phone').value);
+stuFinalData.append('password',this.studentDataUpdate.get('password').value);
+stuFinalData.append('email',this.studentDataUpdate.get('email').value);
+stuFinalData.append('admission_date',this.studentDataUpdate.get('admission_date').value);
+stuFinalData.append('date_of_birth',this.studentDataUpdate.get('date_of_birth').value);
+stuFinalData.append('class_id',this.studentDataUpdate.get('class_id').value);
+stuFinalData.append('section_id',this.studentDataUpdate.get('section_id').value);
+// stuFinalData.append('gender',this.studentDataUpdate.get('gender').value);
+// stuFinalData.append('religion',this.studentDataUpdate.get('religion').value);
+stuFinalData.append('blood_group',this.studentDataUpdate.get('blood_group').value);
+stuFinalData.append('session',this.studentDataUpdate.get('session').value);
+stuFinalData.append('roll_no',this.studentDataUpdate.get('roll_no').value);
+stuFinalData.append('student_id',this.studentDataUpdate.get('student_id').value);
+stuFinalData.append('present_address',this.studentDataUpdate.get('present_address').value);
+stuFinalData.append('permanent_address',this.studentDataUpdate.get('permanent_address').value);
+if(this.selectedUploadFile){
+  stuFinalData.append('image',this.selectedUploadFile);
 
-    this.stuDataUpdate(this.studentDataUpdate.value, this.stu_id);
- 
+}
+    
+
+
+
+console.log('finalData', stuFinalData);
+
+// this.stuuDataUpdate(this.studentDataUpdate.value, stuFinalData);
+this.stuService.stuDataUpdate( stuFinalData, this.stu_id).subscribe((result) => {
+console.log('result', result);
+
+  // this.studentDataUpdate.reset();
+  this.toastr.success(result.message);
+  this.errorMessage=null;
+    },
+    (err)=>{
+      this.errorMessage=err.error.errors;
+      console.log("errors",err.error.errors)
+      // alert(err.error.message)
+    });
+
 
 
   }
@@ -139,7 +161,7 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
       this.studentDataUpdate.patchValue({
         class_id: this.classDatas.find( (f: { name: any }) => f.name == this.getUpdateData.student.class).id
       })      
-      console.log('this.studentDataUpdate.value.class_id', this.studentDataUpdate.value.class_id);
+      // console.log('this.studentDataUpdate.value.class_id', this.studentDataUpdate.value.class_id);
       
       this.getSection(this.studentDataUpdate.value.class_id)
     })
@@ -155,7 +177,7 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
       this.studentDataUpdate.patchValue({
         section_id: this.classSectionData.sections.find( (f: { name: any }) => f.name == this.getUpdateData.student.section)?.id
       })
-      console.log('classSectionData', this.classSectionData);
+      // console.log('classSectionData', this.classSectionData);
     });
 
   }
@@ -163,7 +185,7 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
   getStuDataBySlug(slug: any) {
     this.stuService.getStuDataBySlug(slug).subscribe((result) => {
       this.getUpdateData = result;
-     console.log('this.getUpdateData', this.getUpdateData)
+    //  console.log('this.getUpdateData', this.getUpdateData)
       this.classData();
       this.setFormData();
     });
@@ -183,23 +205,31 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
     });
     this.studentDataUpdate.patchValue(this.getUpdateData.student);
 
+    if(this.getUpdateData.student.user.image){
+      
+    this.selectedUploadFile = this.getUpdateData.student.user.image
+
+    }
+
     
     
   }
 
-  stuDataUpdate(data: any, stud_id: any) {
-    this.stuService.stuDataUpdate(data, stud_id).subscribe((result) => {
+  // stuuDataUpdate(data: any, stud_id: any) {
+  //   console.log('data',data);
+    
+  //   this.stuService.stuDataUpdate(data, this.stu_id).subscribe((result) => {
 
-      this.studentDataUpdate.reset();
-      this.toastr.success(result.message);
-      this.errorMessage=null;
-        },
-        (err)=>{
-          this.errorMessage=err.error.errors;
-          console.log("errors",err.error.errors)
-          // alert(err.error.message)
-        });
-  }
+  //     // this.studentDataUpdate.reset();
+  //     this.toastr.success(result.message);
+  //     this.errorMessage=null;
+  //       },
+  //       (err)=>{
+  //         this.errorMessage=err.error.errors;
+  //         console.log("errors",err.error.errors)
+  //         // alert(err.error.message)
+  //       });
+  // }
 
 
 
