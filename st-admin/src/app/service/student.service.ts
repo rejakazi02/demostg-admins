@@ -52,7 +52,7 @@ getStuDataBySlug(slug: any){
 
 
 stuDataUpdate(data: any, stud_id: any) {
-  return this.http.put<any>(baseurl + 'students/' + stud_id, data);
+  return this.http.post<any>(baseurl + 'students/' + stud_id, data);
 }
 
 

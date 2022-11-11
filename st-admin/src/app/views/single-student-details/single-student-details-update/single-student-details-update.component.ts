@@ -106,7 +106,7 @@ onFileSelected(event:any) {
  console.log('this.studentDataUpdate', this.studentDataUpdate.value);
   
 
-// finalData.append('_method','PUT');
+ stuFinalData.append('_method','PUT');
 stuFinalData.append('name',this.studentDataUpdate.get('name').value);
 stuFinalData.append('phone',this.studentDataUpdate.get('phone').value);
 stuFinalData.append('password',this.studentDataUpdate.get('password').value);
@@ -197,7 +197,7 @@ console.log('result', result);
       name: this.getUpdateData.student.user.name,
       email: this.getUpdateData.student.user.email,
       phone: this.getUpdateData.student.user.phone,
-      image: this.getUpdateData.student.user.image,
+      // image: this.getUpdateData.student.user.image,
      
       
       // categories_id: this.subCatagoryData.find((f: { id: any; }) => f.id == this.getUpdateData.first_category_id).slug,
@@ -206,11 +206,11 @@ console.log('result', result);
     });
     this.studentDataUpdate.patchValue(this.getUpdateData.student);
 
-    if(this.getUpdateData.student.user.image){
+    // if(this.getUpdateData.student.user.image){
       
-    this.selectedUploadFile = this.getUpdateData.student.user.image
+    // this.selectedUploadFile = this.getUpdateData.student.user.image
 
-    }
+    // }
 
     
     
