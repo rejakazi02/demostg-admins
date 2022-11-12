@@ -106,7 +106,7 @@ if(this.selectedUploadFile){
         this.studentAdd.reset();
         this.toastr.success(result.message);
         this.errorMessage = null;
-        // window.location.reload();
+        window.location.reload();
       },
       (err) => {
         this.errorMessage = err.error.errors;
@@ -117,6 +117,7 @@ if(this.selectedUploadFile){
          if(err.error.errors.phone){
           this.toastr.error(err.error.errors.phone);
          }
+        
         // alert(err.error.message)
       }
     );

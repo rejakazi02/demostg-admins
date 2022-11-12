@@ -138,14 +138,28 @@ console.log('finalData', stuFinalData);
 this.stuService.stuDataUpdate( stuFinalData, this.stu_id).subscribe((result) => {
 console.log('result', result);
 
-  // this.studentDataUpdate.reset();
+  this.studentDataUpdate.reset();
   this.toastr.success(result.message);
   this.errorMessage=null;
     },
     (err)=>{
       this.errorMessage=err.error.errors;
-      console.log("errors",err.error.errors)
-      // alert(err.error.message)
+      if(err.error.errors.phone){
+        this.toastr.error(err.error.errors.phone);
+      }
+      if(err.error.errors.date_of_birth){
+        this.toastr.error(err.error.errors.date_of_birth);
+      }
+      if(err.error.errors.email){
+        this.toastr.error(err.error.errors.email);
+       }
+       
+      if(err.error.errors.blood_group){
+        this.toastr.error(err.error.errors.blood_group);
+      }
+  
+     
+      
     });
 
 

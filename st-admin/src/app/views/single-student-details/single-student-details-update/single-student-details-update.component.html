@@ -49,7 +49,7 @@
                
               </select>
             
-              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+              <p class="validation-Message" *ngIf="errorMessage && errorMessage.blood_group && errorMessage.blood_group.length">{{errorMessage.blood_group[0]}}</p>
             </c-col>
 
 
@@ -57,24 +57,24 @@
             <c-col md="6">
               <label cLabel > Date Of Birth </label>
               <input formControlName="date_of_birth" cFormControl type="date" />
-              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.admission_date && errorMessage.admission_date.length">{{errorMessage.admission_date[0]}}</p> -->
+              <p class="validation-Message" *ngIf="errorMessage && errorMessage.date_of_birth && errorMessage.date_of_birth.length">{{errorMessage.date_of_birth[0]}}</p>
             </c-col>
 
             <c-col md="6">
               <label cLabel for="inputPassword4">Admission date</label>
               <input formControlName="admission_date" cFormControl id="inputPassword4" type="date" />
-              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.admission_date && errorMessage.admission_date.length">{{errorMessage.admission_date[0]}}</p> -->
+              <p class="validation-Message" *ngIf="errorMessage && errorMessage.admission_date && errorMessage.admission_date.length">{{errorMessage.admission_date[0]}}</p>
             </c-col>
 
             <c-col md="6">
               <label cLabel >E-mail :</label>
               <input formControlName="email"  cFormControl  type="email" placeholder="E-mail :" />
-              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.phone && errorMessage.phone.length">{{errorMessage.phone[0]}}</p> -->
+              <p class="validation-Message" *ngIf="errorMessage && errorMessage.email && errorMessage.email.length">{{errorMessage.email[0]}}</p>
             </c-col>
             <c-col md="6">
               <label cLabel for="inputPassword444">Phone</label>
               <input formControlName="phone"  cFormControl id="inputPassword444" type="text" placeholder="Phone" />
-              <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.phone && errorMessage.phone.length">{{errorMessage.phone[0]}}</p> -->
+              <p class="validation-Message" *ngIf="errorMessage && errorMessage.phone && errorMessage.phone.length">{{errorMessage.phone[0]}}</p>
             </c-col>
   
             <c-col md="6">
