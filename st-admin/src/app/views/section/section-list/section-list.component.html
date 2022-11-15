@@ -42,10 +42,14 @@
          <p class="class-Numaric ">{{ item.name }}</p>
       </a>
       <p class="class-list">
-        Teacher Name: <span> Reja </span>
+        Teacher Name: <span class="nammmm" >{{item.class_teacher ? item.class_teacher: 'N/A'}}</span>
+      
       </p>
-     
-      <p  class="section-list">Capacity: 40</p>
+     <!-- <h3 *ngIf="!sectionListDataaa?.sections?.class_teacher.length" class="no-Data-text">Section: No data</h3> -->
+
+
+
+      <p  class="section-list">Capacity: {{item.capacity ? item.capacity : 'N/A'}}</p>
     </div>
   </div>
   <img *ngIf="!sectionListDataaa?.sections?.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt="">

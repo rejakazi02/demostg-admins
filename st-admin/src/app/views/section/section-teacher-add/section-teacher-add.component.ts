@@ -37,7 +37,7 @@ teaData: any;
 
   ngOnInit(): void {
     this.sectionTeacherAdd = this.fb.group({
-      name: ['', Validators.required],
+      teacher_id: ['', Validators.required],
       capacity: ['', Validators.required],
       class_id: [this.data.claData, Validators.required],
       section_id: [this.data.secData, Validators.required],
@@ -51,14 +51,14 @@ teaData: any;
 
   sectionTeacherSubmit(){
     console.log("test", this.sectionTeacherAdd.value)
-    this.sectionService.sectionPost( this.sectionTeacherAdd.value).subscribe((result) => {
+    this.sectionService.teaSectionPost( this.sectionTeacherAdd.value).subscribe((result) => {
       this.responceData = result;
  
 
       this.sectionTeacherAdd.reset();
       this.toastr.success(result.message);
           this.errorMessage=null;
-          window.location.reload();
+          // window.location.reload();
         },
         (err)=>{
           this.errorMessage=err.error.errors;

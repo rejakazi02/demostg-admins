@@ -100,6 +100,15 @@ SubSectData(subCatType: any, select: any) {
     return this.http.delete(baseurl + 'subjects/' + data);
   }
 
+
+// section by teacher add -----------------------------------------------------------------------
+// /section-sessions
+
+teaSectionPost(teaSectionA: any) {
+  return this.http.post<any>(baseurl + 'section-sessions', teaSectionA);
+}
+
+
   // Global token
   IsLoggedIn() {
     return localStorage.getItem('token') != null;
