@@ -25,13 +25,15 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import { ToastrModule } from 'ngx-toastr';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SectionTeacherAddComponent } from './section-teacher-add/section-teacher-add.component';
 
 
 
 @NgModule({
   declarations: [
     SectionAddComponent,
-    SectionListComponent
+    SectionListComponent,
+    SectionTeacherAddComponent
   ],
   imports: [
     CommonModule,

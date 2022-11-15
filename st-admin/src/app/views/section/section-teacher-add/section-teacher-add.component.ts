@@ -9,42 +9,43 @@ import {
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
-  selector: 'app-section-add',
-  templateUrl: './section-add.component.html',
-  styleUrls: ['./section-add.component.scss']
+  selector: 'app-section-teacher-add',
+  templateUrl: './section-teacher-add.component.html',
+  styleUrls: ['./section-teacher-add.component.scss']
 })
-export class SectionAddComponent implements OnInit {
-  sectionAdd!: FormGroup;
+export class SectionTeacherAddComponent implements OnInit {
+  sectionTeacherAdd!: FormGroup;
   responceData: any;
   sectionDatas:any;
 errorMessage:any;
-
-
   constructor(
     private sectionService: ClassService,
     private fb: FormBuilder,
     private toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) private classId: number 
+    @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
 
   ngOnInit(): void {
-    this.sectionAdd = this.fb.group({
+    this.sectionTeacherAdd = this.fb.group({
       name: ['', Validators.required],
-      class_id: [this.classId, Validators.required]
+      capacity: ['', Validators.required],
+      class_id: [this.data.claData, Validators.required],
+      section_id: [this.data.secData, Validators.required],
     });
-    // window.location.reload();
-this.sectionData();
+    console.log('this.data.claData',this.data.claData);
+    console.log('this.data.secData',this.data.secData);
+    
   }
 
-  // add section 
-  sectionSubmit(){
-    console.log("test", this.sectionAdd.value)
-    this.sectionService.sectionPost( this.sectionAdd.value).subscribe((result) => {
+  sectionTeacherSubmit(){
+    console.log("test", this.sectionTeacherAdd.value)
+    this.sectionService.sectionPost( this.sectionTeacherAdd.value).subscribe((result) => {
       this.responceData = result;
  
 
-      this.sectionAdd.reset();
+      this.sectionTeacherAdd.reset();
       this.toastr.success(result.message);
           this.errorMessage=null;
           window.location.reload();
@@ -63,11 +64,4 @@ this.sectionData();
     
   }
 
-  sectionData(){
-    this.sectionService.sectionData().subscribe((result)=>{
-      
-      this.sectionDatas = result;
-      
-    })
-  }
 }

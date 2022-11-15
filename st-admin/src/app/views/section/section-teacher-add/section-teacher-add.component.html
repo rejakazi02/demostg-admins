@@ -1,0 +1,42 @@
+
+<c-row>
+
+    <c-col xs="12">
+        <c-card class="mb-4">
+         
+          <c-card-body>
+           
+           
+            <form cForm class="row g-3" [formGroup]="sectionTeacherAdd" (ngSubmit)="sectionTeacherSubmit()">
+                
+               
+                <c-col md="12" class="test">
+                  <label cLabel for="2">Section Teacher Name</label>
+                  <mat-form-field appearance="fill" cSelect id="inputState21" appearance="outline">
+                    <!-- <mat-label>Choose...</mat-label> -->
+                    <mat-select formControlName="name"  multiple>
+                      <!-- <mat-option  *ngFor="let item of sectionDatas?.sections" value="{{ item.name }}">{{item.name}}</mat-option> -->
+                    </mat-select>
+                  </mat-form-field>
+                 
+                 
+                  <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p> -->
+              
+                </c-col>
+
+                <c-col md="12">
+                    <label cLabel for="inputEmail4">Capacity</label>
+                    <input formControlName="capacity" cFormControl id="inputEmail4" type="text" placeholder="Capacity" />
+                    <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p>
+                  </c-col>
+
+                <!-- *ngFor="let item of classDatas" -->
+                <c-col xs="12">
+                  <button cButton type="submit" mat-dialog-close>Add Section Teacher</button>
+                </c-col>
+              </form>
+          </c-card-body>
+        </c-card>
+      </c-col>
+  </c-row>
+   

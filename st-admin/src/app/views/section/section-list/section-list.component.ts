@@ -2,6 +2,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ClassService } from './../../../service/class.service';
 import { Component, OnInit, QueryList } from '@angular/core';
 import Swal from 'sweetalert2';
+import {MatDialog} from '@angular/material/dialog';
+import { SectionTeacherAddComponent } from '../../section/section-teacher-add/section-teacher-add.component';
+
 @Component({
   selector: 'app-section-list',
   templateUrl: './section-list.component.html',
@@ -15,10 +18,12 @@ sectionListData:any;
 itemss:any;
 sectionListDataaa:any;
  id:any;
+ section= true;
 
   constructor(
     private classService: ClassService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    public dialog: MatDialog,
     
     ) {}
 
@@ -34,6 +39,7 @@ sectionListDataaa:any;
       }
     });
 
+console.log('this.id',this.id);
 
    
   }
@@ -59,7 +65,25 @@ sectionListDataaa:any;
     });
   }
 
-  
+// open dilog dection start 
+
+openDialog(sectionId: number) {
+  const dialogRef = this.dialog.open(SectionTeacherAddComponent, {data: sectionId});
+console.log('dialogRef', sectionId);
+
+  dialogRef.afterClosed().subscribe(result => {
+    // console.log(`Dialog result: ${result}`);
+  });
+this.section= false;
+
+}
+
+
+
+
+
+
+  // delete section 
   confirmBox(data:any) {
     Swal.fire({
       title: 'Are you sure want to remove?',
