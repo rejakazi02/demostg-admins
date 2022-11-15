@@ -1,5 +1,5 @@
 
-<c-row>
+<c-row class="testsss">
 
     <c-col xs="12">
         <c-card class="mb-4">
@@ -10,19 +10,39 @@
             <form cForm class="row g-3" [formGroup]="sectionTeacherAdd" (ngSubmit)="sectionTeacherSubmit()">
                 
                
-                <c-col md="12" class="test">
+                <!-- <c-col md="6" class="test">
                   <label cLabel for="2">Section Teacher's Name</label>
                   <mat-form-field appearance="fill" cSelect id="inputState21" appearance="outline">
                     <!-- <mat-label>Choose...</mat-label> -->
-                    <mat-select formControlName="name"  multiple>
+                    <!-- <mat-select formControlName="name"  multiple>
                       <!-- <mat-option  *ngFor="let item of sectionDatas?.sections" value="{{ item.name }}">{{item.name}}</mat-option> -->
-                    </mat-select>
+                    <!-- </mat-select>
                   </mat-form-field>
-                 
+                  -->
                  
                   <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p> -->
               
-                </c-col>
+                <!-- </c-col> --> 
+
+                <c-col md="12">
+                    <label cLabel for="inputState4">Section Teacher's Name</label>
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-select [disableOptionCentering]="true" #select placeholder="Section Teacher's Name *"
+                                  formControlName="name">
+                        <mat-select-filter [placeholder]="'Search Teacher Name'"
+                                           *ngIf="select.focus"
+                                           [array]="unionName"
+                                           [displayMember]="'name'"
+                                           (filteredReturn)="filteredUnionList = $event">
+                        </mat-select-filter>
+                        <mat-option *ngFor="let item of filteredUnionList" [value]="item.id">
+                          {{item.name}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="">This field is required</mat-error>
+                    </mat-form-field>
+                    <p class="validation-Message" *ngIf="errorMessage && errorMessage.present_address_union_id && errorMessage.present_address_union_id.length">{{errorMessage.present_address_union_id[0]}}</p>
+                  </c-col> 
 
                 <c-col md="12">
                     <label cLabel for="inputEmail4">Capacity</label>

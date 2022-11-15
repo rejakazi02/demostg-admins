@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { MatSelectChange } from '@angular/material/select';
 
 
 @Component({
@@ -20,6 +21,10 @@ export class SectionTeacherAddComponent implements OnInit {
   responceData: any;
   sectionDatas:any;
 errorMessage:any;
+unionName?: any[];
+filteredUnionList?: any[];
+undata: any;
+
   constructor(
     private sectionService: ClassService,
     private fb: FormBuilder,
@@ -40,7 +45,7 @@ errorMessage:any;
   }
 
 
-  
+
   sectionTeacherSubmit(){
     console.log("test", this.sectionTeacherAdd.value)
     this.sectionService.sectionPost( this.sectionTeacherAdd.value).subscribe((result) => {
@@ -65,5 +70,22 @@ errorMessage:any;
         });
     
   }
+
+
+  unionData() {
+    this.sectionService.sectionList(this.sectionTeacherAdd.value).subscribe({
+      next: (result) => {
+        this.undata = result;
+        this.unionName = this.undata?.data;
+
+        this.filteredUnionList = this.unionName?.slice();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+
 
 }

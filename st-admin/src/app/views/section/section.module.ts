@@ -6,6 +6,7 @@ import { SectionAddComponent } from './section-add/section-add.component';
 import { SectionListComponent } from './section-list/section-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 import {
   ButtonGroupModule,
   ButtonModule,
@@ -26,6 +27,9 @@ import {MatChipsModule} from '@angular/material/chips';
 import { ToastrModule } from 'ngx-toastr';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SectionTeacherAddComponent } from './section-teacher-add/section-teacher-add.component';
+import { MatSelectFilterModule } from 'mat-select-filter';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 
@@ -57,6 +61,10 @@ import { SectionTeacherAddComponent } from './section-teacher-add/section-teache
     MatChipsModule,
     ToastrModule, 
     MatDialogModule,
+    MatSelectFilterModule,
+    MatFormFieldModule,
+    
+
   ]
 })
 export class SectionModule { }
