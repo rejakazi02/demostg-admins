@@ -39,6 +39,8 @@ errorMessage:any;
     
   }
 
+
+  
   sectionTeacherSubmit(){
     console.log("test", this.sectionTeacherAdd.value)
     this.sectionService.sectionPost( this.sectionTeacherAdd.value).subscribe((result) => {
