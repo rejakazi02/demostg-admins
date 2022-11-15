@@ -19,25 +19,25 @@
               <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p> -->
             </c-col>
 
-            <!-- <c-col md="6">
-              <label cLabel for="inputPassword34">Gender</label> -->
+            <c-col md="6">
+              <label cLabel for="inputPassword34">Gender</label>
               <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
-              <!-- <select formControlName="gender"cSelect id="inputState1">
-                <option>Choose...</option>
+               <select formControlName="gender"cSelect id="inputState1">
+                <option *ngIf="!getUpdateData?.student?.gender" disabled>Choose...</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
                
-              </select> -->
+              </select> 
             
               <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
-            <!-- </c-col> -->
+             </c-col> 
 
             <c-col md="6">
               <label cLabel >Blood group</label>
               <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
               <select formControlName="blood_group"cSelect >
-                <option>Choose...</option>
+                <option *ngIf="!getUpdateData?.student?.blood_group" disabled>Choose...</option>
                 <option value="A+">A+</option>
                 <option value="A-">A-</option>
                 <option value="AB+">AB+</option>
@@ -83,12 +83,21 @@
               <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
             </c-col>
   
-<!--          
+         
             <c-col md="6">
-              <label cLabel >Religion </label>
-              <input formControlName="religion"  cFormControl  type="text" placeholder="Religion " />
+              <label cLabel>Religion</label>
+              <!-- <input formControlName="religion"  cFormControl  type="text" placeholder="Religion " /> -->
+              <select formControlName="religion"cSelect >
+                <option *ngIf="!test?.religion" >Choose...</option>
+                <option value="islam">Islam</option>
+                <option value="hindu">Hindu</option>
+                <option value="buddha">Buddha</option>
+                <option value="christian">Christian</option>
+                <option value="others">Others</option>
+              </select>
+              
               <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.phone && errorMessage.phone.length">{{errorMessage.phone[0]}}</p> -->
-            <!-- </c-col> -->
+             </c-col>
 
             <c-col md="6">
               <label cLabel for="inputState1">Class </label>

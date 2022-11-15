@@ -26,7 +26,7 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
   classSectionData:any;
   classDatas:any;
   class_Id:any;
-
+  test:any;
 
   // File
   file: any;
@@ -55,8 +55,8 @@ export class SingleStudentDetailsUpdateComponent implements OnInit {
       password: ['', Validators.required],
       admission_date: ['', Validators.required],
       date_of_birth: ['', Validators.required],
-      // gender: ['', Validators.required],
-      // religion: ['', Validators.required],
+      gender: ['', Validators.required],
+      religion: ['', Validators.required],
       blood_group: ['', Validators.required],
       class_id: ['', Validators.required],
       section_id: ['', Validators.required],
@@ -115,8 +115,8 @@ stuFinalData.append('admission_date',this.studentDataUpdate.get('admission_date'
 stuFinalData.append('date_of_birth',this.studentDataUpdate.get('date_of_birth').value);
 stuFinalData.append('class_id',this.studentDataUpdate.get('class_id').value);
 stuFinalData.append('section_id',this.studentDataUpdate.get('section_id').value);
-// stuFinalData.append('gender',this.studentDataUpdate.get('gender').value);
-// stuFinalData.append('religion',this.studentDataUpdate.get('religion').value);
+stuFinalData.append('gender',this.studentDataUpdate.get('gender').value);
+stuFinalData.append('religion',this.studentDataUpdate.get('religion').value);
 stuFinalData.append('blood_group',this.studentDataUpdate.get('blood_group').value);
 stuFinalData.append('session',this.studentDataUpdate.get('session').value);
 stuFinalData.append('roll_no',this.studentDataUpdate.get('roll_no').value);
@@ -200,7 +200,10 @@ console.log('result', result);
   getStuDataBySlug(slug: any) {
     this.stuService.getStuDataBySlug(slug).subscribe((result) => {
       this.getUpdateData = result;
-    //  console.log('this.getUpdateData', this.getUpdateData)
+     console.log('this.getUpdateData', this.getUpdateData)
+      this.test = this.getUpdateData?.student;
+      console.log('vvvv', this.test);
+      
       this.classData();
       this.setFormData();
     });

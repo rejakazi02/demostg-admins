@@ -1,12 +1,18 @@
 
 
-<div class="add-btn-div">
+<!-- <div class="add-btn-div">
     <a href="" routerLink="/subject/subjectAdd"><span class="material-symbols-outlined">add</span>Add Subject</a>
-  </div>
+  </div> -->
   
   <section>
     <div class="table-main-area" *ngIf="subjectData?.subject.data.length" >
+      <div class="header-div">
         <h1>Subject's List</h1>
+        <div class="add-btn-div">
+          <a href="" routerLink="/subject/subjectAdd"><span class="material-symbols-outlined">add</span>Add Subject</a>
+        </div>
+      </div>
+        
         <div class="table">
          
             <div class="table-thead">
