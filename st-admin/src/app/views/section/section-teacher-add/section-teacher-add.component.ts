@@ -34,8 +34,8 @@ errorMessage:any;
       class_id: [this.data.claData, Validators.required],
       section_id: [this.data.secData, Validators.required],
     });
-    console.log('this.data.claData',this.data.claData);
-    console.log('this.data.secData',this.data.secData);
+    console.log('this.data.claData',this.data?.claData);
+    console.log('this.data.secData',this.data?.secData);
     
   }
 

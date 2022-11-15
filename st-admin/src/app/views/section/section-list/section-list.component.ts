@@ -39,7 +39,7 @@ sectionListDataaa:any;
       }
     });
 
-console.log('this.id',this.id);
+
 
    
   }
@@ -68,7 +68,12 @@ console.log('this.id',this.id);
 // open dilog dection start 
 
 openDialog(sectionId: number) {
-  const dialogRef = this.dialog.open(SectionTeacherAddComponent, {data: sectionId});
+  const dialogRef = this.dialog.open(SectionTeacherAddComponent, {
+    data:{
+      claData:this.id,
+      secData:sectionId
+    }
+  });
 console.log('dialogRef', sectionId);
 
   dialogRef.afterClosed().subscribe(result => {
