@@ -97,8 +97,12 @@ export class TeacherAddComponent implements OnInit {
       next: (result) => {
         this.undata = result;
         this.unionName = this.undata.data;
+console.log('  this.unionName',  this.unionName);
 
         this.filteredUnionList = this.unionName?.slice();
+        console.log('this.filteredUnionList',this.filteredUnionList);
+        
+
       },
       error: (err) => {
         console.log(err);

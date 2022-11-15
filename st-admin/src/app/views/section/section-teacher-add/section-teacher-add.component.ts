@@ -1,3 +1,4 @@
+import { filter } from 'rxjs/operators';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ClassService } from './../../../service/class.service';
 import {
@@ -9,6 +10,7 @@ import {
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { MatSelectChange } from '@angular/material/select';
+import { TeacherService } from 'src/app/service/teacher.service';
 
 
 @Component({
@@ -21,14 +23,15 @@ export class SectionTeacherAddComponent implements OnInit {
   responceData: any;
   sectionDatas:any;
 errorMessage:any;
-unionName?: any[];
-filteredUnionList?: any[];
-undata: any;
+teaName?: any[];
+filteredTeaList?: any[];
+teaData: any;
 
   constructor(
     private sectionService: ClassService,
     private fb: FormBuilder,
     private toastr: ToastrService,
+    private teaService: TeacherService,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
 
@@ -41,7 +44,7 @@ undata: any;
     });
     console.log('this.data.claData',this.data?.claData);
     console.log('this.data.secData',this.data?.secData);
-    
+    this.teaListForClass();
   }
 
 
@@ -72,13 +75,27 @@ undata: any;
   }
 
 
-  unionData() {
-    this.sectionService.sectionList(this.sectionTeacherAdd.value).subscribe({
+  teaListForClass() {
+    this.teaService.teaListForClass(this.sectionTeacherAdd.value).subscribe({
       next: (result) => {
-        this.undata = result;
-        this.unionName = this.undata?.data;
+        this.teaData = result;
+        console.log('teaData',this.teaData);
+        
+        this.teaName = [];
 
-        this.filteredUnionList = this.unionName?.slice();
+        this.teaData?.teachers?.data.forEach((f: { user: { name: any; }; id: any; }) => {
+          const data = 
+           { 
+            name: f.user.name,
+            id: f.id
+          }
+          
+          this.teaName?.push(data)
+        })
+        this.filteredTeaList = this.teaName.slice()
+        console.log(' this.teaName', this.teaName);
+        console.log('this.filteredTeaList', this.filteredTeaList);
+        
       },
       error: (err) => {
         console.log(err);

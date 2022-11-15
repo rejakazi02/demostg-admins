@@ -29,6 +29,10 @@ export class TeacherService {
     // return this.http.get<any>(baseurl + 'admin/institutes')
     return this.http.get(baseurl + 'teachers');
   }
+  teaListForClass(teaName:any) {
+    // return this.http.get<any>(baseurl + 'admin/institutes')
+    return this.http.get(baseurl + 'teachers', teaName);
+  }
 
   // teacher data delete
   deleteTeaData(data: any) {

@@ -31,11 +31,11 @@
                                   formControlName="name">
                         <mat-select-filter [placeholder]="'Search Teacher Name'"
                                            *ngIf="select.focus"
-                                           [array]="unionName"
+                                           [array]="teaName"
                                            [displayMember]="'name'"
-                                           (filteredReturn)="filteredUnionList = $event">
+                                           (filteredReturn)="filteredTeaList = $event">
                         </mat-select-filter>
-                        <mat-option *ngFor="let item of filteredUnionList" [value]="item.id">
+                        <mat-option *ngFor="let item of filteredTeaList" [value]="item.id">
                           {{item.name}}
                         </mat-option>
                       </mat-select>
