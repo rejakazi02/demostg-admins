@@ -157,6 +157,9 @@ console.log('result', result);
       if(err.error.errors.blood_group){
         this.toastr.error(err.error.errors.blood_group);
       }
+      if(err.error.errors.religion){
+        this.toastr.error(err.error.errors.religion);
+      }
   
      
       
