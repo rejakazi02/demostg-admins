@@ -108,6 +108,11 @@ teaSectionPost(teaSectionA: any) {
   return this.http.post<any>(baseurl + 'section-sessions', teaSectionA);
 }
 
+// routine Add ---------------------------------------------------------------------------------
+routinePost(routineAdd: any) {
+  return this.http.post<any>(baseurl + 'class-routines', routineAdd);
+}
+
 
   // Global token
   IsLoggedIn() {

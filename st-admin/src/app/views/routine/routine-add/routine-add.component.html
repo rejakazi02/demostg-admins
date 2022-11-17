@@ -36,7 +36,7 @@
                 
                 
                 
-                  <c-col md="12">
+                  <c-col md="12" class="headder-div">
                     <label cLabel for="inputPassword424">Section</label>
                     <!-- <input formControlName="section_id"  cFormControl id="inputPassword424" type="text" placeholder="Section" /> -->
                     
@@ -49,7 +49,25 @@
                     <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
                   </c-col>
 
-
+                  <c-col md="12" class="headder-div">
+                    <label cLabel for="inputPassword34">Week day</label>
+                    <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
+                     <select formControlName="weekday"  cSelect id="inputState1">
+                     
+                      <!-- <option [value]="null" disabled>Choose...</option> -->
+                      <option>Choose...</option>
+                       <option value="1">Saturday</option>
+                      <option value="2">Sunday</option>
+                      <option value="3">Monday</option>
+                      <option value="4">Tuesday</option>
+                      <option value="5">Wednesday</option>
+                      <option value="6">Thursday</option>
+                      <option value="7">Friday</option>
+                     
+                    </select> 
+                  
+                    <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+                   </c-col> 
 
 
 
@@ -62,14 +80,13 @@
                        
                         <c-card-body>
                             <c-col md="12">
-                                <label cLabel for="inputPassword34">Gender</label>
+                                <label cLabel for="inputPassword34">Subject</label>
                                 <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
-                                 <select  cSelect id="inputState1">
+                                 <select formControlName="subject_id"  cSelect id="inputState1">
                                  
-                                  <!-- <option [value]="null" disabled>Choose...</option> -->
-                                   <option value="male">Male</option>
-                                  <option value="female">Female</option>
-                                  <option value="other">Other</option>
+                                  <option [value]="null" disabled>Choose...</option>
+                                   <option *ngFor="let item of subjectData?.subject.data" value="{{item.code}}">{{item.name}}</option>
+                                  
                                  
                                 </select> 
                               
@@ -80,14 +97,13 @@
                         </c-card-body>
                         <c-card-body>
                             <c-col md="12">
-                                <label cLabel for="inputPassword34">Gender</label>
+                                <label cLabel for="inputPassword34">Teacher</label>
                                 <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
-                                 <select  cSelect id="inputState1">
+                                 <select formControlName="teacher_id"  cSelect id="inputState1">
                                  
-                                  <!-- <option [value]="null" disabled>Choose...</option> -->
-                                   <option value="male">Male</option>
-                                  <option value="female">Female</option>
-                                  <option value="other">Other</option>
+                                  <option [value]="null" disabled>Choose...</option>
+                                   <option *ngFor="let item of teaData.teachers.data" value="{{item.id}}">{{item.user.name}}</option>
+                                 
                                  
                                 </select> 
                               
@@ -98,14 +114,13 @@
                         </c-card-body>
                         <c-card-body>
                             <c-col md="12">
-                                <label cLabel for="inputPassword34">Gender</label>
+                                <label cLabel for="inputPassword34">Room</label>
                                 <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
-                                 <select  cSelect id="inputState1">
+                                 <select formControlName="room_id"  cSelect id="inputState1">
                                  
-                                  <!-- <option [value]="null" disabled>Choose...</option> -->
-                                   <option value="male">Male</option>
-                                  <option value="female">Female</option>
-                                  <option value="other">Other</option>
+                                  <option [value]="null" disabled>Choose...</option>
+                                   <option *ngFor="let item of classRoomListData" value="{{item.id}}">{{ item.room_no }}</option>
+                                 
                                  
                                 </select> 
                               

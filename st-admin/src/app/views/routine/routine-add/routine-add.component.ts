@@ -11,6 +11,7 @@ import { ClassService } from 'src/app/service/class.service';
 import { StudentService } from 'src/app/service/student.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TeacherService } from 'src/app/service/teacher.service';
 
 
 @Component({
@@ -22,15 +23,17 @@ export class RoutineAddComponent implements OnInit {
   name = 'Angular';  
   errorMessage: any;
   responceData: any;
-  getUpdateData:any;
-  stu_id?: any;
+  subjectData:any;
   classSectionData:any;
   classDatas:any;
-  class_Id:any;
+  teaData:any;
+  classRoomListData:any;
+
   classRoutineForm!: FormGroup;  
   constructor(
     private fb:FormBuilder,
     private classService: ClassService,
+    private teaService: TeacherService,
     private toastr: ToastrService,
   ) { 
      
@@ -41,19 +44,29 @@ export class RoutineAddComponent implements OnInit {
     
       class_id: ['', Validators.required],
       section_id: ['', Validators.required], 
+      weekday: ['', Validators.required], 
       items: this.fb.array([]) ,  
     }); 
 
     this.classData();
+    this.subjectList();
+    this.teaList();
+    this.classRoomList();
   }
 
+
+
+//  form reactive start 
   items() : FormArray {  
     return this.classRoutineForm.get("items") as FormArray  
   }  
      
   newQuantity(): FormGroup {  
     return this.fb.group({  
-      qty: '',  
+     
+      subject_id: ['', Validators.required],  
+      teacher_id: ['', Validators.required],  
+      room_id: ['', Validators.required],  
       start_time: ['', Validators.required],  
       end_time: ['', Validators.required],  
     })  
@@ -71,17 +84,13 @@ export class RoutineAddComponent implements OnInit {
     console.log(this.classRoutineForm.value);  
   }  
 
+
+  // classs data 
   classData(){
     this.classService.classData().subscribe((result)=>{
       
       this.classDatas = result;
 
-      // this.studentDataUpdate.patchValue({
-      //   class_id: this.classDatas.find( (f: { name: any }) => f.name == this.getUpdateData.student.class).id
-      // })      
-      // console.log('this.studentDataUpdate.value.class_id', this.studentDataUpdate.value.class_id);
-      
-      // this.getSection(this.studentDataUpdate.value.class_id)
     })
   }
 
@@ -92,12 +101,36 @@ export class RoutineAddComponent implements OnInit {
     .SubSectData(this.classRoutineForm.value, value)
     .subscribe((result) => {
       this.classSectionData = result;
-      // this.studentDataUpdate.patchValue({
-      //   section_id: this.classSectionData.sections.find( (f: { name: any }) => f.name == this.getUpdateData.student.section)?.id
-      // })
-      // console.log('classSectionData', this.classSectionData);
     });
 
+  }
+
+// subject list 
+  subjectList() {
+    this.classService.subjectList().subscribe((result) => {
+      this.subjectData = result;
+      console.log('teaData', this.subjectData);
+     
+    });
+  }
+
+// teacher list 
+  teaList() {
+    this.teaService.teaList().subscribe((result) => {
+      this.teaData = result;
+      console.log('teaData', this.teaData);
+     
+    });
+  }
+
+  // class Room List Data
+  classRoomList() {
+    this.classService.classRoomList().subscribe((result) => {
+      this.classRoomListData = result;
+      
+     
+
+    });
   }
 
 }
