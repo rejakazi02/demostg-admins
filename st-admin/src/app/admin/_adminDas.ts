@@ -141,6 +141,22 @@ export const navItems: INavData[] = [
       
     ]
   },
+  {
+    name: 'Routine',
+    url: './routine',
+    iconComponent: { name: 'cil-calendar' },
+    children: [
+      {
+        name: 'Routine Add',
+        url: './routine/routineAdd'
+      },
+      {
+        name: 'Routine List',
+        url: './routine/routineList'
+      },
+      
+    ]
+  },
   
  
   // {

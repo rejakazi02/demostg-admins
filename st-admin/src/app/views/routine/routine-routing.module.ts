@@ -7,13 +7,13 @@ const routes: Routes = [
   {
     path: '',
     data: { 
-      title: 'Student Details',
+      title: 'Routine Details',
     },
     children: [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'studentDetails',
+        redirectTo: 'routineDetails',
       },
       {
         path: 'routineAdd',

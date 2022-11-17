@@ -94,6 +94,7 @@ import {
   cilSchool,
   cilColorBorder,
   cilRoom,
+  
 } from '@coreui/icons';
 
 export const iconSubset = {

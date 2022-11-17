@@ -135,6 +135,13 @@ const adminChildrenRoutes: Routes = [
         (m) => m.SingleStudentDetailsModule
       ),
   },
+  {
+    path: 'routine',
+    loadChildren: () =>
+      import('./views/routine/routine.module').then(
+        (m) => m.RoutineModule
+      ),
+  },
 
   {
     path: 'admin-profile',

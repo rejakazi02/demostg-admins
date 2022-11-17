@@ -1,1 +1,169 @@
-<p>routine-add works!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<c-row class="testsss">
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-body>
+            <form [formGroup]="classRoutineForm" (ngSubmit)="onSubmit()">  
+        
+                <c-col md="12">
+                    <label cLabel for="inputState1">Class </label>
+                    <!-- <select formControlName="instituteCat" cSelect id="inputState" (change)="getSubType(select)" #select> -->
+                    <select formControlName="class_id" cSelect id="inputState11" (change)="getSection(select.value)"
+                      #select>
+                      <option>Choose...</option>
+                      <!-- <option  *ngFor="let item of instituteData" [value]="item.instituteName">{{item.instituteName}}</option> -->
+                      <option *ngFor="let item of classDatas"  [value]="item.id">
+                        {{item.name}}
+                      </option>
+                    </select>
+                    <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.class_id && errorMessage.class_id.length">{{errorMessage.class_id[0]}}</p> -->
+                  </c-col>
+                
+                
+                
+                
+                  <c-col md="12">
+                    <label cLabel for="inputPassword424">Section</label>
+                    <!-- <input formControlName="section_id"  cFormControl id="inputPassword424" type="text" placeholder="Section" /> -->
+                    
+                    <select formControlName="section_id" cSelect>
+                    <option>Choose...</option>
+                    <!-- <option  *ngFor="let item of instituteData" [value]="item.instituteName">{{item.instituteName}}</option> -->
+                    <option *ngFor="let item of classSectionData?.sections" value="{{ item.id }}">{{ item.name }}
+                    </option>
+                  </select>
+                    <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
+                  </c-col>
+
+
+
+
+
+             <c-card class="add-More-div" formArrayName="items">
+               
+                   
+
+
+                    <c-card class="routine-items-div" *ngFor="let quantity of items().controls; let i=index" [formGroupName]="i">
+                       
+                        <c-card-body>
+                            <c-col md="12">
+                                <label cLabel for="inputPassword34">Gender</label>
+                                <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
+                                 <select  cSelect id="inputState1">
+                                 
+                                  <!-- <option [value]="null" disabled>Choose...</option> -->
+                                   <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                  <option value="other">Other</option>
+                                 
+                                </select> 
+                              
+                                <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+                               </c-col> 
+
+                            
+                        </c-card-body>
+                        <c-card-body>
+                            <c-col md="12">
+                                <label cLabel for="inputPassword34">Gender</label>
+                                <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
+                                 <select  cSelect id="inputState1">
+                                 
+                                  <!-- <option [value]="null" disabled>Choose...</option> -->
+                                   <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                  <option value="other">Other</option>
+                                 
+                                </select> 
+                              
+                                <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+                               </c-col> 
+
+                            
+                        </c-card-body>
+                        <c-card-body>
+                            <c-col md="12">
+                                <label cLabel for="inputPassword34">Gender</label>
+                                <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
+                                 <select  cSelect id="inputState1">
+                                 
+                                  <!-- <option [value]="null" disabled>Choose...</option> -->
+                                   <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                  <option value="other">Other</option>
+                                 
+                                </select> 
+                              
+                                <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+                               </c-col> 
+
+                            
+                        </c-card-body>
+                        <c-card-body>
+                            <c-col md="12">
+                                <label cLabel for="">Start Time</label>
+                                <input formControlName="start_time"  cFormControl  type="time" placeholder="Gender" />
+                               
+                              
+                                <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+                               </c-col> 
+
+                            
+                        </c-card-body>
+                        <c-card-body>
+                            <c-col md="12">
+                                <label cLabel for="">End Time</label>
+                                <input formControlName="end_time" cFormControl  type="time" placeholder="" />
+                             
+                              
+                                <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+                               </c-col> 
+
+                            
+                        </c-card-body>
+
+                        <c-card-body class="remove-btn-div">
+                           
+                            <button (click)="removeQuantity(i)" class="remove-btn-danger">Remove</button>  
+                            
+                        </c-card-body>
+                    </c-card>
+
+                    <c-card-body>
+                        <c-col md="12">
+                           <button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button>  
+                    
+                       </c-col>
+                   </c-card-body>
+
+                  </c-card>
+
+
+         
+                <button type="submit" class="btn btn-success">Add Routine</button>  
+                  
+              </form>  
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>
+  
+  
+
+
+
