@@ -24,9 +24,8 @@
                     <!-- <select formControlName="instituteCat" cSelect id="inputState" (change)="getSubType(select)" #select> -->
                     <select formControlName="class_id" cSelect id="inputState11" (change)="getSection(select.value)"
                       #select>
-                      <option>Choose...</option>
-                      <!-- <option  *ngFor="let item of instituteData" [value]="item.instituteName">{{item.instituteName}}</option> -->
-                      <option *ngFor="let item of classDatas"  [value]="item.id">
+                      <option [value]="null" disabled>Choose...</option>
+                        <option *ngFor="let item of classDatas"  [value]="item.id">
                         {{item.name}}
                       </option>
                     </select>
@@ -41,8 +40,7 @@
                     <!-- <input formControlName="section_id"  cFormControl id="inputPassword424" type="text" placeholder="Section" /> -->
                     
                     <select formControlName="section_id" cSelect>
-                    <option>Choose...</option>
-                    <!-- <option  *ngFor="let item of instituteData" [value]="item.instituteName">{{item.instituteName}}</option> -->
+                        <option [value]="null" disabled>Choose...</option>
                     <option *ngFor="let item of classSectionData?.sections" value="{{ item.id }}">{{ item.name }}
                     </option>
                   </select>
@@ -54,8 +52,8 @@
                     <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
                      <select formControlName="weekday"  cSelect id="inputState1">
                      
-                      <!-- <option [value]="null" disabled>Choose...</option> -->
-                      <option>Choose...</option>
+                      <option [value]="null" disabled>Choose...</option>
+                   
                        <option value="1">Saturday</option>
                       <option value="2">Sunday</option>
                       <option value="3">Monday</option>
