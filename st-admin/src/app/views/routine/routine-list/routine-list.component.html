@@ -1,1 +1,89 @@
-<p>routine-list works!</p>
+
+
+<!-- <div class="add-btn-div">
+    <a href="" routerLink="/subject/subjectAdd"><span class="material-symbols-outlined">add</span>Add Subject</a>
+  </div> -->
+  
+  <section>
+    <div class="table-main-area" *ngIf="subjectData?.subject.data.length" >
+      <div class="header-div">
+        <h1>Class Routine List</h1>
+        <div class="add-btn-div">
+          <a href="" routerLink="/routine/routineAdd"><span class="material-symbols-outlined">add</span>Add Subject</a>
+        </div>
+      </div>
+        
+        <div class="table">
+         
+            <div class="table-thead">
+              <div class="table-row">
+                <div class="table-heading"> NAME</div>
+                <div class="table-heading"> CODE</div>
+                <div class="table-heading"> TYPE</div>
+                <div class="table-heading"> CLASS </div>
+                <div class="table-heading"> TOTAL MARK</div>
+                <div class="table-heading">  PASS MARK</div>
+      
+                <div class="table-heading">OPTIONAL</div>
+                <div class="table-heading">ACTION</div>
+              </div>
+            </div>
+            <div class="tbody">
+              <!-- <div *ngFor="let element of instData.institutes.data | paginate: { itemsPerPage: itemPer_page, currentPage: current_page, totalItems: total }" class="table-row" > -->
+                <div class="table-row" *ngFor="let item of subjectData?.subject.data">
+                  <div class="table-data">{{item.name}}</div>
+                  <div class="table-data">{{item.code}}</div>
+                  <div class="table-data">{{item.type}}</div>
+                  <div class="table-data">{{item.class_name}}</div>
+                  <div class="table-data">{{item.total_marks}}</div>
+                  <div class="table-data">{{item.pass_marks}}</div>
+                  <div class="table-data">{{item.is_optional}}</div>
+                 <div class="table-data">
+                <!-- <button><a href="" routerLink="/class/classAdd"><mat-icon>edit</mat-icon></a></button>
+                <button><mat-icon>delete</mat-icon></button> -->
+                <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="action-Btn">
+                  <!-- <mat-icon>more_vert</mat-icon> -->
+                  <span class="material-symbols-outlined">
+                    more_vert
+                    </span>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <!-- <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                  <mat-icon>edit</mat-icon>
+                </button> -->
+                <!-- (click)="editDataa(element.slug, i)" -->
+                <!-- <a [routerLink]="['/base/instituteEdit', item.id]" class="button-atag">
+                  <button  mat-menu-item class="deleteBtn" >
+                    <span class="material-symbols-outlined"> edit </span>
+                  <span> Edit </span>
+                </button></a> -->
+                  
+                  <button (click)="confirmBox(item.code)"  mat-menu-item class="deleteBtn" >
+                    <span class="material-symbols-outlined"> delete</span>
+                    <span>Delete</span>
+                  </button>
+        
+                  <!-- (click)="deleteData(element.slug)" -->
+                </mat-menu>
+                 </div> 
+              </div>
+             
+              
+             
+         
+            </div>
+         </div>
+         <div class="pagination-div">
+          <!-- <pagination-controls (pageChange)="onPageChanged($event)" [maxSize]="8"></pagination-controls> -->
+         </div>
+    </div>
+    <!-- <h3 *ngIf="!teaData?.teachers.data.length" class="no-Data-text">No data</h3> -->
+    <!-- <img *ngIf="!subjectData?.subject?.data.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt=""> -->
+  
+  </section>
+  
+  
+  
+  
+  
+  
