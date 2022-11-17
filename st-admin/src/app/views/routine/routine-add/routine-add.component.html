@@ -17,7 +17,7 @@
     <c-col xs="12">
       <c-card class="mb-4">
         <c-card-body>
-            <form [formGroup]="classRoutineForm" (ngSubmit)="onSubmit()">  
+            <form [formGroup]="classRoutineForm" (ngSubmit)="routineOnSubmit()">  
         
                 <c-col md="12">
                     <label cLabel for="inputState1">Class </label>
@@ -46,7 +46,7 @@
                     <option *ngFor="let item of classSectionData?.sections" value="{{ item.id }}">{{ item.name }}
                     </option>
                   </select>
-                    <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.password && errorMessage.password.length">{{errorMessage.password[0]}}</p> -->
+                    <p class="validation-Message" *ngIf="errorMessage && errorMessage.class_section_id && errorMessage.class_section_id.length">{{errorMessage.class_section_id[0]}}</p>
                   </c-col>
 
                   <c-col md="12" class="headder-div">
@@ -66,7 +66,7 @@
                      
                     </select> 
                   
-                    <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+                    <p class="validation-Message" *ngIf="errorMessage && errorMessage.weekday && errorMessage.weekday.length">{{errorMessage.weekday[0]}}</p>
                    </c-col> 
 
 
@@ -85,7 +85,7 @@
                                  <select formControlName="subject_id"  cSelect id="inputState1">
                                  
                                   <option [value]="null" disabled>Choose...</option>
-                                   <option *ngFor="let item of subjectData?.subject.data" value="{{item.code}}">{{item.name}}</option>
+                                   <option *ngFor="let item of subjectData?.subject.data" value="{{item.id}}">{{item.name}}</option>
                                   
                                  
                                 </select> 
@@ -146,7 +146,7 @@
                                 <input formControlName="end_time" cFormControl  type="time" placeholder="" />
                              
                               
-                                <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.gender && errorMessage.gender.length">{{errorMessage.gender[0]}}</p> -->
+                                <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.items.0.end_time && errorMessage.items.0.end_time.length">{{errorMessage.items.0.end_time[0]}}</p> -->
                                </c-col> 
 
                             
@@ -162,7 +162,8 @@
                     <c-card-body>
                         <c-col md="12">
                            <button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button>  
-                    
+                           <p class="validation-Message" *ngIf="errorMessage && errorMessage.items && errorMessage.items.length">{{errorMessage.items[0]}}</p>
+                 
                        </c-col>
                    </c-card-body>
 

@@ -80,8 +80,34 @@ export class RoutineAddComponent implements OnInit {
     this.items().removeAt(i);  
   }  
      
-  onSubmit() {  
-    console.log(this.classRoutineForm.value);  
+  routineOnSubmit() {  
+    console.log(this.classRoutineForm.value);
+  
+    this.classService.routinePost( this.classRoutineForm.value).subscribe((result) => {
+      this.responceData = result;
+ 
+
+      this.classRoutineForm.reset();
+      this.toastr.success(result.message);
+          this.errorMessage=null;
+          // window.location.reload();
+        },
+        (err)=>{
+          this.errorMessage=err.error.errors;
+          
+          if(err.error.errors.class_section_id){
+            this.toastr.error(err.error.errors.class_section_id);
+          }
+          if(err.error.errors.weekday){
+            this.toastr.error(err.error.errors.weekday);
+          }
+
+          if(err.error.errors.items){
+            this.toastr.error(err.error.errors.items);
+          }
+         
+          
+        });  
   }  
 
 
@@ -109,7 +135,7 @@ export class RoutineAddComponent implements OnInit {
   subjectList() {
     this.classService.subjectList().subscribe((result) => {
       this.subjectData = result;
-      console.log('teaData', this.subjectData);
+      // console.log('teaData', this.subjectData);
      
     });
   }
@@ -118,7 +144,7 @@ export class RoutineAddComponent implements OnInit {
   teaList() {
     this.teaService.teaList().subscribe((result) => {
       this.teaData = result;
-      console.log('teaData', this.teaData);
+      // console.log('teaData', this.teaData);
      
     });
   }
@@ -127,9 +153,7 @@ export class RoutineAddComponent implements OnInit {
   classRoomList() {
     this.classService.classRoomList().subscribe((result) => {
       this.classRoomListData = result;
-      
-     
-
+   
     });
   }
 
