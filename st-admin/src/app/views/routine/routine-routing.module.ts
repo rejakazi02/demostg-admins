@@ -1,3 +1,4 @@
+import { RoutineUpdateComponent } from './routine-update/routine-update.component';
 import { RoutineAddComponent } from './routine-add/routine-add.component';
 import { RoutineListComponent } from './routine-list/routine-list.component';
 import { NgModule } from '@angular/core';
@@ -23,10 +24,17 @@ const routes: Routes = [
         },
       },
       {
-        path: 'routineEdit/:id',
-        component: RoutineAddComponent,
+        path: 'routineUpdate',
+        component: RoutineUpdateComponent,
         data: {
-          title: 'Routine Add',
+          title: 'Routine update',
+        },
+      },
+      {
+        path: 'routineUpdateEdit/:id',
+        component: RoutineUpdateComponent,
+        data: {
+          title: 'Routine update',
         },
       },
       {

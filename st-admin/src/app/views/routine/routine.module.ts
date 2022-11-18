@@ -20,11 +20,13 @@ import { DocsComponentsModule } from '@docs-components/docs-components.module';
 import { FormsRoutingModule } from '../forms/forms-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import { RoutineUpdateComponent } from './routine-update/routine-update.component';
 
 @NgModule({
   declarations: [
     RoutineAddComponent,
-    RoutineListComponent
+    RoutineListComponent,
+    RoutineUpdateComponent
   ],
   imports: [
     CommonModule,
