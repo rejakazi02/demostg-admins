@@ -114,6 +114,23 @@ routinePost(routineAdd: any) {
 }
 
 
+// class Routines List
+classRoutinesList() {
+  return this.http.get<any>(baseurl + 'class-routines');
+}
+
+
+// class-routines?class_id=3&section_id=1&weekday=4
+
+classRoutinesSearch(clssId:any, secId:any, weekId:any) {
+  return this.http.get<any>(baseurl + 'class-routines?class_id=' + clssId + '&section_id=' + secId + '&weekday=' + weekId);
+}
+
+
+
+
+
+
   // Global token
   IsLoggedIn() {
     return localStorage.getItem('token') != null;

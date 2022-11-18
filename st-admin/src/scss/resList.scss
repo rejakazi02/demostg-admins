@@ -76,6 +76,56 @@ justify-content: space-between;
 
 }
 
+
+.search-main-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 39px 0;
+  gap: 22px;
+  .class-search-main-div{
+      display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap:12px;
+  label{
+      font-size: 20px;
+  }
+
+  select {
+      width: 216px;
+      height: 44px;
+      // background: aqua;
+      background-color: #3c4b64;
+      color: white;
+      padding: 0 10px;
+      font-size: 22px;
+      border-radius: 6px;
+      border: none;
+  }
+button{
+  background-color: #ffae01;
+  width: 116px;
+  height: 44px;
+  padding: 0 10px;
+  font-size: 22px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 30px;
+  color: white;
+}
+
+button:hover{
+  background-color: #3c4b64;
+  color: white;
+}
+
+
+
+  }
+}
+
   .table {
     .table-thead {
       // background-color: rgb(15, 148, 201);

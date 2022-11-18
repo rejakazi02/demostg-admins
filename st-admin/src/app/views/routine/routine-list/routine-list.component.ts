@@ -8,23 +8,23 @@ import Swal from 'sweetalert2';
   styleUrls: ['./routine-list.component.scss']
 })
 export class RoutineListComponent implements OnInit {
-  subjectData:any;
+  classRoutinesData:any;
   constructor(
     private subjectService: ClassService
   ) { }
 
   ngOnInit(): void {
-    this.subjectList();
+    this.classRoutinesList();
   }
 
 
-  subjectList() {
-    this.subjectService.subjectList().subscribe((result) => {
-      this.subjectData = result;
-      console.log('teaData', this.subjectData);
+  classRoutinesList() {
+    this.subjectService.classRoutinesList().subscribe((result) => {
+      this.classRoutinesData = result;
+      console.log('teaData', this.classRoutinesData);
      
     });
-  }
+  } 
 
 
   confirmBox(id: any) {
@@ -47,7 +47,7 @@ export class RoutineListComponent implements OnInit {
 
         this.subjectService.deleteSubjectData(id).subscribe((result) => {
           // window.location.reload();
-          this.subjectList();
+          this.classRoutinesList();
         
         });
        

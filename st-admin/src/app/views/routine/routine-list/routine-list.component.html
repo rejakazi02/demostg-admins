@@ -5,39 +5,74 @@
   </div> -->
   
   <section>
-    <div class="table-main-area" *ngIf="subjectData?.subject.data.length" >
+    <div class="table-main-area" *ngIf="classRoutinesData?.routines.data.length" >
       <div class="header-div">
         <h1>Class Routine List</h1>
         <div class="add-btn-div">
           <a href="" routerLink="/routine/routineAdd"><span class="material-symbols-outlined">add</span>Add Subject</a>
         </div>
       </div>
+
+
+<div class="search-main-div">
+
+  <div class="class-search-main-div">
+    <label for="">Day</label>
+    <select name="" id="">
+      <option value="">Sat</option>
+      <option value="">Sun</option>
+      <option value="">Mon</option>
+    </select>
+  </div>
+
+  <div class="class-search-main-div">
+    <label for="">Class</label>
+    <select name="" id="">
+      <option value="">1</option>
+      <option value="">2</option>
+      <option value="">3</option>
+    </select>
+  </div>
+  <div class="class-search-main-div">
+    <label for="">Section</label>
+    <select name="" id="">
+      <option value="">a</option>
+      <option value="">b</option>
+      <option value="">c</option>
+    </select>
+  </div>
+  <div class="class-search-main-div">
+   <button type="submit">Search</button>
+  </div>
+  
+</div>
+
         
         <div class="table">
          
             <div class="table-thead">
               <div class="table-row">
-                <div class="table-heading"> NAME</div>
-                <div class="table-heading"> CODE</div>
-                <div class="table-heading"> TYPE</div>
-                <div class="table-heading"> CLASS </div>
-                <div class="table-heading"> TOTAL MARK</div>
-                <div class="table-heading">  PASS MARK</div>
+                <div class="table-heading"> Day</div>
+                <div class="table-heading"> Class</div>
+                <div class="table-heading"> Section</div>
+                <div class="table-heading"> Subject </div>
+                <div class="table-heading"> Teacher</div>
+                <div class="table-heading">Start Time</div>
       
-                <div class="table-heading">OPTIONAL</div>
+                <div class="table-heading">End Time</div>
                 <div class="table-heading">ACTION</div>
               </div>
             </div>
             <div class="tbody">
               <!-- <div *ngFor="let element of instData.institutes.data | paginate: { itemsPerPage: itemPer_page, currentPage: current_page, totalItems: total }" class="table-row" > -->
-                <div class="table-row" *ngFor="let item of subjectData?.subject.data">
-                  <div class="table-data">{{item.name}}</div>
-                  <div class="table-data">{{item.code}}</div>
-                  <div class="table-data">{{item.type}}</div>
-                  <div class="table-data">{{item.class_name}}</div>
-                  <div class="table-data">{{item.total_marks}}</div>
-                  <div class="table-data">{{item.pass_marks}}</div>
-                  <div class="table-data">{{item.is_optional}}</div>
+                <div class="table-row" *ngFor="let item of classRoutinesData?.routines.data">
+                  <div class="table-data">{{item.weekday}}</div>
+                  <div class="table-data">{{item?.class?.name}}</div>
+                  <div class="table-data">{{item?.section?.name}}</div>
+                  <div class="table-data">{{item?.subject?.name}}</div>
+                  <div class="table-data">{{item?.teacher?.user?.name}}</div>
+                  <div class="table-data">{{item.start_time}}</div>
+                  <div class="table-data">{{item.end_time}}</div>
                  <div class="table-data">
                 <!-- <button><a href="" routerLink="/class/classAdd"><mat-icon>edit</mat-icon></a></button>
                 <button><mat-icon>delete</mat-icon></button> -->
@@ -58,7 +93,7 @@
                   <span> Edit </span>
                 </button></a> -->
                   
-                  <button (click)="confirmBox(item.code)"  mat-menu-item class="deleteBtn" >
+                  <button (click)="confirmBox(item.id)"  mat-menu-item class="deleteBtn" >
                     <span class="material-symbols-outlined"> delete</span>
                     <span>Delete</span>
                   </button>
