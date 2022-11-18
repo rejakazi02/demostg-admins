@@ -23,6 +23,13 @@ const routes: Routes = [
         },
       },
       {
+        path: 'routineEdit/:id',
+        component: RoutineAddComponent,
+        data: {
+          title: 'Routine Add',
+        },
+      },
+      {
         path: 'routineList',
         component: RoutineListComponent,
         data: {

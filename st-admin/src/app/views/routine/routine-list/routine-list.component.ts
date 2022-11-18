@@ -9,24 +9,72 @@ import Swal from 'sweetalert2';
 })
 export class RoutineListComponent implements OnInit {
   classRoutinesData:any;
+  classDatas:any;
+id: any;
+classSectionData:any;
+classRoutinesSearchData:any
   constructor(
-    private subjectService: ClassService
+    private classService: ClassService
   ) { }
 
   ngOnInit(): void {
     this.classRoutinesList();
+    this.classData();
+    
+  }
+
+  // class Routines List
+  classRoutinesList() {
+
+    // if(this.classRoutinesSearchData){
+    //   this.search
+    // }
+   
+      this.classService.classRoutinesList().subscribe((result) => {
+        this.classRoutinesData = result;
+        console.log('teaData', this.classRoutinesData);
+       
+      });
+    
+   
+  } 
+
+   // classs data 
+   classData(){
+    this.classService.classData().subscribe((result)=>{
+      
+      this.classDatas = result;
+
+    })
   }
 
 
-  classRoutinesList() {
-    this.subjectService.classRoutinesList().subscribe((result) => {
+  getSection(value?:any){
+
+    this.classService
+    .SubSectDat(value)
+    .subscribe((result) => {
+      this.classSectionData = result;
+      console.log('sec',  this.classSectionData);
+      
+    });
+
+  }
+
+  search(day:any, classsId:any, sectionId:any){
+    
+    this.classService.classRoutinesSearch(classsId, sectionId, day).subscribe((result) => {
       this.classRoutinesData = result;
-      console.log('teaData', this.classRoutinesData);
+      console.log('classRoutinesSearchData', this.classRoutinesData);
      
     });
-  } 
 
 
+  }
+
+
+
+// delete section 
   confirmBox(id: any) {
     Swal.fire({
       title: 'Are you sure want to remove?',
@@ -45,8 +93,10 @@ export class RoutineListComponent implements OnInit {
         );
      
 
-        this.subjectService.deleteSubjectData(id).subscribe((result) => {
+        this.classService.deleteClassRoutineData(id).subscribe((result) => {
           // window.location.reload();
+          console.log('dlt',result);
+          
           this.classRoutinesList();
         
         });

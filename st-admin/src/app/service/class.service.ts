@@ -63,6 +63,9 @@ export class ClassService {
 SubSectData(subCatType: any, select: any) {
   return this.http.get(baseurl + 'sections?class_id=' + select, subCatType);
 }
+SubSectDat( select: any) {
+  return this.http.get(baseurl + 'sections?class_id=' + select);
+}
 
 
   // sections data delete
@@ -127,8 +130,11 @@ classRoutinesSearch(clssId:any, secId:any, weekId:any) {
 }
 
 
-
-
+// /class-routines/1
+ // class-routines data delete
+ deleteClassRoutineData(data: any) {
+  return this.http.delete(baseurl + 'class-routines/' + data);
+}
 
 
   // Global token

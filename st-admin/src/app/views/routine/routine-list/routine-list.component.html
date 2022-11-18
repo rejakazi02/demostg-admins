@@ -18,31 +18,44 @@
 
   <div class="class-search-main-div">
     <label for="">Day</label>
-    <select name="" id="">
-      <option value="">Sat</option>
-      <option value="">Sun</option>
-      <option value="">Mon</option>
+    <select name="" id="" #day>
+      <option selected  disabled>Choose...</option>
+      <option value="1">Saturday</option>
+      <option value="2">Sunday</option>
+      <option value="3">Monday</option>
+      <option value="4">Tuesday</option>
+      <option value="5">Wednesday</option>
+      <option value="6">Thursday</option>
+      <option value="7">Friday</option>
     </select>
   </div>
 
   <div class="class-search-main-div">
     <label for="">Class</label>
-    <select name="" id="">
-      <option value="">1</option>
-      <option value="">2</option>
-      <option value="">3</option>
-    </select>
+    <!-- <select name="" id="" #classs>
+      <option selected  disabled>Choose...</option>
+      <option value="a">1</option>
+      <option value="s">2</option>
+      <option value="d">3</option>
+    </select> -->
+    <select #classsId cSelect id="inputState11" (change)="getSection(select.value)"
+    #select>
+    <option selected disabled>Choose...</option>
+      <option *ngFor="let item of classDatas"  [value]="item.id">
+      {{item.numeric}}
+    </option>
+  </select>
   </div>
   <div class="class-search-main-div">
     <label for="">Section</label>
-    <select name="" id="">
-      <option value="">a</option>
-      <option value="">b</option>
-      <option value="">c</option>
-    </select>
+    <select  cSelect #sectionId>
+      <option selected disabled>Choose...</option>
+  <option *ngFor="let item of classSectionData?.sections" value="{{ item.id }}">{{ item.name }}
+  </option>
+</select>
   </div>
   <div class="class-search-main-div">
-   <button type="submit">Search</button>
+   <button (click)="search(day.value, classsId.value, sectionId.value)" type="submit">Search</button>
   </div>
   
 </div>
@@ -87,11 +100,11 @@
                   <mat-icon>edit</mat-icon>
                 </button> -->
                 <!-- (click)="editDataa(element.slug, i)" -->
-                <!-- <a [routerLink]="['/base/instituteEdit', item.id]" class="button-atag">
+                <a [routerLink]="['/routine/routineEdit', item.id]" class="button-atag">
                   <button  mat-menu-item class="deleteBtn" >
                     <span class="material-symbols-outlined"> edit </span>
                   <span> Edit </span>
-                </button></a> -->
+                </button></a>
                   
                   <button (click)="confirmBox(item.id)"  mat-menu-item class="deleteBtn" >
                     <span class="material-symbols-outlined"> delete</span>
@@ -113,7 +126,7 @@
          </div>
     </div>
     <!-- <h3 *ngIf="!teaData?.teachers.data.length" class="no-Data-text">No data</h3> -->
-    <!-- <img *ngIf="!subjectData?.subject?.data.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt=""> -->
+    <img *ngIf="!classRoutinesData?.routines.data.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt="">
   
   </section>
   
