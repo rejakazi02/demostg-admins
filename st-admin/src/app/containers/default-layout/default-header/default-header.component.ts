@@ -81,7 +81,7 @@ export class DefaultHeaderComponent extends HeaderComponent implements OnInit  {
      else if(this.responceData?.user?.role === 'student'){
       return 'Student'
      }
-     else if(this.responceData?.user?.role === 'teacher'){
+     else if(this.responceData?.user?.role === 'staff'){
       return 'Teacher'
      }
      else{

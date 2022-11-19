@@ -1,0 +1,45 @@
+
+
+
+.add-More-div{
+    margin: 20px 0px; 
+}
+
+.headder-div{
+    margin-top: 10px;
+}
+.routine-items-div{
+    margin: 20px 30px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+ 
+}
+
+.remove-btn-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-btn-danger {
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 9px 20px;
+    margin-top: 27px;
+    border-radius: 6px;
+}
+
+.validation-Message{
+    color: red;
+    margin-top: 3%;
+  }
+
+@media (min-width: 300px) and (max-width: 600px) {
+    .routine-items-div{
+        margin: 20px 30px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+     
+    }
+}

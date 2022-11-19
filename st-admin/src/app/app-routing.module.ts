@@ -215,8 +215,8 @@ const teacherPanelChildrenRoutes: Routes = [
   {
     path: 'routinee',
     loadChildren: () =>
-      import('./views/routine/routine.module').then(
-        (m) => m.RoutineModule
+      import('./views/tea-routine/tea-routine.module').then(
+        (m) => m.TeaRoutineModule
       ),
   },
 
