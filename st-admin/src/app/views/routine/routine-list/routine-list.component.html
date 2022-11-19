@@ -83,7 +83,7 @@
               <!-- <div *ngFor="let element of instData.institutes.data | paginate: { itemsPerPage: itemPer_page, currentPage: current_page, totalItems: total }" class="table-row" > -->
                 <div class="table-row" *ngFor="let item of classRoutinesData?.routines?.data">
                   <div class="table-data">{{item.day.name}}</div>
-                  <div class="table-data">{{item?.class?.name}}</div>
+                  <div class="table-data">{{item?.class?.numeric}}</div>
                   <div class="table-data">{{item?.section?.name}}</div>
                   <div class="table-data">{{item?.subject?.name}}</div>
                   <div class="table-data">{{item?.teacher?.user?.name}}</div>

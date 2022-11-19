@@ -100,7 +100,7 @@
                                  <select formControlName="teacher_id"  cSelect id="inputState1">
                                  
                                   <option [value]="null" disabled>Choose...</option>
-                                   <option *ngFor="let item of teaData.teachers.data" value="{{item.id}}">{{item.user.name}}</option>
+                                   <option *ngFor="let item of teaData?.teachers?.data" value="{{item.id}}">{{item.user.name}}</option>
                                  
                                  
                                 </select> 
@@ -159,7 +159,7 @@
 
                     <c-card-body>
                         <c-col md="12">
-                           <button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button>  
+                           <button type="button" (click)="addQuantity()" class="btn btn-primary">Add Multiple Subject</button>  
                            <p class="validation-Message" *ngIf="errorMessage && errorMessage.items && errorMessage.items.length">{{errorMessage.items[0]}}</p>
                  
                        </c-col>

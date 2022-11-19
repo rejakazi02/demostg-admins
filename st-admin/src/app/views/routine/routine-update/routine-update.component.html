@@ -4,7 +4,7 @@
         <c-card-body>
           <form cForm class="row g-3" [formGroup]="classRoutineForm" (ngSubmit)="routineOnSubmit()">
             <c-col md="6" class="headder-div">
-                <label cLabel for="inputPassword34">Week day : {{getUpdateData?.routine?.weekday}}</label>
+                <label cLabel for="inputPassword34">Week day</label>
                 <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
                  <select formControlName="weekday"  cSelect id="inputState1">
                  
@@ -24,7 +24,7 @@
                </c-col> 
 
                <c-col md="6">
-                <label cLabel for="inputPassword34">Subject : {{getUpdateData?.routine?.subject?.name}}</label>
+                <label cLabel for="inputPassword34">Subject</label>
                 <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
                  <select formControlName="subject_id"  cSelect id="inputState1">
                  
@@ -38,7 +38,7 @@
                </c-col> 
 
                <c-col md="6">
-                <label cLabel for="inputPassword34">Teacher : {{getUpdateData?.routine?.teacher?.user?.name}}</label>
+                <label cLabel for="inputPassword34">Teacher</label>
                 <!-- <input formControlName="gender" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
                  <select formControlName="teacher_id"  cSelect id="inputState1">
                  
@@ -53,7 +53,7 @@
 
 
                <c-col md="6">
-                <label cLabel for="inputPassword34">Room : <span class="rooomm">{{getUpdateData?.routine?.room}} </span> </label>
+                <label cLabel for="inputPassword34">Room</label>
                 <!-- <input formControlName="weekday" value="id" cFormControl id="inputPassword34" type="text" placeholder="Gender" /> -->
                  <select formControlName="room_id"  cSelect id="inputState1">
                  
@@ -67,7 +67,7 @@
                </c-col> 
 
                <c-col md="6">
-                <label cLabel for="">Start Time : {{getUpdateData?.routine?.start_time}}</label>
+                <label cLabel for="">Start Time</label>
                 <input formControlName="start_time"  cFormControl  type="time" placeholder="Gender" />
                
               
@@ -75,7 +75,7 @@
                </c-col> 
 
                <c-col md="6">
-                <label cLabel for="">End Time : {{getUpdateData?.routine?.end_time}}</label>
+                <label cLabel for="">End Time</label>
                 <input formControlName="end_time" cFormControl  type="time" placeholder="" />
              
               
@@ -87,7 +87,7 @@
 
   
             <c-col xs="12">
-              <button cButton type="submit">Add Subject</button>
+              <button cButton type="submit">Add Routine</button>
             </c-col>
           </form>
         </c-card-body>
