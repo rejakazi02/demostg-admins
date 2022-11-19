@@ -130,7 +130,24 @@ classRoutinesSearch(clssId:any, secId:any, weekId:any) {
 }
 
 
-// /class-routines/1
+
+// student data update 
+
+getRoutineDataById(routId: any){
+  
+  return this.http.get(baseurl + 'class-routines/' + routId);
+  console.log('data',baseurl + 'class-routines/' + routId);
+  
+  
+}
+
+
+routineDataUpdate(data: any, stud_id: any) {
+  return this.http.put<any>(baseurl + 'class-routines/' + stud_id, data);
+}
+
+
+
  // class-routines data delete
  deleteClassRoutineData(data: any) {
   return this.http.delete(baseurl + 'class-routines/' + data);

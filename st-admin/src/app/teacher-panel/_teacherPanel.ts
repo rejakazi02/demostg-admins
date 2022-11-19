@@ -35,6 +35,23 @@ export const navItems: INavData[] = [
     ]
   },
 
+  {
+    name: 'Routine',
+    url: './routinee',
+    iconComponent: { name: 'cil-calendar' },
+    children: [
+      {
+        name: 'Routine Add',
+        url: './routinee/routineAdd'
+      },
+      {
+        name: 'Routine List',
+        url: './routinee/routineList'
+      },
+      
+    ]
+  },
+
 //   {
 //     name: 'Subject',
 //     url: '/subject',

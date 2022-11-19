@@ -213,6 +213,14 @@ const teacherPanelChildrenRoutes: Routes = [
   },
 
   {
+    path: 'routinee',
+    loadChildren: () =>
+      import('./views/routine/routine.module').then(
+        (m) => m.RoutineModule
+      ),
+  },
+
+  {
     path: 'teacher-profile',
     loadChildren: () =>
       import('./containers/default-layout/profile/profile.module').then(
