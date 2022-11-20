@@ -157,6 +157,22 @@ export const navItems: INavData[] = [
       
     ]
   },
+  {
+    name: 'Exam routine',
+    url: './exam-routine',
+    iconComponent: { name: 'cil-spreadsheet' },
+    children: [
+      {
+        name: 'exam-routine Add',
+        url: './exam-routine/examRoutineAdd'
+      },
+      {
+        name: 'Routine List',
+        url: './exam-routine/examRoutineList'
+      },
+      
+    ]
+  },
   
  
   // {

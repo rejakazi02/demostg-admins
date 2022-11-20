@@ -142,6 +142,13 @@ const adminChildrenRoutes: Routes = [
         (m) => m.RoutineModule
       ),
   },
+  {
+    path: 'exam-routine',
+    loadChildren: () =>
+      import('./views/exam-routine/exam-routine.module').then(
+        (m) => m.ExamRoutineModule
+      ),
+  },
 
   {
     path: 'admin-profile',
@@ -153,7 +160,7 @@ const adminChildrenRoutes: Routes = [
 ];
 
 
-
+// -------------------------------------------------------------------------------
 const studentPanelChildrenRoutes: Routes = [
   {
     path: '',
@@ -187,6 +194,9 @@ const studentPanelChildrenRoutes: Routes = [
       ),
   },
 ];
+
+// -------------------------------------------------------------------------------
+
 const teacherPanelChildrenRoutes: Routes = [
   {
     path: '',
