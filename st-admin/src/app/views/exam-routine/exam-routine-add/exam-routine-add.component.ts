@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ExamRoutineAddComponent implements OnInit {
 
-  departmentAdd!: FormGroup;
+  examRoutineAdd!: FormGroup;
   responceData: any;
   errorMessage:any;
 
@@ -26,19 +26,19 @@ export class ExamRoutineAddComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.departmentAdd = this.fb.group({
+    this.examRoutineAdd = this.fb.group({
       name: ['', Validators.required],
      
     });
   }
 
-  depSubmit(){
-    console.log("test", this.departmentAdd.value)
-    this.classService.classRoomPost(this.departmentAdd.value).subscribe((result) => {
+  examRoutineSubmit(){
+    console.log("test", this.examRoutineAdd.value)
+    this.classService.examRoutinePost(this.examRoutineAdd.value).subscribe((result) => {
       this.responceData = result;
 
 
-      this.departmentAdd.reset();
+      this.examRoutineAdd.reset();
       this.toastr.success(result.message);
           this.errorMessage=null;
         },

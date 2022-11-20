@@ -23,6 +23,13 @@ const routes: Routes = [
         },
       },
       {
+        path: 'examRoutineEdit/:id',
+        component: ExamRoutineAddComponent,
+        data: {
+          title: 'Exam Routine Add',
+        },
+      },
+      {
         path: 'examRoutineList',
         component: ExamRoutineListComponent,
         data: {
