@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-exam-routine-add',
@@ -18,11 +19,15 @@ export class ExamRoutineAddComponent implements OnInit {
   examRoutineAdd!: FormGroup;
   responceData: any;
   errorMessage:any;
+  examRoutine_id:any;
+  getUpdateData:any;
+
 
   constructor(
     private classService: ClassService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private activateRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -30,10 +35,20 @@ export class ExamRoutineAddComponent implements OnInit {
       name: ['', Validators.required],
      
     });
+
+    // update data
+    this.activateRoute.paramMap.subscribe((param) => {
+      this.examRoutine_id = param.get('id');
+      console.log('param', this.examRoutine_id )
+      if (this.examRoutine_id) {
+        this.getExamRoutineDataById(this.examRoutine_id);
+      } 
+    });
+
   }
 
   examRoutineSubmit(){
-    console.log("test", this.examRoutineAdd.value)
+   
     this.classService.examRoutinePost(this.examRoutineAdd.value).subscribe((result) => {
       this.responceData = result;
 
@@ -49,5 +64,45 @@ export class ExamRoutineAddComponent implements OnInit {
         });
     
   }
+
+
+
+
+  
+  getExamRoutineDataById(ExmRoutnId: any) {
+    console.log('ExmRoutnId',ExmRoutnId);
+    
+    this.classService.getExamRoutineDataById(ExmRoutnId).subscribe((result) => {
+      this.getUpdateData = result;
+     console.log('this.getUpdateData', this.getUpdateData)
+     
+    //  this.subjectList();
+    //  this.teaList();
+    //  this.classRoomList();
+      this.setFormData();
+    });
+  }
+
+  setFormData() {
+    this.examRoutineAdd.patchValue({
+      // weekday: this.getUpdateData.routine.weekday,
+      // subject_id: this.getUpdateData.find( (f: { name: any }) => f.name == this.getUpdateData?.routine?.subject?.name).id,
+      // teacher_id: this.getUpdateData.find( (f: { name: any }) => f.name === this.getUpdateData?.routine?.teacher?.user.name),
+   
+      name: this.getUpdateData.exam.name,
+   
+      
+    
+    });
+    this.examRoutineAdd.patchValue(this.getUpdateData.exam);
+ 
+    
+    
+  }
+
+
+
+
+
 
 }

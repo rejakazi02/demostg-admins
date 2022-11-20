@@ -21,6 +21,8 @@
                       
                     </mat-select>
                   </mat-form-field>
+                  <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p>
+            
                 </c-col>
 
 

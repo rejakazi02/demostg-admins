@@ -168,28 +168,21 @@ examRoutineList() {
 }
 
 
-// class-routines?class_id=3&section_id=1&weekday=4
 
-// classRoutinesSearch(clssId:any, secId:any, weekId:any) {
-//   return this.http.get<any>(baseurl + 'class-routines?class_id=' + clssId + '&section_id=' + secId + '&weekday=' + weekId);
-// }
+// Exam data update 
 
-
-
-// student data update 
-
-// getRoutineDataById(routId: any){
+getExamRoutineDataById(examsId: any){
   
-//   return this.http.get(baseurl + 'class-routines/' + routId);
-//   console.log('data',baseurl + 'class-routines/' + routId);
+  return this.http.get(baseurl + 'exams/' + examsId);
+  // console.log('data',baseurl + 'class-routines/' + examsId);
   
   
-// }
+}
 
 
-// routineDataUpdate(data: any, stud_id: any) {
-//   return this.http.put<any>(baseurl + 'class-routines/' + stud_id, data);
-// }
+examRoutineDataUpdate(data: any, exams_id: any) {
+  return this.http.put<any>(baseurl + 'exams/' + exams_id, data);
+}
 
 
 

@@ -24,7 +24,7 @@ export class ExamRoutineListComponent implements OnInit {
   examRoutineList() {
     this.classService.examRoutineList().subscribe((result) => {
       this.examListData = result;
-      console.log('exam',this.examListData);
+    
       
      
 
