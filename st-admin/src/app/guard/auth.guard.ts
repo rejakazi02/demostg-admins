@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+
 import { Observable } from 'rxjs';
 import { AuthService } from './../service/auth.service';
 
@@ -14,6 +15,7 @@ constructor(private authService: AuthService, private rout: Router){}
       if(this.authService.IsLoggedIn()){
        
         return true;
+        
       }
       else{
 

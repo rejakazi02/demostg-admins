@@ -11,6 +11,7 @@ export class AuthUserInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const authToken = localStorage.getItem('token');
+    const authRole = localStorage.getItem('role');
     // console.log('Global token',authToken)
     if (authToken) {
       const authRequest = req.clone({

@@ -54,7 +54,8 @@ export class LoginComponent implements OnInit {
           if (result != null) {
             this.responceData = result;
 
-            localStorage.setItem('token', this.responceData.access_token);
+            localStorage.setItem('token', this.responceData?.access_token);
+            localStorage.setItem('role', this.responceData?.role);
 
             // console.log('login token',this.responceData.access_token);
             if (this.responceData?.role === 'admin') {

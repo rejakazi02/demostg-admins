@@ -1,3 +1,4 @@
+import { RoleGuard } from './guard/role.guard';
 import { TeacherPanelComponent } from './teacher-panel/teacher-panel.component';
 import { StudentPanelComponent } from './student-panel/student-panel.component';
 import { NgModule } from '@angular/core';
@@ -254,7 +255,7 @@ const routes: Routes = [
     path: '',
     component: AdminComponent,
     children: adminChildrenRoutes,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
     data: {
       title: 'Home',
     },
@@ -272,7 +273,7 @@ const routes: Routes = [
     path: '',
     component: TeacherPanelComponent,
     children: teacherPanelChildrenRoutes,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
     data: {
       title: 'Home',
     },

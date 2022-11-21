@@ -38,6 +38,15 @@ IsLoggedIn(){
 }
 
 
+
+isRole(){
+  return localStorage.getItem('role')=='admin';
+}
+
+
+
+
+
 logOut(): void {
   localStorage.removeItem('token');
   // this.tokenService.removeAccessToken();
