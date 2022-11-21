@@ -32,7 +32,7 @@ canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot)
   if((url == '/admin') && this.authService.isRole()){
     return true;
   }
-  else if((url == '/routine/routineList') && this.authService.isRole()){
+  else if((url == '/routine') && this.authService.isRole()){
     return true;
   }
   // else if((url == '/Login') && this.authService.isRole()){
