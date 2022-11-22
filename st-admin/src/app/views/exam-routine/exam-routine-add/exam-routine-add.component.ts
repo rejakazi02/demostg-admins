@@ -48,6 +48,14 @@ export class ExamRoutineAddComponent implements OnInit {
   }
 
   examRoutineSubmit(){
+
+
+    if (this.getUpdateData) {
+      this.examRoutineDataUpdate(this.examRoutineAdd.value, this.examRoutine_id);
+     
+      
+
+    } else {
    
     this.classService.examRoutinePost(this.examRoutineAdd.value).subscribe((result) => {
       this.responceData = result;
@@ -62,7 +70,7 @@ export class ExamRoutineAddComponent implements OnInit {
           this.toastr.error(err.error.errors.name);
           
         });
-    
+      }
   }
 
 
@@ -70,7 +78,7 @@ export class ExamRoutineAddComponent implements OnInit {
 
   
   getExamRoutineDataById(ExmRoutnId: any) {
-    console.log('ExmRoutnId',ExmRoutnId);
+    
     
     this.classService.getExamRoutineDataById(ExmRoutnId).subscribe((result) => {
       this.getUpdateData = result;
@@ -101,6 +109,20 @@ export class ExamRoutineAddComponent implements OnInit {
   }
 
 
+
+  examRoutineDataUpdate(data: any, slug: any) {
+    this.classService.examRoutineDataUpdate(data, slug).subscribe((result) => {
+
+      this.examRoutineAdd.reset();
+      this.toastr.success(result.message);
+      this.errorMessage=null;
+        },
+        (err)=>{
+          this.errorMessage=err.error.errors;
+          console.log("errors",err.error.errors)
+          // alert(err.error.message)
+        });
+  }
 
 
 
