@@ -104,7 +104,7 @@ export class ExamRoutineUpdateComponent implements OnInit {
 
 
   getRoutineDataById(RoutnId: any) {
-    this.classService.getRoutineDataById(RoutnId).subscribe((result) => {
+    this.classService.getExamRoutineDataById(RoutnId).subscribe((result) => {
       this.getUpdateData = result;
      console.log('this.getUpdateData', this.getUpdateData)
      
@@ -121,14 +121,14 @@ export class ExamRoutineUpdateComponent implements OnInit {
       // subject_id: this.getUpdateData.find( (f: { name: any }) => f.name == this.getUpdateData?.routine?.subject?.name).id,
       // teacher_id: this.getUpdateData.find( (f: { name: any }) => f.name === this.getUpdateData?.routine?.teacher?.user.name),
    
-      weekday: this.getUpdateData.routine.day.id,
-      room_id: this.getUpdateData.routine.room.id,
-      teacher_id:this.getUpdateData?.routine?.teacher?.id,
-      subject_id: this.getUpdateData?.routine?.subject?.id,
+      // weekday: this.getUpdateData.routine.day.id,
+      room_id: this.getUpdateData.exam_routine.room.id,
+      teacher_id:this.getUpdateData?.exam_routine?.teacher?.id,
+      subject_id: this.getUpdateData?.exam_routine?.subject?.id,
       
     
     });
-    this.classRoutineForm.patchValue(this.getUpdateData.routine);
+    this.classRoutineForm.patchValue(this.getUpdateData.exam_routine);
  
     
     

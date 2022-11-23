@@ -49,7 +49,7 @@ export class RoutineAddComponent implements OnInit {
     }); 
 
     this.classData();
-    this.subjectList();
+    // this.subjectList();
     this.teaList();
     this.classRoomList();
   }
@@ -129,16 +129,22 @@ export class RoutineAddComponent implements OnInit {
       this.classSectionData = result;
     });
 
-  }
-
-// subject list 
-  subjectList() {
-    this.classService.subjectList().subscribe((result) => {
+    this.classService.subjectListbyClass(this.classRoutineForm.value, value).subscribe((result) => {
       this.subjectData = result;
       // console.log('teaData', this.subjectData);
      
     });
+
   }
+
+// subject list 
+  // subjectList() {
+  //   this.classService.subjectList().subscribe((result) => {
+  //     this.subjectData = result;
+  //     // console.log('teaData', this.subjectData);
+     
+  //   });
+  // }
 
 // teacher list 
   teaList() {
