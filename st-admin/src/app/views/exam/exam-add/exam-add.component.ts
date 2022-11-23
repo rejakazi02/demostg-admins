@@ -16,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ExamAddComponent implements OnInit {
 
-  examRoutineAdd!: FormGroup;
+  examAdd!: FormGroup;
   responceData: any;
   errorMessage:any;
   examRoutine_id:any;
@@ -31,7 +31,7 @@ export class ExamAddComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.examRoutineAdd = this.fb.group({
+    this.examAdd = this.fb.group({
       name: ['', Validators.required],
      
     });
@@ -41,27 +41,27 @@ export class ExamAddComponent implements OnInit {
       this.examRoutine_id = param.get('id');
       console.log('param', this.examRoutine_id )
       if (this.examRoutine_id) {
-        this.getExamRoutineDataById(this.examRoutine_id);
+        this.getExamDataById(this.examRoutine_id);
       } 
     });
 
   }
 
-  examRoutineSubmit(){
+  examSubmit(){
 
 
     if (this.getUpdateData) {
-      this.examRoutineDataUpdate(this.examRoutineAdd.value, this.examRoutine_id);
+      this.examDataUpdate(this.examAdd.value, this.examRoutine_id);
      
       
 
     } else {
    
-    this.classService.examRoutinePost(this.examRoutineAdd.value).subscribe((result) => {
+    this.classService.examPost(this.examAdd.value).subscribe((result) => {
       this.responceData = result;
 
 
-      this.examRoutineAdd.reset();
+      this.examAdd.reset();
       this.toastr.success(result.message);
           this.errorMessage=null;
         },
@@ -77,10 +77,10 @@ export class ExamAddComponent implements OnInit {
 
 
   
-  getExamRoutineDataById(ExmRoutnId: any) {
+  getExamDataById(ExmRoutnId: any) {
     
     
-    this.classService.getExamRoutineDataById(ExmRoutnId).subscribe((result) => {
+    this.classService.getExamDataById(ExmRoutnId).subscribe((result) => {
       this.getUpdateData = result;
      console.log('this.getUpdateData', this.getUpdateData)
      
@@ -92,7 +92,7 @@ export class ExamAddComponent implements OnInit {
   }
 
   setFormData() {
-    this.examRoutineAdd.patchValue({
+    this.examAdd.patchValue({
       // weekday: this.getUpdateData.routine.weekday,
       // subject_id: this.getUpdateData.find( (f: { name: any }) => f.name == this.getUpdateData?.routine?.subject?.name).id,
       // teacher_id: this.getUpdateData.find( (f: { name: any }) => f.name === this.getUpdateData?.routine?.teacher?.user.name),
@@ -102,7 +102,7 @@ export class ExamAddComponent implements OnInit {
       
     
     });
-    this.examRoutineAdd.patchValue(this.getUpdateData.exam);
+    this.examAdd.patchValue(this.getUpdateData.exam);
  
     
     
@@ -110,10 +110,10 @@ export class ExamAddComponent implements OnInit {
 
 
 
-  examRoutineDataUpdate(data: any, slug: any) {
-    this.classService.examRoutineDataUpdate(data, slug).subscribe((result) => {
+  examDataUpdate(data: any, slug: any) {
+    this.classService.examDataUpdate(data, slug).subscribe((result) => {
 
-      this.examRoutineAdd.reset();
+      this.examAdd.reset();
       this.toastr.success(result.message);
       this.errorMessage=null;
         },

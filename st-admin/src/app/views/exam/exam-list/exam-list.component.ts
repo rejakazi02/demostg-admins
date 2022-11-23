@@ -16,13 +16,13 @@ export class ExamListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.examRoutineList();
+    this.examList();
   }
 
 
 
-  examRoutineList() {
-    this.classService.examRoutineList().subscribe((result) => {
+  examList() {
+    this.classService.examList().subscribe((result) => {
       this.examListData = result;
     
       
@@ -50,8 +50,8 @@ export class ExamListComponent implements OnInit {
           'Your imaginary file has been deleted.',
           'success'
         );
-        this.classService.deleteExamRoutineData(id).subscribe((result) => {
-          this.examRoutineList();
+        this.classService.deleteExamData(id).subscribe((result) => {
+          this.examList();
         });
 
 

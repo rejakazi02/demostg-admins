@@ -22,7 +22,7 @@ export class ExamRoutineListComponent implements OnInit {
 
 
   examRoutineList() {
-    this.classService.examRoutineList().subscribe((result) => {
+    this.classService.examList().subscribe((result) => {
       this.examListData = result;
     
       
@@ -50,7 +50,7 @@ export class ExamRoutineListComponent implements OnInit {
           'Your imaginary file has been deleted.',
           'success'
         );
-        this.classService.deleteExamRoutineData(id).subscribe((result) => {
+        this.classService.deleteExamData(id).subscribe((result) => {
           this.examRoutineList();
         });
 

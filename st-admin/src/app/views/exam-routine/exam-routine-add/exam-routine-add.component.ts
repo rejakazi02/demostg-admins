@@ -51,7 +51,7 @@ export class ExamRoutineAddComponent implements OnInit {
 
     this.classData();
     this.subjectList();
-    this.teaList();
+    this.examList();
     this.classRoomList();
   }
 
@@ -141,9 +141,9 @@ export class ExamRoutineAddComponent implements OnInit {
     });
   }
 
-// teacher list 
-  teaList() {
-    this.teaService.teaList().subscribe((result) => {
+// exam list 
+examList() {
+    this.classService.examList().subscribe((result) => {
       this.teaData = result;
       // console.log('teaData', this.teaData);
      

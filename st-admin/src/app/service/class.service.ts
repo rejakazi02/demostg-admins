@@ -154,16 +154,16 @@ routineDataUpdate(data: any, stud_id: any) {
 }
 
 
-//exams routine Add ---------------------------------------------------------------------------------
+//exams Add ---------------------------------------------------------------------------------
 
 
-examRoutinePost(examsAdd: any) {
+examPost(examsAdd: any) {
   return this.http.post<any>(baseurl + 'exams', examsAdd);
 }
 
 
-// exam  Routines List
-examRoutineList() {
+// exam List
+examList() {
   return this.http.get<any>(baseurl + 'exams');
 }
 
@@ -171,7 +171,7 @@ examRoutineList() {
 
 // Exam data update 
 
-getExamRoutineDataById(examsId: any){
+getExamDataById(examsId: any){
   
   return this.http.get(baseurl + 'exams/' + examsId);
   // console.log('data',baseurl + 'class-routines/' + examsId);
@@ -180,16 +180,20 @@ getExamRoutineDataById(examsId: any){
 }
 
 
-examRoutineDataUpdate(data: any, exams_id: any) {
+examDataUpdate(data: any, exams_id: any) {
   return this.http.put<any>(baseurl + 'exams/' + exams_id, data);
 }
 
 
 
- // class-routines data delete
- deleteExamRoutineData(data: any) {
+ // exam data delete
+ deleteExamData(data: any) {
   return this.http.delete(baseurl + 'exams/' + data);
 }
+
+
+
+
 
 
   // Global token
