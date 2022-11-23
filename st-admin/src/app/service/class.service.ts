@@ -234,10 +234,9 @@ getExamRoutineDataById(examRoutId: any){
   
 }
 
-
-// routineDataUpdate(data: any, stud_id: any) {
-//   return this.http.put<any>(baseurl + 'class-routines/' + stud_id, data);
-// }
+examRoutineDataUpdate(data: any, examRIdd: any) {
+  return this.http.put<any>(baseurl + 'exam-routines/' + examRIdd, data);
+}
 
 
 

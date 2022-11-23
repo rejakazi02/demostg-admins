@@ -30,10 +30,11 @@ export class ExamRoutineUpdateComponent implements OnInit {
   classDatas:any;
   teaData:any;
   classRoomListData:any;
-  classRoutineForm:any;
+  examRoutineForm:any;
   routine_id:any;
   getUpdateData:any;
-
+  examData:any;
+  
   constructor(
     private fb:FormBuilder,
     private classService: ClassService,
@@ -43,14 +44,16 @@ export class ExamRoutineUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.classRoutineForm = this.fb.group({  
+    this.examRoutineForm = this.fb.group({  
     
       end_time: ['', Validators.required],
       start_time: ['', Validators.required], 
-      weekday: ['', Validators.required], 
+      exam_id: ['', Validators.required], 
       room_id: ['', Validators.required], 
-      teacher_id: ['', Validators.required], 
+      exam_date: ['', Validators.required], 
       subject_id: ['', Validators.required], 
+      class_id: ['', Validators.required], 
+      section_id: ['', Validators.required], 
        
     }); 
 
@@ -65,20 +68,21 @@ export class ExamRoutineUpdateComponent implements OnInit {
     });
 
     // this.classData();
-    this.subjectList();
-    this.teaList();
+    // this.subjectList();
+    this.classData();
     this.classRoomList();
+    this.examList();
   
   }
 
-  routineOnSubmit() {  
-    console.log(this.classRoutineForm.value);
+  examRoutineOnSubmit() {  
+    console.log(this.examRoutineForm.value);
   
-    this.classService.routineDataUpdate( this.classRoutineForm.value, this.routine_id).subscribe((result) => {
+    this.classService.examRoutineDataUpdate( this.examRoutineForm.value, this.routine_id).subscribe((result) => {
       this.responceData = result;
  
 
-      this.classRoutineForm.reset();
+      this.examRoutineForm.reset();
       this.toastr.success(result.message);
           this.errorMessage=null;
           // window.location.reload();
@@ -102,6 +106,43 @@ export class ExamRoutineUpdateComponent implements OnInit {
   }  
 
 
+  // exam list 
+examList() {
+  this.classService.examList().subscribe((result) => {
+    this.examData = result;
+    // console.log('teaData', this.teaData);
+   
+  });
+}
+
+
+  // classs data 
+  classData(){
+    this.classService.classData().subscribe((result)=>{
+      
+      this.classDatas = result;
+
+    })
+  }
+
+
+  getSection(value?:any){
+
+    this.classService
+    .SubSectData(this.examRoutineForm.value, value)
+    .subscribe((result) => {
+      this.classSectionData = result;
+    });
+
+    this.classService.subjectListbyClass(this.examRoutineForm.value, value).subscribe((result) => {
+      this.subjectData = result;
+      // console.log('teaData', this.subjectData);
+     
+    });
+
+  }
+
+
 
   getRoutineDataById(RoutnId: any) {
     this.classService.getExamRoutineDataById(RoutnId).subscribe((result) => {
@@ -116,19 +157,21 @@ export class ExamRoutineUpdateComponent implements OnInit {
   }
 
   setFormData() {
-    this.classRoutineForm.patchValue({
+    this.examRoutineForm.patchValue({
       // weekday: this.getUpdateData.routine.weekday,
       // subject_id: this.getUpdateData.find( (f: { name: any }) => f.name == this.getUpdateData?.routine?.subject?.name).id,
       // teacher_id: this.getUpdateData.find( (f: { name: any }) => f.name === this.getUpdateData?.routine?.teacher?.user.name),
    
       // weekday: this.getUpdateData.routine.day.id,
       room_id: this.getUpdateData.exam_routine.room.id,
-      teacher_id:this.getUpdateData?.exam_routine?.teacher?.id,
+      exam_id:this.getUpdateData?.exam_routine?.exam?.id,
       subject_id: this.getUpdateData?.exam_routine?.subject?.id,
+      class_id: this.getUpdateData?.exam_routine?.class?.id,
+      section_id: this.getUpdateData?.exam_routine?.section?.id,
       
     
     });
-    this.classRoutineForm.patchValue(this.getUpdateData.exam_routine);
+    this.examRoutineForm.patchValue(this.getUpdateData.exam_routine);
  
     
     
@@ -148,21 +191,14 @@ export class ExamRoutineUpdateComponent implements OnInit {
 
 
 // subject list 
-subjectList() {
-  this.classService.subjectList().subscribe((result) => {
-    this.subjectData = result;
+// subjectList() {
+//   this.classService.subjectList().subscribe((result) => {
+//     this.subjectData = result;
     
-  });
-}
+//   });
+// }
 
-// teacher list 
-teaList() {
-  this.teaService.teaList().subscribe((result) => {
-    this.teaData = result;
-    // console.log('teaData', this.teaData);
-   
-  });
-}
+
 
 // class Room List Data
 classRoomList() {
