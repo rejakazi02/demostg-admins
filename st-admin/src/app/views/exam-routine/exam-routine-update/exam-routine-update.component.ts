@@ -121,6 +121,14 @@ examList() {
     this.classService.classData().subscribe((result)=>{
       
       this.classDatas = result;
+      this.getSection(this.examRoutineForm.value.class_id)
+      this.examRoutineForm.patchValue({
+        class_id: this.classDatas.find( (f: { name: any }) => f.name == this.getUpdateData?.exam_routine?.class?.id)
+      
+      })      
+      // console.log('this.studentDataUpdate.value.class_id', this.studentDataUpdate.value.class_id);
+      
+     
 
     })
   }
@@ -132,6 +140,10 @@ examList() {
     .SubSectData(this.examRoutineForm.value, value)
     .subscribe((result) => {
       this.classSectionData = result;
+
+      // this.examRoutineForm.patchValue({
+      //   section_id: this.classSectionData.sections.find( (f: { name: any }) => f.name == this.getUpdateData.exam_routine.section)?.id
+      // })
     });
 
     this.classService.subjectListbyClass(this.examRoutineForm.value, value).subscribe((result) => {
