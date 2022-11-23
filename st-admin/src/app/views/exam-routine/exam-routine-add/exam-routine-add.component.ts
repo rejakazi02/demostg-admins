@@ -27,10 +27,10 @@ export class ExamRoutineAddComponent implements OnInit {
   subjectData:any;
   classSectionData:any;
   classDatas:any;
-  teaData:any;
+  examData:any;
   classRoomListData:any;
 
-  classRoutineForm!: FormGroup;  
+  examRoutineForm!: FormGroup;  
   constructor(
     private fb:FormBuilder,
     private classService: ClassService,
@@ -41,7 +41,7 @@ export class ExamRoutineAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.classRoutineForm = this.fb.group({  
+    this.examRoutineForm = this.fb.group({  
     
       class_id: ['', Validators.required],
       section_id: ['', Validators.required], 
@@ -59,7 +59,7 @@ export class ExamRoutineAddComponent implements OnInit {
 
 //  form reactive start 
   items() : FormArray {  
-    return this.classRoutineForm.get("items") as FormArray  
+    return this.examRoutineForm.get("items") as FormArray  
   }  
      
   newQuantity(): FormGroup {  
@@ -81,14 +81,14 @@ export class ExamRoutineAddComponent implements OnInit {
     this.items().removeAt(i);  
   }  
      
-  routineOnSubmit() {  
-    console.log(this.classRoutineForm.value);
+  examRoutineOnSubmit() {  
+    console.log(this.examRoutineForm.value);
   
-    this.classService.routinePost( this.classRoutineForm.value).subscribe((result) => {
+    this.classService.examRoutinePost( this.examRoutineForm.value).subscribe((result) => {
       this.responceData = result;
  
 
-      this.classRoutineForm.reset();
+      this.examRoutineForm.reset();
       this.toastr.success(result.message);
           this.errorMessage=null;
           // window.location.reload();
@@ -100,7 +100,7 @@ export class ExamRoutineAddComponent implements OnInit {
             this.toastr.error(err.error.errors.class_section_id);
           }
           if(err.error.errors.weekday){
-            this.toastr.error(err.error.errors.weekday);
+            this.toastr.error(err.error.errors.exam_id);
           }
 
           if(err.error.errors.items){
@@ -125,7 +125,7 @@ export class ExamRoutineAddComponent implements OnInit {
   getSection(value?:any){
 
     this.classService
-    .SubSectData(this.classRoutineForm.value, value)
+    .SubSectData(this.examRoutineForm.value, value)
     .subscribe((result) => {
       this.classSectionData = result;
     });
@@ -144,7 +144,7 @@ export class ExamRoutineAddComponent implements OnInit {
 // exam list 
 examList() {
     this.classService.examList().subscribe((result) => {
-      this.teaData = result;
+      this.examData = result;
       // console.log('teaData', this.teaData);
      
     });

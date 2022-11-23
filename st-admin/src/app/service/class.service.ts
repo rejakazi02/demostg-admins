@@ -192,6 +192,47 @@ examDataUpdate(data: any, exams_id: any) {
 }
 
 
+//Exam routine Add ---------------------------------------------------------------------------------
+examRoutinePost(examRoutineAdd: any) {
+  return this.http.post<any>(baseurl + 'exam-routines', examRoutineAdd);
+}
+
+
+// // class Routines List
+// classRoutinesList() {
+//   return this.http.get<any>(baseurl + 'class-routines');
+// }
+
+
+// // class-routines?class_id=3&section_id=1&weekday=4
+
+// classRoutinesSearch(clssId:any, secId:any, weekId:any) {
+//   return this.http.get<any>(baseurl + 'class-routines?class_id=' + clssId + '&section_id=' + secId + '&weekday=' + weekId);
+// }
+
+
+
+// // student data update 
+
+// getRoutineDataById(routId: any){
+  
+//   return this.http.get(baseurl + 'class-routines/' + routId);
+//   console.log('data',baseurl + 'class-routines/' + routId);
+  
+  
+// }
+
+
+// routineDataUpdate(data: any, stud_id: any) {
+//   return this.http.put<any>(baseurl + 'class-routines/' + stud_id, data);
+// }
+
+
+
+//  // class-routines data delete
+//  deleteClassRoutineData(data: any) {
+//   return this.http.delete(baseurl + 'class-routines/' + data);
+// }
 
 
 

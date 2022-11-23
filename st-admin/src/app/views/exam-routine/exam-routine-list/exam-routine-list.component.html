@@ -1,47 +1,134 @@
-<div class="add-btn-div">
-    <a href="" routerLink="/exam-routine/examRoutineAdd"><span class="material-symbols-outlined">
-      add
-      </span>Add Exam Routine</a>
+
+
+<!-- <div class="add-btn-div">
+    <a href="" routerLink="/subject/subjectAdd"><span class="material-symbols-outlined">add</span>Add Subject</a>
+  </div> -->
+  
+  <!-- *ngIf="classRoutinesData?.routines?.data?.length" -->
+
+
+  <section>
+    <div class="table-main-area"  >
+      <div class="header-div">
+        <h1>Exam Routine List</h1>
+        <div class="add-btn-div">
+          <a href="" routerLink="/exam-routine/examRoutineAdd"><span class="material-symbols-outlined">add</span>Add Exam Routine</a>
+        </div>
+      </div>
+
+
+<div class="search-main-div">
+
+  <div class="class-search-main-div">
+    <label for="">Exam Name</label>
+    <select class="searchSelect" name="" id="" #day>
+      <option value="" selected disabled>Choose...</option>
+      <option *ngFor="let item of examData?.exams?.data" value="{{ item.id }}">{{ item.name }}</option>
+                   
+    </select>
+  </div>
+  <div class="class-search-main-div">
+    <label for="">Subject</label>
+    <select class="searchSelect" name="" id="" #day>
+      <option value="" selected disabled>Choose...</option>
+     <option *ngFor="let item of subjectData?.subject.data" value="{{item.id}}">{{item.name}}</option>
+                                
+    </select>
+  </div>
+
+  <div class="class-search-main-div">
+    <label for="">Class</label>
+    
+    <select class="searchSelect" #classsId cSelect id="inputState11" (change)="getSection(select.value)"
+    #select>
+    <option value="" selected  disabled>Choose...</option>
+      <option *ngFor="let item of classDatas"  [value]="item.id">
+      {{item.numeric}}
+    </option>
+  </select>
+  </div>
+  <div class="class-search-main-div">
+    <label for="">Section</label>
+    <select class="searchSelect"  cSelect #sectionId>
+      <option value="" selected disabled>Choose...</option>
+  <option *ngFor="let item of classSectionData?.sections" value="{{ item.id }}">{{ item.name }}
+  </option>
+</select>
+  </div>
+  <div class="class-search-main-div">
+   <button (click)="search(day.value, classsId.value, sectionId.value)" type="submit">Search</button>
   </div>
   
-  <section >
-    <div class="card-main-div" *ngIf="examListData?.exams?.data.length">
-      <div *ngFor="let item of examListData?.exams?.data"  class="card-sub-div dept-card" >
-        <div class="menu-div">
-          <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="action-Btn">
-            <!-- <mat-icon>more_vert</mat-icon> -->
-            <span class="material-symbols-outlined"> more_horiz </span>
-          </button>
-          <mat-menu #menu="matMenu">
-            <a [routerLink]="['/exam-routine/examRoutineEdit', item.id]" class="button-atag">
-            <!-- <a class="button-atag"> -->
-              <button mat-menu-item class="deleteBtn">
-                <span class="material-symbols-outlined"> edit </span>
-                <span> Edit </span>
-              </button></a>
-  
+</div>
+
+        
+        <div class="table">
+         
+            <div class="table-thead">
+              <div class="table-row">
+                <div class="table-heading"> Day</div>
+                <div class="table-heading"> Class</div>
+                <div class="table-heading"> Section</div>
+                <div class="table-heading"> Subject </div>
+                <div class="table-heading"> Teacher</div>
+                <div class="table-heading">Start Time</div>
+      
+                <div class="table-heading">End Time</div>
+                <div class="table-heading">ACTION</div>
+              </div>
+            </div>
+            <div class="tbody">
+              <!-- <div *ngFor="let element of instData.institutes.data | paginate: { itemsPerPage: itemPer_page, currentPage: current_page, totalItems: total }" class="table-row" > -->
+                <div class="table-row" *ngFor="let item of classRoutinesData?.routines?.data">
+                  <div class="table-data">{{item.day.name}}</div>
+                  <div class="table-data">{{item?.class?.numeric}}</div>
+                  <div class="table-data">{{item?.section?.name}}</div>
+                  <div class="table-data">{{item?.subject?.name}}</div>
+                  <div class="table-data">{{item?.teacher?.user?.name}}</div>
+                  <div class="table-data">{{item.start_time}}</div>
+                  <div class="table-data">{{item.end_time}}</div>
+                 <div class="table-data">
+                <!-- <button><a href="" routerLink="/class/classAdd"><mat-icon>edit</mat-icon></a></button>
+                <button><mat-icon>delete</mat-icon></button> -->
+                <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="action-Btn">
+                  <!-- <mat-icon>more_vert</mat-icon> -->
+                  <span class="material-symbols-outlined">
+                    more_vert
+                    </span>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <!-- <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                  <mat-icon>edit</mat-icon>
+                </button> -->
+                <!-- (click)="editDataa(element.slug, i)" -->
+                <a [routerLink]="['/routine/routineUpdateEdit', item.id]" class="button-atag">
+                  <button  mat-menu-item class="deleteBtn" >
+                    <span class="material-symbols-outlined"> edit </span>
+                  <span> Edit </span>
+                </button></a>
+                  
+                  <button (click)="confirmBox(item.id)"  mat-menu-item class="deleteBtn" >
+                    <span class="material-symbols-outlined"> delete</span>
+                    <span>Delete</span>
+                  </button>
+        
+                  <!-- (click)="deleteData(element.slug)" -->
+                </mat-menu>
+                 </div> 
+              </div>
              
-  
-            <button (click)="confirmBox(item.id)" mat-menu-item class="deleteBtn">
-              <span class="material-symbols-outlined"> delete</span>
-              <span>Delete</span>
-            </button>
-            <!-- [routerLink]="['/base/instituteEdit', element.slug]" -->
-            <!-- (click)="deleteDepData(item.id)" -->
-          </mat-menu>
-        </div>
-  
-        <!-- <p class="class-Numaric">{{item.numeric}}</p> -->
-  
-        <p class="class-list ">
-           <span class="depTName">{{ item.name }}</span>
-        </p>
-        <!-- <p  class="section-list">Section: <span *ngFor="let item of sectionDatas?.sections">{{ item.name }},</span></p> -->
-        <!-- <p  class="section-list">Section: No Section</p> -->
-      </div>
+              
+             
+         
+            </div>
+         </div>
+         <div class="pagination-div">
+          <!-- <pagination-controls (pageChange)="onPageChanged($event)" [maxSize]="8"></pagination-controls> -->
+         </div>
     </div>
-    <!-- <h3 *ngIf="!deptListData?.departments.length" class="no-Data-text">No data</h3> -->
-    <!-- <img *ngIf="!deptListData?.departments.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt=""> -->
+    <!-- <h3 *ngIf="!teaData?.teachers.data.length" class="no-Data-text">No data</h3> -->
+    <!-- <img *ngIf="!classRoutinesData?.routines?.data?.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt=""> -->
+  
   </section>
   
   

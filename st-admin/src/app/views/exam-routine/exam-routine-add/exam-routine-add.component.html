@@ -17,7 +17,7 @@
   <c-col xs="12">
     <c-card class="mb-4">
       <c-card-body>
-          <form [formGroup]="classRoutineForm" (ngSubmit)="routineOnSubmit()">  
+          <form [formGroup]="examRoutineForm" (ngSubmit)="examRoutineOnSubmit()">  
       
               <c-col md="12">
                   <label cLabel for="inputState1">Class </label>
@@ -54,17 +54,12 @@
                    
                     <option [value]="null" disabled>Choose...</option>
                  
-                     <option value="1">Saturday</option>
-                    <option value="2">Sunday</option>
-                    <option value="3">Monday</option>
-                    <option value="4">Tuesday</option>
-                    <option value="5">Wednesday</option>
-                    <option value="6">Thursday</option>
-                    <option value="7">Friday</option>
+                     <option *ngFor="let item of examData?.exams?.data" value="{{ item.id }}">{{ item.name }}</option>
+                   
                    
                   </select> 
                 
-                  <p class="validation-Message" *ngIf="errorMessage && errorMessage.weekday && errorMessage.weekday.length">{{errorMessage.weekday[0]}}</p>
+                  <p class="validation-Message" *ngIf="errorMessage && errorMessage.exam_id && errorMessage.exam_id.length">{{errorMessage.exam_id[0]}}</p>
                  </c-col> 
 
 
@@ -84,7 +79,7 @@
                                
                                 <option [value]="null" disabled>Choose...</option>
                                  <option *ngFor="let item of subjectData?.subject.data" value="{{item.id}}">{{item.name}}</option>
-                                Name
+                                
                                
                               </select> 
                             
@@ -163,7 +158,7 @@
 
 
        
-              <button type="submit" class="btn btn-success">Add Routine</button>  
+              <button type="submit" class="btn btn-success">Add Exam Routine</button>  
                 
             </form>  
       </c-card-body>
