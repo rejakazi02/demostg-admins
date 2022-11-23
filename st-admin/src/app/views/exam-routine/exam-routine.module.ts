@@ -22,11 +22,13 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { ToastrModule } from 'ngx-toastr';
+import { ExamRoutineUpdateComponent } from './exam-routine-update/exam-routine-update.component';
 
 @NgModule({
   declarations: [
     ExamRoutineAddComponent,
-    ExamRoutineListComponent
+    ExamRoutineListComponent,
+    ExamRoutineUpdateComponent
   ],
   imports: [
     CommonModule,

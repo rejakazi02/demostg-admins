@@ -1,3 +1,4 @@
+import { ExamRoutineUpdateComponent } from './exam-routine-update/exam-routine-update.component';
 import { ExamRoutineListComponent } from './exam-routine-list/exam-routine-list.component';
 import { ExamRoutineAddComponent } from './exam-routine-add/exam-routine-add.component';
 import { NgModule } from '@angular/core';
@@ -23,10 +24,17 @@ const routes: Routes = [
         },
       },
       {
-        path: 'examRoutineEdit/:id',
-        component: ExamRoutineAddComponent,
+        path: 'examRoutineUpdate',
+        component: ExamRoutineUpdateComponent,
         data: {
-          title: 'Exam Routine Add',
+          title: 'Exam Routine update',
+        },
+      },
+      {
+        path: 'examRoutineUpdateEdit/:id',
+        component: ExamRoutineUpdateComponent,
+        data: {
+          title: 'Exam Routine update',
         },
       },
       {

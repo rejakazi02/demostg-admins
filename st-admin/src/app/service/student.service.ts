@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { tap, switchMap } from 'rxjs/operators';
 import { catchError, throwError } from 'rxjs';
 import { TokenService } from './token.service';
-let baseurl = ' https://api.omegaitsys.com/api/v1/';
+let baseurl = ' https://api.omegaitsys.com/api/v1/institute/';
 
 @Injectable({
   providedIn: 'root',
