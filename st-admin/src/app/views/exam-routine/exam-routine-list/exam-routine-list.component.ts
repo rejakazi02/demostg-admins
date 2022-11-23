@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./exam-routine-list.component.scss']
 })
 export class ExamRoutineListComponent implements OnInit {
-  classRoutinesData:any;
+  examRoutinesData:any;
   classDatas:any;
 id: any;
 classSectionData:any;
@@ -22,23 +22,23 @@ examData:any;
   ) { }
 
   ngOnInit(): void {
-    this.classRoutinesList();
+    this.examRoutinesList();
     this.classData();
-    this.subjectList();
+    // this.subjectList();
     this.examList();
     
   }
 
   // class Routines List
-  classRoutinesList() {
+  examRoutinesList() {
 
     // if(this.classRoutinesSearchData){
     //   this.search
     // }
    
-      this.classService.classRoutinesList().subscribe((result) => {
-        this.classRoutinesData = result;
-        console.log('teaData', this.classRoutinesData);
+      this.classService.examRoutinesList().subscribe((result) => {
+        this.examRoutinesData = result;
+        console.log('examRoutinesList', this.examRoutinesData);
        
       });
     
@@ -65,13 +65,20 @@ examData:any;
       
     });
 
+    this.classService.subjectListData( value).subscribe((result) => {
+      this.subjectData = result;
+      // console.log('teaData', this.subjectData);
+     
+    });
+
+
   }
 
-  search(day:any, classsId:any, sectionId:any){
+  search(exam:any, classsId:any, sectionId:any, subjects:any){
     
-    this.classService.classRoutinesSearch(classsId, sectionId, day).subscribe((result) => {
-      this.classRoutinesData = result;
-      console.log('classRoutinesSearchData', this.classRoutinesData);
+    this.classService.examRoutinesSearch(classsId, sectionId, exam, subjects).subscribe((result) => {
+      this.examRoutinesData = result;
+      console.log('classRoutinesSearchData', this.examRoutinesData);
      
     });
 
@@ -99,11 +106,11 @@ examData:any;
         );
      
 
-        this.classService.deleteClassRoutineData(id).subscribe((result) => {
+        this.classService.deleteExamRoutineData(id).subscribe((result) => {
           // window.location.reload();
           console.log('dlt',result);
           
-          this.classRoutinesList();
+          this.examRoutinesList();
         
         });
        
@@ -115,13 +122,13 @@ examData:any;
   }
 
 // subject list 
-subjectList() {
-  this.classService.subjectList().subscribe((result) => {
-    this.subjectData = result;
-    // console.log('teaData', this.subjectData);
+// subjectList() {
+//   this.classService.subjectList().subscribe((result) => {
+//     this.subjectData = result;
+//     // console.log('teaData', this.subjectData);
    
-  });
-}
+//   });
+// }
 
 // exam list 
 examList() {

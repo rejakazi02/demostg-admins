@@ -50,7 +50,7 @@ export class ExamRoutineAddComponent implements OnInit {
     }); 
 
     this.classData();
-    this.subjectList();
+    // this.subjectListbyClass();
     this.examList();
     this.classRoomList();
   }
@@ -130,16 +130,22 @@ export class ExamRoutineAddComponent implements OnInit {
       this.classSectionData = result;
     });
 
-  }
-
-// subject list 
-  subjectList() {
-    this.classService.subjectList().subscribe((result) => {
+    this.classService.subjectListbyClass(this.examRoutineForm.value, value).subscribe((result) => {
       this.subjectData = result;
       // console.log('teaData', this.subjectData);
      
     });
+
   }
+
+// subject list 
+// subjectListbyClass() {
+//     this.classService.subjectListbyClass().subscribe((result) => {
+//       this.subjectData = result;
+//       // console.log('teaData', this.subjectData);
+     
+//     });
+//   }
 
 // exam list 
 examList() {

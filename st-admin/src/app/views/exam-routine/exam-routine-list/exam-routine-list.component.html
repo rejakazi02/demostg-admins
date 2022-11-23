@@ -21,20 +21,13 @@
 
   <div class="class-search-main-div">
     <label for="">Exam Name</label>
-    <select class="searchSelect" name="" id="" #day>
+    <select class="searchSelect" name="" id="" #exam>
       <option value="" selected disabled>Choose...</option>
       <option *ngFor="let item of examData?.exams?.data" value="{{ item.id }}">{{ item.name }}</option>
                    
     </select>
   </div>
-  <div class="class-search-main-div">
-    <label for="">Subject</label>
-    <select class="searchSelect" name="" id="" #day>
-      <option value="" selected disabled>Choose...</option>
-     <option *ngFor="let item of subjectData?.subject.data" value="{{item.id}}">{{item.name}}</option>
-                                
-    </select>
-  </div>
+ 
 
   <div class="class-search-main-div">
     <label for="">Class</label>
@@ -55,8 +48,17 @@
   </option>
 </select>
   </div>
+
   <div class="class-search-main-div">
-   <button (click)="search(day.value, classsId.value, sectionId.value)" type="submit">Search</button>
+    <label for="">Subject</label>
+    <select class="searchSelect" name="" id="" #subjects>
+      <option value="" selected disabled>Choose...</option>
+     <option *ngFor="let item of subjectData?.subject.data" value="{{item.id}}">{{item.name}}</option>
+                                
+    </select>
+  </div>
+  <div class="class-search-main-div">
+   <button (click)="search(exam.value, classsId.value, sectionId.value, subjects.value)" type="submit">Search</button>
   </div>
   
 </div>
@@ -66,11 +68,11 @@
          
             <div class="table-thead">
               <div class="table-row">
-                <div class="table-heading"> Day</div>
+                <div class="table-heading"> Exam</div>
                 <div class="table-heading"> Class</div>
                 <div class="table-heading"> Section</div>
                 <div class="table-heading"> Subject </div>
-                <div class="table-heading"> Teacher</div>
+                <div class="table-heading"> Exam Date</div>
                 <div class="table-heading">Start Time</div>
       
                 <div class="table-heading">End Time</div>
@@ -79,12 +81,12 @@
             </div>
             <div class="tbody">
               <!-- <div *ngFor="let element of instData.institutes.data | paginate: { itemsPerPage: itemPer_page, currentPage: current_page, totalItems: total }" class="table-row" > -->
-                <div class="table-row" *ngFor="let item of classRoutinesData?.routines?.data">
-                  <div class="table-data">{{item.day.name}}</div>
+                <div class="table-row" *ngFor="let item of examRoutinesData?.routines?.data                ">
+                  <div class="table-data">{{item.exam.name}}</div>
                   <div class="table-data">{{item?.class?.numeric}}</div>
                   <div class="table-data">{{item?.section?.name}}</div>
                   <div class="table-data">{{item?.subject?.name}}</div>
-                  <div class="table-data">{{item?.teacher?.user?.name}}</div>
+                  <div class="table-data">{{item?.exam_date}}</div>
                   <div class="table-data">{{item.start_time}}</div>
                   <div class="table-data">{{item.end_time}}</div>
                  <div class="table-data">

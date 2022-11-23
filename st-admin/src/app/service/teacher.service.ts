@@ -10,6 +10,9 @@ import { catchError, throwError } from 'rxjs';
 import { TokenService } from './token.service';
 
 let baseurl = ' https://api.omegaitsys.com/api/v1/institute/';
+let apiUrll = ' https://api.omegaitsys.com/api/v1/';
+
+
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +25,7 @@ export class TeacherService {
   }
 
   unionData(unionname: any) {
-    return this.http.get(baseurl + 'unions', unionname);
+    return this.http.get(apiUrll + 'unions', unionname);
   }
 
   teaList() {

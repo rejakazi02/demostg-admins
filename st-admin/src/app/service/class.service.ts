@@ -11,6 +11,7 @@ import { catchError, throwError } from 'rxjs';
 import { TokenService } from './token.service';
 
 let baseurl = ' https://api.omegaitsys.com/api/v1/institute/';
+let apiUrll= ' https://api.omegaitsys.com/api/v1/';
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +31,7 @@ export class ClassService {
   }
   classData() {
     // return this.http.get<any>(baseurl + 'admin/institutes')
-    return this.http.get(baseurl + 'all-classes');
+    return this.http.get(apiUrll + 'all-classes');
   }
 
   // classes data delete
@@ -96,6 +97,17 @@ SubSectDat( select: any) {
 
   subjectList() {
     return this.http.get<any>(baseurl + 'subjects');
+  }
+
+  // subject by class 
+  subjectListbyClass(subSujtType: any, select:any) {
+    // return this.http.get<any>(baseurl + 'subjects?class_id='+ sujtClassId, subSujtType );
+    return this.http.get(baseurl + 'subjects?class_id=' + select, subSujtType);
+  }
+
+
+  subjectListData( select: any) {
+    return this.http.get(baseurl + 'subjects?class_id=' + select);
   }
 
   // subjects data delete
@@ -199,16 +211,16 @@ examRoutinePost(examRoutineAdd: any) {
 
 
 // // class Routines List
-// classRoutinesList() {
-//   return this.http.get<any>(baseurl + 'class-routines');
-// }
+examRoutinesList() {
+  return this.http.get<any>(baseurl + 'exam-routines');
+}
 
 
 // // class-routines?class_id=3&section_id=1&weekday=4
 
-// classRoutinesSearch(clssId:any, secId:any, weekId:any) {
-//   return this.http.get<any>(baseurl + 'class-routines?class_id=' + clssId + '&section_id=' + secId + '&weekday=' + weekId);
-// }
+examRoutinesSearch(clssId:any, secId:any, examId:any, subjects:any) {
+  return this.http.get<any>(baseurl + 'exam-routines?class_id=' + clssId + '&section_id' + secId + '&exam_id=' + examId + '&subject_id=' + subjects);
+}
 
 
 
@@ -229,10 +241,10 @@ examRoutinePost(examRoutineAdd: any) {
 
 
 
-//  // class-routines data delete
-//  deleteClassRoutineData(data: any) {
-//   return this.http.delete(baseurl + 'class-routines/' + data);
-// }
+//  // exam-routines data delete
+ deleteExamRoutineData(data: any) {
+  return this.http.delete(baseurl + 'exam-routines/' + data);
+}
 
 
 
