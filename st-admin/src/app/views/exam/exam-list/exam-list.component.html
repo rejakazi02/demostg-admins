@@ -1,0 +1,51 @@
+<div class="add-btn-div">
+    <a href="" routerLink="/exam/examAdd"><span class="material-symbols-outlined">
+      add
+      </span>Add Exam</a>
+  </div>
+  
+  <section >
+    <div class="card-main-div" *ngIf="examListData?.exams?.data.length">
+      <div *ngFor="let item of examListData?.exams?.data"  class="card-sub-div dept-card" >
+        <div class="menu-div">
+          <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="action-Btn">
+            <!-- <mat-icon>more_vert</mat-icon> -->
+            <span class="material-symbols-outlined"> more_horiz </span>
+          </button>
+          <mat-menu #menu="matMenu">
+            <a [routerLink]="['/exam/examEdit', item.id]" class="button-atag">
+            <!-- <a class="button-atag"> -->
+              <button mat-menu-item class="deleteBtn">
+                <span class="material-symbols-outlined"> edit </span>
+                <span> Edit </span>
+              </button></a>
+  
+             
+  
+            <button (click)="confirmBox(item.id)" mat-menu-item class="deleteBtn">
+              <span class="material-symbols-outlined"> delete</span>
+              <span>Delete</span>
+            </button>
+            <!-- [routerLink]="['/base/instituteEdit', element.slug]" -->
+            <!-- (click)="deleteDepData(item.id)" -->
+          </mat-menu>
+        </div>
+  
+        <!-- <p class="class-Numaric">{{item.numeric}}</p> -->
+  
+        <p class="class-list ">
+           <span class="depTName">{{ item.name }}</span>
+        </p>
+        <!-- <p  class="section-list">Section: <span *ngFor="let item of sectionDatas?.sections">{{ item.name }},</span></p> -->
+        <!-- <p  class="section-list">Section: No Section</p> -->
+      </div>
+    </div>
+    <!-- <h3 *ngIf="!deptListData?.departments.length" class="no-Data-text">No data</h3> -->
+    <!-- <img *ngIf="!deptListData?.departments.length" class="no-Data-img" src="../../../../assets/img/no data/no-data-found.png" alt=""> -->
+  </section>
+  
+  
+  
+  
+  
+  

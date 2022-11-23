@@ -1,13 +1,18 @@
-import { ClassService } from './../../../service/class.service';
 import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormBuilder,
   FormGroup,
   Validators,
+  FormArray
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ClassService } from 'src/app/service/class.service';
+import { StudentService } from 'src/app/service/student.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TeacherService } from 'src/app/service/teacher.service';
+
 
 @Component({
   selector: 'app-exam-routine-add',
@@ -16,114 +21,142 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ExamRoutineAddComponent implements OnInit {
 
-  examRoutineAdd!: FormGroup;
+  name = 'Angular';  
+  errorMessage: any;
   responceData: any;
-  errorMessage:any;
-  examRoutine_id:any;
-  getUpdateData:any;
+  subjectData:any;
+  classSectionData:any;
+  classDatas:any;
+  teaData:any;
+  classRoomListData:any;
 
-
+  classRoutineForm!: FormGroup;  
   constructor(
+    private fb:FormBuilder,
     private classService: ClassService,
-    private fb: FormBuilder,
+    private teaService: TeacherService,
     private toastr: ToastrService,
-    private activateRoute: ActivatedRoute,
-  ) { }
+  ) { 
+     
+  }
 
   ngOnInit(): void {
-    this.examRoutineAdd = this.fb.group({
-      name: ['', Validators.required],
-     
-    });
+    this.classRoutineForm = this.fb.group({  
+    
+      class_id: ['', Validators.required],
+      section_id: ['', Validators.required], 
+      exam_id: ['', Validators.required], 
+      items: this.fb.array([]) ,  
+    }); 
 
-    // update data
-    this.activateRoute.paramMap.subscribe((param) => {
-      this.examRoutine_id = param.get('id');
-      console.log('param', this.examRoutine_id )
-      if (this.examRoutine_id) {
-        this.getExamRoutineDataById(this.examRoutine_id);
-      } 
-    });
-
+    this.classData();
+    this.subjectList();
+    this.teaList();
+    this.classRoomList();
   }
 
-  examRoutineSubmit(){
 
 
-    if (this.getUpdateData) {
-      this.examRoutineDataUpdate(this.examRoutineAdd.value, this.examRoutine_id);
+//  form reactive start 
+  items() : FormArray {  
+    return this.classRoutineForm.get("items") as FormArray  
+  }  
      
-      
-
-    } else {
-   
-    this.classService.examRoutinePost(this.examRoutineAdd.value).subscribe((result) => {
+  newQuantity(): FormGroup {  
+    return this.fb.group({  
+     
+      subject_id: ['', Validators.required],  
+      exam_date: ['', Validators.required],  
+      room_id: ['', Validators.required],  
+      start_time: ['', Validators.required],  
+      end_time: ['', Validators.required],  
+    })  
+  }  
+     
+  addQuantity() {  
+    this.items().push(this.newQuantity());  
+  }  
+     
+  removeQuantity(i:number) {  
+    this.items().removeAt(i);  
+  }  
+     
+  routineOnSubmit() {  
+    console.log(this.classRoutineForm.value);
+  
+    this.classService.routinePost( this.classRoutineForm.value).subscribe((result) => {
       this.responceData = result;
+ 
 
-
-      this.examRoutineAdd.reset();
+      this.classRoutineForm.reset();
       this.toastr.success(result.message);
           this.errorMessage=null;
+          // window.location.reload();
         },
         (err)=>{
           this.errorMessage=err.error.errors;
-          this.toastr.error(err.error.errors.name);
           
-        });
-      }
-  }
+          if(err.error.errors.class_section_id){
+            this.toastr.error(err.error.errors.class_section_id);
+          }
+          if(err.error.errors.weekday){
+            this.toastr.error(err.error.errors.weekday);
+          }
+
+          if(err.error.errors.items){
+            this.toastr.error(err.error.errors.items);
+          }
+         
+          
+        });  
+  }  
 
 
-
-
-  
-  getExamRoutineDataById(ExmRoutnId: any) {
-    
-    
-    this.classService.getExamRoutineDataById(ExmRoutnId).subscribe((result) => {
-      this.getUpdateData = result;
-     console.log('this.getUpdateData', this.getUpdateData)
-     
-    //  this.subjectList();
-    //  this.teaList();
-    //  this.classRoomList();
-      this.setFormData();
-    });
-  }
-
-  setFormData() {
-    this.examRoutineAdd.patchValue({
-      // weekday: this.getUpdateData.routine.weekday,
-      // subject_id: this.getUpdateData.find( (f: { name: any }) => f.name == this.getUpdateData?.routine?.subject?.name).id,
-      // teacher_id: this.getUpdateData.find( (f: { name: any }) => f.name === this.getUpdateData?.routine?.teacher?.user.name),
-   
-      name: this.getUpdateData.exam.name,
-   
+  // classs data 
+  classData(){
+    this.classService.classData().subscribe((result)=>{
       
-    
+      this.classDatas = result;
+
+    })
+  }
+
+
+  getSection(value?:any){
+
+    this.classService
+    .SubSectData(this.classRoutineForm.value, value)
+    .subscribe((result) => {
+      this.classSectionData = result;
     });
-    this.examRoutineAdd.patchValue(this.getUpdateData.exam);
- 
-    
-    
+
   }
 
-
-
-  examRoutineDataUpdate(data: any, slug: any) {
-    this.classService.examRoutineDataUpdate(data, slug).subscribe((result) => {
-
-      this.examRoutineAdd.reset();
-      this.toastr.success(result.message);
-      this.errorMessage=null;
-        },
-        (err)=>{
-          this.errorMessage=err.error.errors;
-          console.log("errors",err.error.errors)
-          // alert(err.error.message)
-        });
+// subject list 
+  subjectList() {
+    this.classService.subjectList().subscribe((result) => {
+      this.subjectData = result;
+      // console.log('teaData', this.subjectData);
+     
+    });
   }
 
+// teacher list 
+  teaList() {
+    this.teaService.teaList().subscribe((result) => {
+      this.teaData = result;
+      // console.log('teaData', this.teaData);
+     
+    });
+  }
+
+  // class Room List Data
+  classRoomList() {
+    this.classService.classRoomList().subscribe((result) => {
+      this.classRoomListData = result;
+   
+    });
+  }
 
 
 

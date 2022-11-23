@@ -144,6 +144,13 @@ const adminChildrenRoutes: Routes = [
       ),
   },
   {
+    path: 'exam',
+    loadChildren: () =>
+      import('./views/exam/exam.module').then(
+        (m) => m.ExamModule
+      ),
+  },
+  {
     path: 'exam-routine',
     loadChildren: () =>
       import('./views/exam-routine/exam-routine.module').then(

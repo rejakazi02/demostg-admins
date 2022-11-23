@@ -1,0 +1,26 @@
+<c-row>
+
+    <c-col xs="12">
+        <c-card class="mb-4">
+         
+          <c-card-body>
+           
+           
+            <form cForm class="row g-3" [formGroup]="examRoutineAdd" (ngSubmit)="examRoutineSubmit()">
+                
+                <c-col md="12">
+                    <label cLabel for="inputEmail4"> Exam Routine</label>
+                    <input formControlName="name" cFormControl id="inputEmail4" type="text" placeholder="Exam Routine" />
+                    <p class="validation-Message" *ngIf="errorMessage && errorMessage.name && errorMessage.name.length">{{errorMessage.name[0]}}</p>
+                  </c-col>
+
+
+                <c-col xs="12">
+                  <button cButton type="submit">Add Exam Routine</button>
+                </c-col>
+              </form>
+          </c-card-body>
+        </c-card>
+      </c-col>
+  </c-row>
+   

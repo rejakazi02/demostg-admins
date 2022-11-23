@@ -157,9 +157,10 @@ export const navItems: INavData[] = [
       
     ]
   },
+
   {
     name: 'Exam',
-    url: './exam-routine',
+    url: './exam',
     iconComponent: { name: 'cil-spreadsheet' },
     children: [
       // {
@@ -168,6 +169,23 @@ export const navItems: INavData[] = [
       // },
       {
         name: 'Exam List',
+        url: './exam/examList'
+      },
+      
+    ]
+  },
+
+  {
+    name: 'Exam Routine',
+    url: './exam-routine',
+    iconComponent: { name: 'cil-spreadsheet' },
+    children: [
+      {
+        name: 'Exam Routine Add',
+        url: './exam-routine/examRoutineAdd'
+      },
+      {
+        name: 'Exam Routine List',
         url: './exam-routine/examRoutineList'
       },
       
