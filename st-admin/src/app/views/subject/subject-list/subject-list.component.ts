@@ -9,12 +9,14 @@ import Swal from 'sweetalert2';
 })
 export class SubjectListComponent implements OnInit {
   subjectData:any;
+  classDatas:any;
   constructor(
     private subjectService: ClassService
   ) { }
 
   ngOnInit(): void {
     this.subjectList();
+    this.classData();
   }
 
 
@@ -27,6 +29,25 @@ export class SubjectListComponent implements OnInit {
   }
 
 
+// classs data 
+classData(){
+  this.subjectService.classData().subscribe((result)=>{
+    
+    this.classDatas = result;
+
+  })
+}
+  
+  search( classsId:any){
+    
+    this.subjectService.subjectListData(classsId).subscribe((result) => {
+      this.subjectData = result;
+      console.log('classRoutinesSearchData', this.subjectData);
+     
+    });
+
+
+  }
 
   confirmBox(id: any) {
     Swal.fire({

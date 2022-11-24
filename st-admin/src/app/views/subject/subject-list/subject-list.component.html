@@ -12,7 +12,34 @@
           <a href="" routerLink="/subject/subjectAdd"><span class="material-symbols-outlined">add</span>Add Subject</a>
         </div>
       </div>
-        
+
+
+      <div class="search-main-div">
+
+  
+
+  <div class="class-search-main-div">
+    <label for="">Class</label>
+    <!-- <select name="" id="" #classs>
+      <option selected  disabled>Choose...</option>
+      <option value="a">1</option>
+      <option value="s">2</option>
+      <option value="d">3</option>
+    </select> -->
+    <select #classsId cSelect id="inputState11"
+    #select>
+    <option value="" selected  disabled>Choose...</option>
+      <option *ngFor="let item of classDatas"  [value]="item.id">
+      {{item.numeric}}
+    </option>
+  </select>
+  </div>
+  
+  <div class="class-search-main-div">
+   <button (click)="search( classsId.value)" type="submit">Search</button>
+  </div>
+  
+</div>
         <div class="table">
          
             <div class="table-thead">
