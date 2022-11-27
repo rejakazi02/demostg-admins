@@ -20,7 +20,7 @@
 
     .stu-dtls-edit-div {
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       margin-right: 2%;
 
       a {
@@ -38,7 +38,7 @@
     }
   }
 
-  //   <!-- stu-dtls-header-div end  -->
+  //   <!-- stu-dtls-header-div flex-end  -->
 
   .stu-info-main-div {
     display: grid;
@@ -53,7 +53,7 @@
       }
     }
 
-    // stu-info-img-div end
+    // stu-info-img-div flex-end
     .stu-info-text-main-div {
       .stu-info-text-sub-div {
         display: grid;
@@ -104,7 +104,7 @@
   
       .stu-dtls-edit-div {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         margin-right: 2%;
   
         a {
@@ -122,7 +122,7 @@
       }
     }
   
-    //   <!-- stu-dtls-header-div end  -->
+    //   <!-- stu-dtls-header-div flex-end  -->
   
     .stu-info-main-div {
       display: grid;
@@ -137,7 +137,7 @@
         }
       }
   
-      // stu-info-img-div end
+      // stu-info-img-div flex-end
       .stu-info-text-main-div {
         .stu-info-text-sub-div {
           display: grid;
