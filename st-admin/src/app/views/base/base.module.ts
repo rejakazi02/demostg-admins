@@ -1,6 +1,9 @@
+
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {PipesModule} from '../../shared/pipes/pipes.module';
+
 
 // CoreUI Modules
 import {
@@ -25,7 +28,9 @@ import {
   TableModule,
   TabsModule,
   TooltipModule,
-  UtilitiesModule
+  UtilitiesModule,
+  
+ 
 } from '@coreui/angular';
 
 import { IconModule } from '@coreui/icons-angular';
@@ -46,7 +51,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { InstituteAddComponent } from './institute-add/institute-add.component';
 import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {NgxPaginationModule} from 'ngx-pagination';
 
+import { MatSelectFilterModule } from 'mat-select-filter';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -83,7 +93,13 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
-
+    MatMenuModule,
+    MatButtonModule,
+    // NgxPaginationModule,
+    // PipesModule,
+    FormsModule,
+    MatSelectFilterModule,
+    ToastrModule,
   ],
   declarations: [
 

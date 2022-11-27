@@ -59,6 +59,7 @@ import { ToastrModule } from 'ngx-toastr';
 import {MatMenuModule} from '@angular/material/menu';
 import { StudentPanelComponent } from './student-panel/student-panel.component';
 import { TeacherPanelComponent } from './teacher-panel/teacher-panel.component';
+import { SuperAdminPanelComponent } from './super-admin-panel/super-admin-panel.component';
 
 
 
@@ -74,7 +75,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, ProfileComponent, AdminComponent, StudentPanelComponent, TeacherPanelComponent],
+  declarations: [AppComponent, ...APP_CONTAINERS, ProfileComponent, AdminComponent, StudentPanelComponent, TeacherPanelComponent, SuperAdminPanelComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
