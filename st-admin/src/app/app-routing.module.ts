@@ -292,7 +292,7 @@ const routes: Routes = [
     path: '',
     component: SuperAdminPanelComponent,
     children: sschildrenRoutes,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
     data: {
       title: 'Home',
     },
@@ -301,7 +301,7 @@ const routes: Routes = [
     path: '',
     component: AdminComponent,
     children: adminChildrenRoutes,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
     data: {
       title: 'Home',
     },
@@ -319,7 +319,7 @@ const routes: Routes = [
     path: '',
     component: TeacherPanelComponent,
     children: teacherPanelChildrenRoutes,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
     data: {
       title: 'Home',
     },
