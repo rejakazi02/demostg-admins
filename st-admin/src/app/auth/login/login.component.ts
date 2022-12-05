@@ -31,28 +31,14 @@ export class LoginComponent implements OnInit {
 
   logIn() {
     // console.log(this.logInForm.value);
-    // if (this.logInForm.valid) {
-    //   this.authService
-    //     .proceedLogin(this.logInForm.value)
-    //     .subscribe((result) => {
-    //       if (result != null) {
-    //         this.responceData = result;
-
-    //         localStorage.setItem('token',this.responceData.access_token);
-
-    //         this.route.navigate(['/', 'dashboard']);
-    //         console.log('login token',this.responceData.access_token);
-    //         alert('Login Successfull');
-    //       }
-    //     });
-
-    // }
 
     if (this.logInForm.valid) {
       this.authService.anyUserLogin(this.logInForm.value).subscribe(
         (result) => {
           if (result != null) {
             this.responceData = result;
+            console.log('admin', this.responceData);
+            
 
             localStorage.setItem('token', this.responceData?.access_token);
             localStorage.setItem('role', this.responceData?.role);
@@ -76,15 +62,54 @@ export class LoginComponent implements OnInit {
           }
         },
         (err) => {
-          this.errorMessage = err.error.errors;
-          if (err.error.errors.email) {
-            this.toastr.error(err.error.errors.email);
-          }
-          if (err.error.errors.password) {
-            this.toastr.error(err.error.errors.password);
-          }
+
+          console.log('admin error');
+          // if(this.responceData?.role === 'admin' || this.responceData?.role === 'staff' || this.responceData?.role === 'student'){
+
+            this.errorMessage = err.error.errors;
+            console.log('err.error', err);
+            
+            if (err.error.errors.email) {
+              this.toastr.error(err.error.errors.email);
+            }
+            if (err.error.errors.password) {
+              this.toastr.error(err.error.errors.password);
+            }
+
+          // }
+         
 
           // alert(err.error.message)
+        }
+      );
+    } 
+     if (this.logInForm.valid) {
+      this.authService.proceedLogin(this.logInForm.value).subscribe(
+        (result) => {
+          if (result != null) {
+            this.responceData = result;
+            console.log('this');
+            console.log(' super admin', this.responceData);
+            localStorage.setItem('token', this.responceData.access_token);
+
+            this.route.navigate(['/', 'superAdmin']);
+
+            this.toastr.success(result.message);
+          }
+        },
+        (err) => {
+
+          if(this.responceData?.adminData?.name === 'Super Admin'){
+
+            this.errorMessage = err.error.errors;
+            if (err.error.errors.email) {
+              this.toastr.error(err.error.errors.email);
+            }
+            if (err.error.errors.password) {
+              this.toastr.error(err.error.errors.password);
+            }
+          }
+         
         }
       );
     }

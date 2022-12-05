@@ -1,3 +1,4 @@
+import { SuperAdminPanelComponent } from './super-admin-panel/super-admin-panel.component';
 import { RoleGuard } from './guard/role.guard';
 import { TeacherPanelComponent } from './teacher-panel/teacher-panel.component';
 import { StudentPanelComponent } from './student-panel/student-panel.component';
@@ -14,7 +15,12 @@ import { AdminComponent } from './admin/admin.component';
 
 const childrenRoutes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
+    redirectTo: 'superAdmin',
+    pathMatch: 'full',
+  },
+  {
+    path: 'superAdmin',
     loadChildren: () =>
       import('./views/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
@@ -71,6 +77,30 @@ const childrenRoutes: Routes = [
       ),
   },
 ];
+const sschildrenRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: 'superAdmin',
+    pathMatch: 'full',
+  },
+  {
+    path: 'superAdmin',
+    loadChildren: () =>
+      import('./views/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+  },
+
+  {
+    path: 'base',
+    loadChildren: () =>
+      import('./views/base/base.module').then((m) => m.BaseModule),
+  },
+  
+];
+
+
+// -------------------------------------------------------------------------------
 const adminChildrenRoutes: Routes = [
   {
     path: '',
@@ -258,6 +288,15 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
 
+  {
+    path: '',
+    component: SuperAdminPanelComponent,
+    children: sschildrenRoutes,
+    canActivate: [AuthGuard, RoleGuard],
+    data: {
+      title: 'Home',
+    },
+  },
   {
     path: '',
     component: AdminComponent,

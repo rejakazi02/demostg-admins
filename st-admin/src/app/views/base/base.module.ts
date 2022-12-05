@@ -2,7 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {PipesModule} from '../../shared/pipes/pipes.module';
+// import {PipesModule} from '../../shared/pipes/pipes.module';
 
 
 // CoreUI Modules
@@ -95,7 +95,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatSelectModule,
     MatMenuModule,
     MatButtonModule,
-    // NgxPaginationModule,
+    NgxPaginationModule,
     // PipesModule,
     FormsModule,
     MatSelectFilterModule,
