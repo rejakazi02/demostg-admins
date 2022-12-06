@@ -187,6 +187,13 @@ const adminChildrenRoutes: Routes = [
         (m) => m.ExamRoutineModule
       ),
   },
+  {
+    path: 'exam-result',
+    loadChildren: () =>
+      import('./views/exam-result/exam-result.module').then(
+        (m) => m.ExamResultModule
+      ),
+  },
 
   {
     path: 'admin-profile',
