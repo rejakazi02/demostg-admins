@@ -46,6 +46,7 @@ export class ExamResultAddComponent implements OnInit {
       class_id: ['', Validators.required],
       section_id: ['', Validators.required], 
       exam_id: ['', Validators.required], 
+      subject_id: ['', Validators.required],
       items: this.fb.array([]) ,  
     }); 
 
@@ -65,7 +66,7 @@ export class ExamResultAddComponent implements OnInit {
   newQuantity(): FormGroup {  
     return this.fb.group({  
      
-      subject_id: ['', Validators.required],  
+      
       exam_date: ['', Validators.required],  
       room_id: ['', Validators.required],  
       start_time: ['', Validators.required],  

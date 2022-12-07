@@ -161,7 +161,7 @@ export const navItems: INavData[] = [
   {
     name: 'Exam',
     url: './exam',
-    iconComponent: { name: 'cil-storage' },
+    iconComponent: { name: 'cil-notes' },
     children: [
       // {
       //   name: 'Exam routine Add',
@@ -194,7 +194,7 @@ export const navItems: INavData[] = [
   {
     name: 'Exam Result',
     url: './exam-result',
-    iconComponent: { name: 'cil-spreadsheet' },
+    iconComponent: { name: 'cil-storage' },
     children: [
       {
         name: 'Exam Result Add',
