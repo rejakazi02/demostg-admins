@@ -1,0 +1,16 @@
+@import "src/scss/_routine.scss";
+
+
+.main_div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.exam-list{
+  display: flex;
+}
+
+.validation-Message{
+    color: red;
+    margin-top: 3%;
+  }

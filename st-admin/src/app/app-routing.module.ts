@@ -194,6 +194,7 @@ const adminChildrenRoutes: Routes = [
         (m) => m.ExamResultModule
       ),
   },
+  
 
   {
     path: 'admin-profile',

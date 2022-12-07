@@ -1,3 +1,4 @@
+import { ExamResultAddComponent } from './exam-result-add/exam-result-add.component';
 import { ExamResultListComponent } from './exam-result-list/exam-result-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,22 +13,22 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'examAdd',
+        redirectTo: 'examResultAdd',
       },
       {
-        path: 'examAdd',
-        // component: ExamAddComponent,
+        path: 'examResultAdd',
+        component: ExamResultAddComponent,
         data: {
-          title: 'Exam Add',
+          title: 'Exam Result Add',
         },
       },
-      {
-        path: 'examEdit/:id',
-        // component: ExamAddComponent,
-        data: {
-          title: 'Exam Add',
-        },
-      },
+      // {
+      //   path: 'examEdit/:id',
+      //   component: ExamResultAddComponent,
+      //   data: {
+      //     title: 'Exam Result Add',
+      //   },
+      // },
       {
         path: 'examResultList',
         component: ExamResultListComponent,
