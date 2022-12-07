@@ -245,6 +245,47 @@ examRoutineDataUpdate(data: any, examRIdd: any) {
   return this.http.delete(baseurl + 'exam-routines/' + data);
 }
 
+//Exam routine Add ---------------------------------------------------------------------------------
+examResultPost(examResutAdd: any) {
+  return this.http.post<any>(baseurl + 'exam-marks', examResutAdd);
+}
+
+
+// // // class Routines List
+// examRoutinesList() {
+//   return this.http.get<any>(baseurl + 'exam-routines');
+// }
+
+
+// // // exam-routines?class_id=3&section_id=1&weekday=4
+
+// examRoutinesSearch(clssId:any, secId:any, examId:any, subjects:any) {
+//   return this.http.get<any>(baseurl + 'exam-routines?class_id=' + clssId + '&section_id' + secId + '&exam_id=' + examId + '&subject_id=' + subjects);
+// }
+
+
+
+// // // exam data update 
+
+// getExamRoutineDataById(examRoutId: any){
+  
+//   return this.http.get(baseurl + 'exam-routines/' + examRoutId);
+//   console.log('data',baseurl + 'class-routines/' + examRoutId);
+  
+  
+// }
+
+// examRoutineDataUpdate(data: any, examRIdd: any) {
+//   return this.http.put<any>(baseurl + 'exam-routines/' + examRIdd, data);
+// }
+
+
+
+// //  // exam-routines data delete
+//  deleteExamRoutineData(data: any) {
+//   return this.http.delete(baseurl + 'exam-routines/' + data);
+// }
+
 
 
 
