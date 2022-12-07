@@ -1,16 +1,50 @@
-@import "src/scss/_routine.scss";
+// @import "src/scss/_routine.scss";
 
 
-.main_div{
-  display: flex;
-  justify-content: space-between;
-}
+// .main_div{
+//   display: flex;
+//   justify-content: space-between;
+// }
 
-.exam-list{
-  display: flex;
-}
+// .exam-list{
+//   display: flex;
+// }
 
 .validation-Message{
     color: red;
     margin-top: 3%;
   }
+
+
+.student-list-main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // h1{
+
+    // }
+    .student-list-div{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        align-items: baseline;
+        margin-top: 10px;
+      
+    //   .stu-list-div1{
+    //      h2{
+
+    //     }
+    //   } 
+
+      .stu-list-div2{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        input{
+            width: 38%;
+        }
+      }
+        
+    }
+}
