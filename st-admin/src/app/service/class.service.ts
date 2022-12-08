@@ -245,7 +245,10 @@ examRoutineDataUpdate(data: any, examRIdd: any) {
   return this.http.delete(baseurl + 'exam-routines/' + data);
 }
 
-//Exam routine Add ---------------------------------------------------------------------------------
+
+//Exam result  Add ---------------------------------------------------------------------------------
+
+
 examResultPost(examResutAdd: any) {
   return this.http.post<any>(baseurl + 'exam-marks', examResutAdd);
 }

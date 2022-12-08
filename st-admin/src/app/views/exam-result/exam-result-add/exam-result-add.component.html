@@ -76,7 +76,7 @@
                              <h2>{{item?.user.name}}</h2>
                         </div>
                        <div class="stu-list-div2">
-                            <input  cFormControl id="inputPassword34" type="text" placeholder="Mark" />
+                            <input  cFormControl id="inputPassword34" type="text" placeholder="Mark" (change)="getMartk($event,item.roll_no)" />
                        </div>
                 
                     

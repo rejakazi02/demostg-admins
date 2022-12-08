@@ -28,7 +28,10 @@ export class ExamResultAddComponent implements OnInit {
   examData: any;
   classRoomListData: any;
   studentListData: any;
-  classvale:any;
+  classvale: any;
+  mmarks: any;
+
+  marksdata: any = [];
 
   examRoutineForm!: FormGroup;
   constructor(
@@ -46,10 +49,7 @@ export class ExamResultAddComponent implements OnInit {
       exam_id: ['', Validators.required],
       subject_id: ['', Validators.required],
 
-      exam_date: ['', Validators.required],
-      room_id: ['', Validators.required],
-      start_time: ['', Validators.required],
-      end_time: ['', Validators.required],
+      students: this.fb.array([]),
     });
 
     this.classData();
@@ -58,10 +58,29 @@ export class ExamResultAddComponent implements OnInit {
     this.classRoomList();
   }
 
+  //  form reactive start
+  students(): FormArray {
+    return this.examRoutineForm.get('students') as FormArray;
+  }
+
+  newQuantity(mark: any, roll: any): FormGroup {
+    return this.fb.group({
+      marks: [mark, Validators.required],
+      roll_no: [roll, Validators.required],
+    });
+  }
+
+  // addQuantity(data:any) {
+  //   data.map((item:any)=>{
+  //     this.students().push(this.newQuantity(item.roll_no,this.mmarks));
+  //   })
+
+  // }
+
   examRoutineOnSubmit() {
     console.log(this.examRoutineForm.value);
 
-    this.classService.examRoutinePost(this.examRoutineForm.value).subscribe(
+    this.classService.examResultPost(this.examRoutineForm.value).subscribe(
       (result) => {
         this.responceData = result;
 
@@ -95,8 +114,7 @@ export class ExamResultAddComponent implements OnInit {
   }
 
   getSection(value?: any) {
-
-    this.classvale= value;
+    this.classvale = value;
     this.classService
       .SubSectData(this.examRoutineForm.value, value)
       .subscribe((result) => {
@@ -109,28 +127,25 @@ export class ExamResultAddComponent implements OnInit {
         this.subjectData = result;
         // console.log('teaData', this.subjectData);
       });
-
-  
-
-   
   }
 
-      // studentList section
+  // studentList section
   getStudent(valuel?: any) {
-   
-
-
-
     this.studentService
       .studentList(this.classvale, valuel)
-      .subscribe((result) => {
+      .subscribe((result: any) => {
         this.studentListData = result;
-
-        
       });
   }
 
+  getMartk($event: any, rollno: any) {
+    console.warn('Mark' + $event.target.value + '' + ' roll' + rollno);
+    this.mmarks = $event.target.value;
 
+    this.students().push(this.newQuantity(this.mmarks, rollno));
+
+    console.log('first', this.mmarks);
+  }
 
   // subject list
   // subjectListbyClass() {
