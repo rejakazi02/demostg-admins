@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
@@ -58,35 +59,38 @@ export class ExamResultAddComponent implements OnInit {
     this.classRoomList();
   }
 
-  //  form reactive start
-  students(): FormArray {
-    return this.examRoutineForm.get('students') as FormArray;
-  }
+  // //  form reactive start
+  // students(): FormArray {
+  //   return this.examRoutineForm.get('students') as FormArray;
+  // }
 
-  newQuantity(mark: any, roll: any): FormGroup {
-    return this.fb.group({
-      marks: [mark, Validators.required],
-      roll_no: [roll, Validators.required],
-    });
-  }
+  // newQuantity(roll: any, ll: any): FormGroup {
+  //   return this.fb.group({
+  //     marks: [ll, Validators.required],
+  //     roll_no: [roll, Validators.required],
+  //   });
+  // }
 
-  // addQuantity(data:any) {
-  //   data.map((item:any)=>{
-  //     this.students().push(this.newQuantity(item.roll_no,this.mmarks));
-  //   })
-
+  // addQuantity(data: any) {
+  //   data.map((item: any) => {
+  //     this.students().push(this.newQuantity(item.roll_no, this.mmarks));
+  //   });
   // }
 
   examRoutineOnSubmit() {
-    console.log(this.examRoutineForm.value);
-
-    this.classService.examResultPost(this.examRoutineForm.value).subscribe(
+    const mydata = {
+      ...this.examRoutineForm.value,
+      ...{ students: this.marksdata },
+    };
+    console.log(mydata);
+    this.classService.examResultPost(mydata).subscribe(
       (result) => {
         this.responceData = result;
 
         this.examRoutineForm.reset();
         this.toastr.success(result.message);
         this.errorMessage = null;
+        this.studentListData = [];
         // window.location.reload();
       },
       (err) => {
@@ -95,12 +99,12 @@ export class ExamResultAddComponent implements OnInit {
         if (err.error.errors.class_section_id) {
           this.toastr.error(err.error.errors.class_section_id);
         }
-        if (err.error.errors.weekday) {
-          this.toastr.error(err.error.errors.exam_id);
+        if (err.error.errors.subject_id) {
+          this.toastr.error(err.error.errors.subject_id);
         }
 
-        if (err.error.errors.items) {
-          this.toastr.error(err.error.errors.items);
+        if (err.error.errors.exam_id) {
+          this.toastr.error(err.error.errors.exam_id);
         }
       }
     );
@@ -130,21 +134,27 @@ export class ExamResultAddComponent implements OnInit {
   }
 
   // studentList section
-  getStudent(valuel?: any) {
+  getStudent(value?: any) {
     this.studentService
-      .studentList(this.classvale, valuel)
+      .studentList(this.classvale, value)
       .subscribe((result: any) => {
         this.studentListData = result;
+        result.students.data.map((item: any) => {
+          this.marksdata.push({ roll_no: item.roll_no, marks: 0 });
+        });
+        // this.addQuantity(result.students.data)
       });
   }
 
   getMartk($event: any, rollno: any) {
-    console.warn('Mark' + $event.target.value + '' + ' roll' + rollno);
-    this.mmarks = $event.target.value;
-
-    this.students().push(this.newQuantity(this.mmarks, rollno));
-
-    console.log('first', this.mmarks);
+    this.marksdata.map((item: any) => {
+      if (item.roll_no == rollno) {
+        item.marks = $event.target.value;
+      }
+    });
+    console.warn(this.marksdata);
+    // this.mmarks = $event.target.value;
+    // console.log("first", this.mmarks )
   }
 
   // subject list
