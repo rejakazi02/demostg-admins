@@ -17,6 +17,11 @@ classRoutinesSearchData:any;
 subjectData:any;
 examData:any;
 
+classsIddd:any;
+sectionIddd:any;
+subjectsss:any;
+examName:any;
+
   constructor(
     private classService: ClassService
   ) { }
@@ -31,21 +36,6 @@ examData:any;
     
   }
 
-  // class Routines List
-  // examRoutinesList() {
-
-  //   // if(this.classRoutinesSearchData){
-  //   //   this.search
-  //   // }
-   
-  //     this.classService.examRoutinesList().subscribe((result) => {
-  //       this.examRoutinesData = result;
-  //       console.log('examRoutinesList', this.examRoutinesData);
-       
-  //     });
-    
-   
-  // } 
 
    // classs data 
    classData(){
@@ -77,8 +67,17 @@ examData:any;
   }
 
   search(exam:any, classsId:any, sectionId:any, subjects:any){
+
+   
+    this.classsIddd = classsId;
+    this.sectionIddd = sectionId;
+     this.examName = exam;
+    this.subjectsss = subjects;
+  
     
-    this.classService.examResultSearch(classsId, sectionId, exam, subjects).subscribe((result) => {
+   
+    
+  this.classService.examResultSearch(classsId, sectionId, exam, subjects).subscribe((result) => {
       this.examRoutinesData = result;
       console.log('classRoutinesSearchData', this.examRoutinesData);
      
@@ -109,10 +108,13 @@ examData:any;
      
 
         this.classService.deleteExamResultData(id).subscribe((result) => {
-          // window.location.reload();
-          console.log('dlt',result);
-          
-          // this.examRoutinesList();
+        
+
+          this.classService.examResultSearch(this.classsIddd, this.sectionIddd, this.examName, this.subjectsss).subscribe((result) => {
+            this.examRoutinesData = result;
+            console.log('classRoutinesSearchData', this.examRoutinesData);
+           
+          });
         
         });
        
@@ -123,14 +125,6 @@ examData:any;
     });
   }
 
-// subject list 
-// subjectList() {
-//   this.classService.subjectList().subscribe((result) => {
-//     this.subjectData = result;
-//     // console.log('teaData', this.subjectData);
-   
-//   });
-// }
 
 // exam list 
 examList() {

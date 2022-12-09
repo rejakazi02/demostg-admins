@@ -270,17 +270,17 @@ examResultSearch(clssId:any, secId:any, examId:any, subjects:any) {
 
 // // // exam result data update 
 
-// getExamResultDataById(examRoutId: any){
+getExamResultDataById(examRoutId: any){
   
-//   return this.http.get(baseurl + 'exam-routines/' + examRoutId);
-//   console.log('data',baseurl + 'class-routines/' + examRoutId);
+  return this.http.get(baseurl + 'exam-marks/' + examRoutId);
+  console.log('data',baseurl + 'class-routines/' + examRoutId);
   
   
-// }
+}
 
-// examRoutineDataUpdate(data: any, examRIdd: any) {
-//   return this.http.put<any>(baseurl + 'exam-routines/' + examRIdd, data);
-// }
+examResultDataUpdate(data: any, examRIdd: any) {
+  return this.http.put<any>(baseurl + 'exam-marks/' + examRIdd, data);
+}
 
 
 

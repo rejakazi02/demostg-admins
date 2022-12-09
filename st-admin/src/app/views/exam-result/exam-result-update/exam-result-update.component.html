@@ -1,1 +1,23 @@
-<p>exam-result-update works!</p>
+<c-row>
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-body>
+          <form cForm class="row g-3" [formGroup]="examRoutineForm" (ngSubmit)="examRoutineOnSubmit()">
+           
+               <c-col md="12">
+                <label cLabel for="">Mark</label>
+                <input formControlName="marks" cFormControl  type="text" placeholder="" />
+             
+              
+                <!-- <p class="validation-Message" *ngIf="errorMessage && errorMessage.items.0.end_time && errorMessage.items.0.end_time.length">{{errorMessage.items.0.end_time[0]}}</p> -->
+               </c-col> 
+  
+            <c-col xs="12">
+              <button cButton type="submit">Update Exam Result</button>
+            </c-col>
+          </form>
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>
+  
