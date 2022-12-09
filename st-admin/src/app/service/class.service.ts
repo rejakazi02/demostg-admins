@@ -219,7 +219,7 @@ examRoutinesList() {
 // // exam-routines?class_id=3&section_id=1&weekday=4
 
 examRoutinesSearch(clssId:any, secId:any, examId:any, subjects:any) {
-  return this.http.get<any>(baseurl + 'exam-routines?class_id=' + clssId + '&section_id' + secId + '&exam_id=' + examId + '&subject_id=' + subjects);
+  return this.http.get<any>(baseurl + 'exam-routines?class_id=' + clssId + '&section_id=' + secId + '&exam_id=' + examId + '&subject_id=' + subjects);
 }
 
 
@@ -254,23 +254,23 @@ examResultPost(examResutAdd: any) {
 }
 
 
-// // // class Routines List
+// // // all result List
 // examRoutinesList() {
 //   return this.http.get<any>(baseurl + 'exam-routines');
 // }
 
 
-// // // exam-routines?class_id=3&section_id=1&weekday=4
+// // exam-result?class_id=3&section_id=1&weekday=4
 
-// examRoutinesSearch(clssId:any, secId:any, examId:any, subjects:any) {
-//   return this.http.get<any>(baseurl + 'exam-routines?class_id=' + clssId + '&section_id' + secId + '&exam_id=' + examId + '&subject_id=' + subjects);
-// }
+examResultSearch(clssId:any, secId:any, examId:any, subjects:any) {
+  return this.http.get<any>(baseurl + 'exam-marks?class_id=' + clssId + '&section_id=' + secId + '&exam_id=' + examId + '&subject_id=' + subjects);
+}
 
 
 
-// // // exam data update 
+// // // exam result data update 
 
-// getExamRoutineDataById(examRoutId: any){
+// getExamResultDataById(examRoutId: any){
   
 //   return this.http.get(baseurl + 'exam-routines/' + examRoutId);
 //   console.log('data',baseurl + 'class-routines/' + examRoutId);
@@ -284,10 +284,10 @@ examResultPost(examResutAdd: any) {
 
 
 
-// //  // exam-routines data delete
-//  deleteExamRoutineData(data: any) {
-//   return this.http.delete(baseurl + 'exam-routines/' + data);
-// }
+// //  // exam-result data delete
+ deleteExamResultData(data: any) {
+  return this.http.delete(baseurl + 'exam-marks/' + data);
+}
 
 
 

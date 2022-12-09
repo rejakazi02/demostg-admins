@@ -157,14 +157,7 @@ export class ExamResultAddComponent implements OnInit {
     // console.log("first", this.mmarks )
   }
 
-  // subject list
-  // subjectListbyClass() {
-  //     this.classService.subjectListbyClass().subscribe((result) => {
-  //       this.subjectData = result;
-  //       // console.log('teaData', this.subjectData);
-
-  //     });
-  //   }
+ 
 
   // exam list
   examList() {
