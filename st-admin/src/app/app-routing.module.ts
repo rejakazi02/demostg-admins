@@ -194,6 +194,13 @@ const adminChildrenRoutes: Routes = [
         (m) => m.ExamResultModule
       ),
   },
+  {
+    path: 'admission',
+    loadChildren: () =>
+      import('./views/admission/admission.module').then(
+        (m) => m.AdmissionModule
+      ),
+  },
   
 
   {
