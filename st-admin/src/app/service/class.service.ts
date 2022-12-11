@@ -291,6 +291,35 @@ examResultDataUpdate(data: any, examRIdd: any) {
 
 
 
+//admission   ---------------------------------------------------------------------------------
+
+
+
+
+// // // all admission Data List
+admissionDataList() {
+  return this.http.get<any>(baseurl + 'admission-forms');
+}
+
+
+// // exam-result?class_id=3&section_id=1&weekday=4
+
+// examResultSearch(clssId:any, secId:any, examId:any, subjects:any) {
+//   return this.http.get<any>(baseurl + 'exam-marks?class_id=' + clssId + '&section_id=' + secId + '&exam_id=' + examId + '&subject_id=' + subjects);
+// }
+
+
+
+
+
+
+//  // exam-result data delete
+ deleteAdmissiontData(data: any) {
+  return this.http.delete(baseurl + 'admission-forms/' + data);
+}
+
+
+
 
   // Global token
   IsLoggedIn() {

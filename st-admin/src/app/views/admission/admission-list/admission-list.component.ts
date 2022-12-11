@@ -15,7 +15,7 @@ id: any;
 classSectionData:any;
 classRoutinesSearchData:any;
 subjectData:any;
-examData:any;
+admiData:any;
 
 classsIddd:any;
 sectionIddd:any;
@@ -30,7 +30,7 @@ examName:any;
     // this.examRoutinesList();
     this.classData();
     // this.subjectList();
-    this.examList();
+    this.admissionDataList();
   
 
     
@@ -110,14 +110,10 @@ examName:any;
         );
      
 
-        this.classService.deleteExamResultData(id).subscribe((result) => {
+        this.classService.deleteAdmissiontData(id).subscribe((result) => {
         
-
-          this.classService.examResultSearch(this.classsIddd, this.sectionIddd, this.examName, this.subjectsss).subscribe((result) => {
-            this.examRoutinesData = result;
-            console.log('classRoutinesSearchData', this.examRoutinesData);
-           
-          });
+            this.admissionDataList();
+         
         
         });
        
@@ -129,11 +125,11 @@ examName:any;
   }
 
 
-// exam list 
-examList() {
-  this.classService.examList().subscribe((result) => {
-    this.examData = result;
-    // console.log('teaData', this.teaData);
+// admission Data List  
+admissionDataList() {
+  this.classService.admissionDataList().subscribe((result) => {
+    this.admiData = result;
+    // console.log('teaData', this.admiData);
    
   });
 }
