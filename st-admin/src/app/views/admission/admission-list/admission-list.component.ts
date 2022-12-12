@@ -66,20 +66,20 @@ examName:any;
 
   }
 
-  search(exam:any, classsId:any, sectionId:any, subjects:any){
+  search(classsId:any, nameId:any){
 
    
-    this.classsIddd = classsId;
-    this.sectionIddd = sectionId;
-     this.examName = exam;
-    this.subjectsss = subjects;
+    // this.classsIddd = classsId;
+    // this.sectionIddd = sectionId;
+    //  this.examName = exam;
+    // this.subjectsss = subjects;
   
     
    
     
-  this.classService.examResultSearch(classsId, sectionId, exam, subjects).subscribe((result) => {
-      this.examRoutinesData = result;
-      console.log('classRoutinesSearchData', this.examRoutinesData);
+  this.classService.admissionDataSearch(classsId, nameId).subscribe((result) => {
+      this.admiData = result;
+      console.log('admiData', this.admiData);
      
     });
 

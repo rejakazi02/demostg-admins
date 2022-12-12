@@ -34,24 +34,19 @@
   </select>
   </div>
   <div class="class-search-main-div">
-    <label for="">Section</label>
-    <select class="searchSelect"  cSelect #sectionId>
+    <label for="">Name</label>
+    <!-- <select class="searchSelect"  cSelect #sectionId>
       <option value="" selected disabled>Choose...</option>
   <option *ngFor="let item of classSectionData?.sections" value="{{ item.id }}">{{ item.name }}
   </option>
-</select>
+</select> -->
+<input class="searchSelect nameFiled" type="text"  #nameId>
+
   </div>
 
+
   <div class="class-search-main-div">
-    <label for="">Subject</label>
-    <select class="searchSelect" name="" id="" #subjects>
-      <option value="" selected disabled>Choose...</option>
-     <option *ngFor="let item of subjectData?.subject.data" value="{{item.id}}">{{item.name}}</option>
-                                
-    </select>
-  </div>
-  <div class="class-search-main-div">
-   <!-- <button (click)="search( classsId.value, sectionId.value, subjects.value)" type="submit">Search</button> -->
+   <button (click)="search( classsId.value, nameId.value)" type="submit">Search</button>
   </div>
   
 </div>

@@ -302,11 +302,12 @@ admissionDataList() {
 }
 
 
-// // exam-result?class_id=3&section_id=1&weekday=4
+// // search admission-forms?class=1&name=’asdasd’
 
-// examResultSearch(clssId:any, secId:any, examId:any, subjects:any) {
-//   return this.http.get<any>(baseurl + 'exam-marks?class_id=' + clssId + '&section_id=' + secId + '&exam_id=' + examId + '&subject_id=' + subjects);
-// }
+
+admissionDataSearch(clssId:any, nameId:any) {
+  return this.http.get<any>(baseurl + 'admission-forms?class=' + clssId +  '&name=' + nameId);
+}
 
 
 
