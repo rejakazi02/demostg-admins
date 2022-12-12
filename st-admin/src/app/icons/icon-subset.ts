@@ -95,7 +95,7 @@ import {
   cilColorBorder,
   cilRoom,
   cilStorage,
- 
+  cilDescription,
 } from '@coreui/icons';
 
 export const iconSubset = {
@@ -195,10 +195,12 @@ export const iconSubset = {
   cilColorBorder,
   cilRoom,
   cilStorage,
+  cilDescription,
 };
 
 export enum IconSubset {
- 
+  
+  cilDescription = 'cilDescription',
   cilStorage = 'cilStorage',
   cilRoom = 'cilRoom',
   cilColorBorder = 'cilColorBorder',

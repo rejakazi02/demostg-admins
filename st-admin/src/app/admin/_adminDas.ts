@@ -33,6 +33,23 @@ export const navItems: INavData[] = [
 
   //   ]
   // },
+
+  {
+    name: 'Admission',
+    url: './admission',
+    iconComponent: { name: 'cil-description' },
+    children: [
+      {
+        name: ' Admission List',
+        url: './admission/admissionList'
+      },
+      // {
+      //   name: 'Exam Result List',
+      //   url: './exam-result/examResultList'
+      // },
+      
+    ]
+  },
   {
     name: 'Teachers',
     url: './teacher',
@@ -207,22 +224,7 @@ export const navItems: INavData[] = [
       
     ]
   },
-  {
-    name: 'Admission',
-    url: './admission',
-    iconComponent: { name: 'cil-storage' },
-    children: [
-      {
-        name: ' Admission List',
-        url: './admission/admissionList'
-      },
-      // {
-      //   name: 'Exam Result List',
-      //   url: './exam-result/examResultList'
-      // },
-      
-    ]
-  },
+ 
   
  
   // {
