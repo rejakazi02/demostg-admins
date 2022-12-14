@@ -53,7 +53,7 @@ examName:any;
     .SubSectDat(value)
     .subscribe((result) => {
       this.classSectionData = result;
-      console.log('sec',  this.classSectionData);
+      // console.log('sec',  this.classSectionData);
       
     });
 
@@ -79,7 +79,7 @@ examName:any;
     
   this.classService.admissionDataSearch(classsId, nameId).subscribe((result) => {
       this.admiData = result;
-      console.log('admiData', this.admiData);
+      // console.log('admiData', this.admiData);
      
     });
 
